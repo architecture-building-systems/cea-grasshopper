@@ -37,7 +37,7 @@ def main():
             "description": script.description,
             "category": CATEGORY,
             "subcategory": script.category,
-            "icon": "icons/{name}.png".format(name=script.name),
+            # "icon": "icons/{name}.png".format(name=script.name),
             "main-module": "cea_runner",
             "main-function": script.name.replace("-", "_"),
             "inputs": [
