@@ -4,1064 +4,3419 @@
     "version": "0.1", 
     "components": [
         {
-            "category": "[hive]", 
             "inputs": [
                 {
                     "type": "string", 
-                    "name": "Path", 
-                    "nick-name": "Path", 
-                    "description": "Path of the epw file"
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "input-databases", 
+                    "default": [
+                        "comfort", 
+                        "architecture", 
+                        "air-conditioning", 
+                        "internal-loads", 
+                        "supply", 
+                        "schedules"
+                    ], 
+                    "nick-name": "id", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of inputs to map from your databases to your new/existing scenario"
+                }, 
+                {
+                    "name": "buildings", 
+                    "default": [], 
+                    "nick-name": "b", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of buildings to create schedules for (leave blank to consider all)."
                 }
             ], 
-            "description": "Reading epw weather files, given a local path", 
+            "subcategory": "Data Management", 
             "outputs": [
                 {
-                    "type": "float", 
-                    "name": "Latitude", 
-                    "nick-name": "Latitude", 
-                    "description": "Latitude in deg"
-                }, 
-                {
-                    "type": "float", 
-                    "name": "Longitude", 
-                    "nick-name": "Longitude", 
-                    "description": "Longitude in deg"
-                }, 
-                {
                     "type": "string", 
-                    "name": "City, Country", 
-                    "nick-name": "City-Country", 
-                    "description": "City and Country"
-                }, 
-                {
-                    "type": "string", 
-                    "name": "GHI", 
-                    "nick-name": "GHI", 
-                    "description": "GlobalHorizontal Irradiance, in Wh/m2."
-                }, 
-                {
-                    "type": "float", 
-                    "name": "DNI", 
-                    "nick-name": "DNI", 
-                    "description": "Direct Normal Irradiance, in Wh/m2."
-                }, 
-                {
-                    "type": "float", 
-                    "name": "DHI", 
-                    "nick-name": "DHI", 
-                    "description": "Diffuse Horizontal Irradiance, in Wh/m2."
-                }, 
-                {
-                    "type": "float", 
-                    "name": "DryBulb", 
-                    "nick-name": "DryBulb", 
-                    "description": "Dry Bulb Temperature, in \u00b0C."
-                }, 
-                {
-                    "type": "float", 
-                    "name": "DewPoint", 
-                    "nick-name": "DewPoint", 
-                    "description": "Dew Point Temperature, in \u00b0C."
-                }, 
-                {
-                    "type": "float", 
-                    "name": "RH", 
-                    "nick-name": "RH", 
-                    "description": "Relative Humidity, in %."
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
                 }
             ], 
-            "class-name": "EPW", 
-            "name": "EPW reader", 
-            "abbreviation": "epw-reader", 
-            "main-module": "epw_reader", 
-            "main-function": "main", 
-            "icon": "epw_reader.png", 
-            "id": "56f34cc1-0ee0-4104-85cc-4b4f9179d75e", 
-            "subcategory": "epw"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Data Management", 
-            "description": "Assign building properties and systems types from the Archetypes DataBase", 
             "class-name": "ArchetypesMapper", 
             "abbreviation": "am", 
-            "main-module": "cea_runner", 
             "main-function": "archetypes_mapper", 
+            "id": "a421ddc7-5429-4b42-936c-36c87a3c484d", 
             "icon": "icons/archetypes-mapper.png", 
-            "id": "b3ee2e31-1dcd-4e6a-bdd1-f406acb4d3b3", 
-            "name": "Archetypes Mapper"
-        }, 
-        {
             "category": "City Energy Analyst", 
-            "subcategory": "Data Management", 
-            "description": "Sets the weather file to use for simulation for a scenario", 
-            "class-name": "WeatherHelper", 
-            "abbreviation": "wh", 
-            "main-module": "cea_runner", 
-            "main-function": "weather_helper", 
-            "icon": "icons/weather-helper.png", 
-            "id": "366531f7-dbc6-4742-bc8b-43fad98a7544", 
-            "name": "Weather helper"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Data Management", 
-            "description": "Query geometry of surrounding buildings from Open Street Maps", 
-            "class-name": "SurroundingsHelper", 
-            "abbreviation": "sh", 
-            "main-module": "cea_runner", 
-            "main-function": "surroundings_helper", 
-            "icon": "icons/surroundings-helper.png", 
-            "id": "2802d988-8f3c-4c98-a555-9bcb053a009b", 
-            "name": "Surroundings helper"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Data Management", 
-            "description": "Query topography with a fixed elevation", 
-            "class-name": "TerrainHelper", 
-            "abbreviation": "th", 
-            "main-module": "cea_runner", 
-            "main-function": "terrain_helper", 
-            "icon": "icons/terrain-helper.png", 
-            "id": "93b58a3d-26e9-4281-b82f-99a132682022", 
-            "name": "Terrain helper"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Data Management", 
-            "description": "Query streets geometry from Open Street Maps", 
-            "class-name": "StreetsHelper", 
-            "abbreviation": "sh", 
-            "main-module": "cea_runner", 
-            "main-function": "streets_helper", 
-            "icon": "icons/streets-helper.png", 
-            "id": "f886b590-ec51-4d33-8fc9-1b2ff43136aa", 
-            "name": "Streets helper"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Demand forecasting", 
-            "description": "Use Daysim to calculate solar radiation for a scenario", 
-            "class-name": "Radiation", 
-            "abbreviation": "r", 
-            "main-module": "cea_runner", 
-            "main-function": "radiation", 
-            "icon": "icons/radiation.png", 
-            "id": "da0332a3-3b39-4846-a02b-ec7641c72c61", 
-            "name": "Building Solar radiation"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Demand forecasting", 
-            "description": "Use CEA models and input schedules to estimate the occupancy profile of buildings", 
-            "class-name": "ScheduleMaker", 
-            "abbreviation": "sm", 
-            "main-module": "cea_runner", 
-            "main-function": "schedule_maker", 
-            "icon": "icons/schedule-maker.png", 
-            "id": "fd5bc7ff-824f-45f4-8051-c17a1bded06e", 
-            "name": "Building Schedules"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Demand forecasting", 
-            "description": "Calculate the Demand", 
-            "class-name": "Demand", 
-            "abbreviation": "d", 
-            "main-module": "cea_runner", 
-            "main-function": "demand", 
-            "icon": "icons/demand.png", 
-            "id": "28857fb3-a5fb-40de-8c37-1f51379df4d3", 
-            "name": "Building Energy demand"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Life Cycle Analysis", 
-            "description": "Calculate emissions and primary energy due to building, construction, operation, dismantling and induced mobility", 
-            "class-name": "Emissions", 
-            "abbreviation": "e", 
-            "main-module": "cea_runner", 
-            "main-function": "emissions", 
-            "icon": "icons/emissions.png", 
-            "id": "34d477ba-3f6d-403d-91fe-dc808fdd58e9", 
-            "name": "Emissions"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Life Cycle Analysis", 
-            "description": "Calculate costs due to supply systems", 
-            "class-name": "SystemCosts", 
-            "abbreviation": "sc", 
-            "main-module": "cea_runner", 
-            "main-function": "system_costs", 
-            "icon": "icons/system-costs.png", 
-            "id": "e98485f1-15cd-42ec-8234-cb8ccb83929d", 
-            "name": "System Costs"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Energy potentials", 
-            "description": "Calculate the heat extracted from a geothermal probes (up to 50 m length)", 
-            "class-name": "ShallowGeothermalPotential", 
-            "abbreviation": "sgp", 
-            "main-module": "cea_runner", 
-            "main-function": "shallow_geothermal_potential", 
-            "icon": "icons/shallow-geothermal-potential.png", 
-            "id": "b172c15d-7eaf-42db-b021-2d001e268a7e", 
-            "name": "Shallow geothermal potential"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Energy potentials", 
-            "description": "Calculate the heat extracted from a lake or a water body", 
-            "class-name": "WaterBodyPotential", 
-            "abbreviation": "wbp", 
-            "main-module": "cea_runner", 
-            "main-function": "water_body_potential", 
-            "icon": "icons/water-body-potential.png", 
-            "id": "fc347229-a289-46e4-bdce-c2a78289b0b3", 
-            "name": "Water body potential"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Energy potentials", 
-            "description": "Calculate electricity & heat production from photovoltaic / thermal technologies", 
-            "class-name": "PhotovoltaicThermal", 
-            "abbreviation": "pt", 
-            "main-module": "cea_runner", 
-            "main-function": "photovoltaic_thermal", 
-            "icon": "icons/photovoltaic-thermal.png", 
-            "id": "c041bfd8-8c50-4442-b41d-6945040d35d6", 
-            "name": "Photovoltaic-thermal Panels"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Energy potentials", 
-            "description": "Calculate electricity production from solar photovoltaic technologies", 
-            "class-name": "Photovoltaic", 
-            "abbreviation": "p", 
-            "main-module": "cea_runner", 
-            "main-function": "photovoltaic", 
-            "icon": "icons/photovoltaic.png", 
-            "id": "7a606c37-2659-4f9d-80fc-94afd25ead73", 
-            "name": "Photovoltaic panels"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Energy potentials", 
-            "description": "Calculate the heat extracted from the sewage heat exchanger.", 
-            "class-name": "SewagePotential", 
-            "abbreviation": "sp", 
-            "main-module": "cea_runner", 
-            "main-function": "sewage_potential", 
-            "icon": "icons/sewage-potential.png", 
-            "id": "3d4789a4-03a9-48cd-85dd-a22e84165ca5", 
-            "name": "Sewage heat potential"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Energy potentials", 
-            "description": "Calculate heat production from solar collector technologies", 
-            "class-name": "SolarCollector", 
-            "abbreviation": "sc", 
-            "main-module": "cea_runner", 
-            "main-function": "solar_collector", 
-            "icon": "icons/solar-collector.png", 
-            "id": "cb34afb6-cb91-4d0a-80c2-804242a4c0cb", 
-            "name": "Solar collectors"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Networks", 
-            "description": "Create a potential layout of the network with the minimum spanning tree", 
-            "class-name": "NetworkLayout", 
-            "abbreviation": "nl", 
-            "main-module": "cea_runner", 
-            "main-function": "network_layout", 
-            "icon": "icons/network-layout.png", 
-            "id": "75249aa7-8645-485e-8c7e-27e18ed50939", 
-            "name": "Thermal Network Part I (Layout)"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Networks", 
-            "description": "Solve the thermal hydraulic network", 
-            "class-name": "ThermalNetwork", 
-            "abbreviation": "tn", 
-            "main-module": "cea_runner", 
-            "main-function": "thermal_network", 
-            "icon": "icons/thermal-network.png", 
-            "id": "df20f62b-1f14-4b3e-ba5c-855c513a8170", 
-            "name": "Thermal Network Part II (simulation)"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Optimization", 
-            "description": "Optimize network design variables (plant locations, layout,...)", 
-            "class-name": "ThermalNetworkOptimization", 
-            "abbreviation": "tno", 
-            "main-module": "cea_runner", 
-            "main-function": "thermal_network_optimization", 
-            "icon": "icons/thermal-network-optimization.png", 
-            "id": "222bdee4-3d7c-4432-8047-bc9948e7ed05", 
-            "name": "Thermal network optimization"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Optimization", 
-            "description": "Run optimization for decentralized operation", 
-            "class-name": "Decentralized", 
-            "abbreviation": "d", 
-            "main-module": "cea_runner", 
-            "main-function": "decentralized", 
-            "icon": "icons/decentralized.png", 
-            "id": "6592c566-8601-4af4-a3b8-1bff4780adec", 
-            "name": "Supply System Part I (decentralized)"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Optimization", 
-            "description": "Run optimization for centralized operation", 
-            "class-name": "Optimization", 
-            "abbreviation": "o", 
-            "main-module": "cea_runner", 
-            "main-function": "optimization", 
-            "icon": "icons/optimization.png", 
-            "id": "52f6bf61-274c-480c-aecf-8efb7447e702", 
-            "name": "Supply System Part II (centralized)"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Utilities", 
-            "description": "dbf => xls => DBF", 
-            "class-name": "DbfToExcelToDbf", 
-            "abbreviation": "dtetd", 
-            "main-module": "cea_runner", 
-            "main-function": "dbf_to_excel_to_dbf", 
-            "icon": "icons/dbf-to-excel-to-dbf.png", 
-            "id": "8c4d6680-ab84-4bf0-986f-341fa48dd779", 
-            "name": "DBF to Excel to DBF"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Utilities", 
-            "description": "Initialize databases for CEA", 
-            "class-name": "DataInitializer", 
-            "abbreviation": "di", 
-            "main-module": "cea_runner", 
-            "main-function": "data_initializer", 
-            "icon": "icons/data-initializer.png", 
-            "id": "ed6c8029-60eb-4f8c-8e83-2a2d04c6e970", 
-            "name": "Database Initializer"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Utilities", 
-            "description": "Migrate older scenario inputs to the newest version. NOTE: This cannot be undone - save a copy of the scenario first", 
-            "class-name": "DatabaseMigrator", 
-            "abbreviation": "dm", 
-            "main-module": "cea_runner", 
-            "main-function": "database_migrator", 
-            "icon": "icons/database-migrator.png", 
-            "id": "666231dd-c1c1-4d95-87c2-1a527321f0aa", 
-            "name": "Database migrator"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Utilities", 
-            "description": "Creates a new scenario", 
-            "class-name": "CreateNewScenario", 
-            "abbreviation": "cns", 
-            "main-module": "cea_runner", 
-            "main-function": "create_new_scenario", 
-            "icon": "icons/create-new-scenario.png", 
-            "id": "12485a3b-949e-43b7-8fc8-874ec90f985d", 
-            "name": "Create new scenario"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Utilities", 
-            "description": "Renames a building in the input files", 
-            "class-name": "RenameBuilding", 
-            "abbreviation": "rb", 
-            "main-module": "cea_runner", 
-            "main-function": "rename_building", 
-            "icon": "icons/rename-building.png", 
-            "id": "63ce26a7-04b6-4b28-ab4c-382d9de663a3", 
-            "name": "Rename building"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Utilities", 
-            "description": "Creates a new use-type by aggregating values from a list of different use-types", 
-            "class-name": "CreateMixedUseType", 
-            "abbreviation": "cmut", 
-            "main-module": "cea_runner", 
-            "main-function": "create_mixed_use_type", 
-            "icon": "icons/create-mixed-use-type.png", 
-            "id": "3ab9da8c-08d7-4d15-b79e-3102e5dd55e1", 
-            "name": "Create mixed use-type"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Utilities", 
-            "description": "Run some tests on the CEA", 
-            "class-name": "Test", 
-            "abbreviation": "t", 
-            "main-module": "cea_runner", 
-            "main-function": "test", 
-            "icon": "icons/test.png", 
-            "id": "f3d0ffac-cccf-4293-aff1-8cd365bddc86", 
-            "name": "Test CEA"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Utilities", 
-            "description": "Run all the unit tests in the cea/tests folder", 
-            "class-name": "RunUnitTests", 
-            "abbreviation": "rut", 
-            "main-module": "cea_runner", 
-            "main-function": "run_unit_tests", 
-            "icon": "icons/run-unit-tests.png", 
-            "id": "3eb834dc-1bff-458b-8e47-56ca3e7c7ffa", 
-            "name": "Unit Tests"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "Utilities", 
-            "description": "Run all the plots for test purposes", 
-            "class-name": "RunAllPlots", 
-            "abbreviation": "rap", 
-            "main-module": "cea_runner", 
-            "main-function": "run_all_plots", 
-            "icon": "icons/run-all-plots.png", 
-            "id": "dfbb8c2b-1524-4e09-905b-5dbf2581ab53", 
-            "name": "Run all plots"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "default", 
-            "description": "Multicriteria analysis", 
-            "class-name": "MultiCriteriaAnalysis", 
-            "abbreviation": "mca", 
-            "main-module": "cea_runner", 
-            "main-function": "multi_criteria_analysis", 
-            "icon": "icons/multi-criteria-analysis.png", 
-            "id": "fa596105-3b75-4e24-852e-cb17c6d62edd", 
-            "name": "Multicriteria analysis"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "default", 
-            "description": "Query zone geometry from Open Street Maps", 
-            "class-name": "ZoneHelper", 
-            "abbreviation": "zh", 
-            "main-module": "cea_runner", 
-            "main-function": "zone_helper", 
-            "icon": "icons/zone-helper.png", 
-            "id": "b7e6d1d6-0db0-4e06-a986-cf634e8d4fd9", 
-            "name": "Zone helper"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "default", 
-            "description": "Create plots for the default energy system of an urban scenario", 
-            "class-name": "Plots", 
-            "abbreviation": "p", 
-            "main-module": "cea_runner", 
-            "main-function": "plots", 
-            "icon": "icons/plots.png", 
-            "id": "2f33299b-0e68-4f5f-a130-7c06d264ae00", 
-            "name": "Plots basic"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "default", 
-            "description": "compile", 
-            "class-name": "Compile", 
-            "abbreviation": "c", 
-            "main-module": "cea_runner", 
-            "main-function": "compile", 
-            "icon": "icons/compile.png", 
-            "id": "d862fabc-cb6a-44e9-9a55-0d1aa2db903d", 
-            "name": "compile"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "default", 
-            "description": "dashboard", 
-            "class-name": "Dashboard", 
-            "abbreviation": "d", 
-            "main-module": "cea_runner", 
-            "main-function": "dashboard", 
-            "icon": "icons/dashboard.png", 
-            "id": "c23ef02c-ec57-47cf-a880-083434b00453", 
-            "name": "dashboard"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "default", 
-            "description": "excel-to-shapefile", 
-            "class-name": "ExcelToShapefile", 
-            "abbreviation": "ets", 
-            "main-module": "cea_runner", 
-            "main-function": "excel_to_shapefile", 
-            "icon": "icons/excel-to-shapefile.png", 
-            "id": "6249cc78-9e04-4891-ad4d-7aeb040e66a3", 
-            "name": "excel-to-shapefile"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "default", 
-            "description": "extract-reference-case", 
-            "class-name": "ExtractReferenceCase", 
-            "abbreviation": "erc", 
-            "main-module": "cea_runner", 
-            "main-function": "extract_reference_case", 
-            "icon": "icons/extract-reference-case.png", 
-            "id": "e616bdc5-377b-49a0-be71-284554c300d6", 
-            "name": "extract-reference-case"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "default", 
-            "description": "list-demand-graphs-fields", 
-            "class-name": "ListDemandGraphsFields", 
-            "abbreviation": "ldgf", 
-            "main-module": "cea_runner", 
-            "main-function": "list_demand_graphs_fields", 
-            "icon": "icons/list-demand-graphs-fields.png", 
-            "id": "07ba6e4c-7422-4b37-ba4e-05bee308b05c", 
-            "name": "list-demand-graphs-fields"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "default", 
-            "description": "shapefile-to-excel", 
-            "class-name": "ShapefileToExcel", 
-            "abbreviation": "ste", 
-            "main-module": "cea_runner", 
-            "main-function": "shapefile_to_excel", 
-            "icon": "icons/shapefile-to-excel.png", 
-            "id": "e4616e55-08e0-49ac-b5cf-ed86e94f61ca", 
-            "name": "shapefile-to-excel"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "default", 
-            "description": "trace all calls to the InputLocator for a script", 
-            "class-name": "TraceInputlocator", 
-            "abbreviation": "ti", 
-            "main-module": "cea_runner", 
-            "main-function": "trace_inputlocator", 
-            "icon": "icons/trace-inputlocator.png", 
-            "id": "0c798cc6-d535-42c5-9692-51fde24187a1", 
-            "name": "trace-inputlocator"
-        }, 
-        {
-            "category": "City Energy Analyst", 
-            "subcategory": "default", 
-            "description": "Run a workflow.yml file from start to end", 
-            "class-name": "Workflow", 
-            "abbreviation": "w", 
-            "main-module": "cea_runner", 
-            "main-function": "workflow", 
-            "icon": "icons/workflow.png", 
-            "id": "eea60837-9208-421a-8b3d-47ea4ad3548b", 
-            "name": "workflow"
-        }, 
-        {
-            "abbreviation": "am", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Data Management", 
             "name": "Archetypes Mapper", 
-            "main-function": "archetypes_mapper", 
-            "icon": "icons/archetypes-mapper.png", 
-            "id": "aa63c4cf-d7d3-4ee3-aeb6-7630d87c5057", 
-            "class-name": "ArchetypesMapper", 
-            "description": "Assign building properties and systems types from the Archetypes DataBase"
+            "description": "Assign building properties and systems types from the Archetypes DataBase", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "wh", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "weather", 
+                    "default": "", 
+                    "nick-name": "w", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Either a full path to a weather file or the name of one of the weather files contained within the CEA."
+                }
+            ], 
             "subcategory": "Data Management", 
-            "name": "Weather helper", 
-            "main-function": "weather_helper", 
-            "icon": "icons/weather-helper.png", 
-            "id": "d00591cd-b4f9-4ffd-912e-70f67d6bfe67", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
             "class-name": "WeatherHelper", 
-            "description": "Sets the weather file to use for simulation for a scenario"
+            "abbreviation": "wh", 
+            "main-function": "weather_helper", 
+            "id": "e66bdf31-8967-404a-8a15-368ecb1afa8e", 
+            "icon": "icons/weather-helper.png", 
+            "category": "City Energy Analyst", 
+            "name": "Weather helper", 
+            "description": "Sets the weather file to use for simulation for a scenario", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "sh", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "buffer", 
+                    "default": 50.0, 
+                    "nick-name": "b", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Perimeter buffer length to the surrounding area (in meters)."
+                }, 
+                {
+                    "name": "height-ag", 
+                    "default": null, 
+                    "nick-name": "ha", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Average height of buildings within the surroundings (in meters). Leave it blank to obtain from Open Street Maps (less accurate)."
+                }, 
+                {
+                    "name": "floors-ag", 
+                    "default": null, 
+                    "nick-name": "fa", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Average number of floors above ground of all buildings within the surroundings. Leave it blank to obtain from Open Street Maps (less accurate)."
+                }
+            ], 
             "subcategory": "Data Management", 
-            "name": "Surroundings helper", 
-            "main-function": "surroundings_helper", 
-            "icon": "icons/surroundings-helper.png", 
-            "id": "6458ecce-cfcf-4f0f-8f04-80a7786e0cba", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
             "class-name": "SurroundingsHelper", 
-            "description": "Query geometry of surrounding buildings from Open Street Maps"
-        }, 
-        {
-            "abbreviation": "th", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Data Management", 
-            "name": "Terrain helper", 
-            "main-function": "terrain_helper", 
-            "icon": "icons/terrain-helper.png", 
-            "id": "5499e4e1-681f-434e-98f0-152abd057b20", 
-            "class-name": "TerrainHelper", 
-            "description": "Query topography with a fixed elevation"
-        }, 
-        {
             "abbreviation": "sh", 
+            "main-function": "surroundings_helper", 
+            "id": "fb8f613c-8817-4f2a-b6d6-9f4afe172c06", 
+            "icon": "icons/surroundings-helper.png", 
             "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "name": "Surroundings helper", 
+            "description": "Query geometry of surrounding buildings from Open Street Maps", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "grid-size", 
+                    "default": 30, 
+                    "nick-name": "gs", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Grid size for the terrain file (do not use less than 10 meters)."
+                }, 
+                {
+                    "name": "elevation", 
+                    "default": 1, 
+                    "nick-name": "e", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Fixed elevation of the terrain (in meters)."
+                }
+            ], 
             "subcategory": "Data Management", 
-            "name": "Streets helper", 
-            "main-function": "streets_helper", 
-            "icon": "icons/streets-helper.png", 
-            "id": "1bd7e402-da67-43dc-9a42-2e264e2cab5f", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "TerrainHelper", 
+            "abbreviation": "th", 
+            "main-function": "terrain_helper", 
+            "id": "c42ebdbd-d485-44d4-bf9c-79cf6b172481", 
+            "icon": "icons/terrain-helper.png", 
+            "category": "City Energy Analyst", 
+            "name": "Terrain helper", 
+            "description": "Query topography with a fixed elevation", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "bbox", 
+                    "default": [], 
+                    "nick-name": "b", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "The bounding box of the surroundings using the surroundings shapefile (leave blank) or a list of coordinates (bbox = min Longitude , min Latitude , max Longitude , max Latitude)"
+                }, 
+                {
+                    "name": "streets", 
+                    "default": "all_private", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "The type of streets to gather."
+                }
+            ], 
+            "subcategory": "Data Management", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
             "class-name": "StreetsHelper", 
-            "description": "Query streets geometry from Open Street Maps"
+            "abbreviation": "sh", 
+            "main-function": "streets_helper", 
+            "id": "aa9567b6-afbf-4f21-93a8-902f32bb7154", 
+            "icon": "icons/streets-helper.png", 
+            "category": "City Energy Analyst", 
+            "name": "Streets helper", 
+            "description": "Query streets geometry from Open Street Maps", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "r", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "multiprocessing", 
+                    "default": true, 
+                    "nick-name": "m", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Multiprocessing (if available) for quicker calculation."
+                }, 
+                {
+                    "name": "number-of-cpus-to-keep-free", 
+                    "default": 1, 
+                    "nick-name": "noctkf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
+                }, 
+                {
+                    "name": "debug", 
+                    "default": false, 
+                    "nick-name": "d", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Enable debugging-specific behaviors."
+                }, 
+                {
+                    "name": "buildings", 
+                    "default": [], 
+                    "nick-name": "b", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of buildings considered for the radiation simulation (to simulate all buildings leave blank)."
+                }, 
+                {
+                    "name": "albedo", 
+                    "default": 0.2, 
+                    "nick-name": "a", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Albedo of the terrain."
+                }, 
+                {
+                    "name": "roof-grid", 
+                    "default": 10, 
+                    "nick-name": "rg", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Grid resolution for the roof surfaces. Use 200 (maximum) if you want only one point per surface."
+                }, 
+                {
+                    "name": "walls-grid", 
+                    "default": 200, 
+                    "nick-name": "wg", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Grid resolution for wall surfaces. Use 200 (maximum) if you want only one point per surface."
+                }, 
+                {
+                    "name": "zone-geometry", 
+                    "default": 2, 
+                    "nick-name": "zg", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Simplification level of the zone geometry (1 is the lowest)."
+                }, 
+                {
+                    "name": "surrounding-geometry", 
+                    "default": 5, 
+                    "nick-name": "sg", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Simplification level of the surroundings geometry (1 is the lowest)."
+                }, 
+                {
+                    "name": "consider-floors", 
+                    "default": true, 
+                    "nick-name": "cf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if floors are considered in the geometry."
+                }, 
+                {
+                    "name": "consider-intersections", 
+                    "default": false, 
+                    "nick-name": "ci", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if intersecting walls between buildings are considered (this increases simulation time in x5), but can give more precise estimates."
+                }, 
+                {
+                    "name": "rad-ab", 
+                    "default": 4, 
+                    "nick-name": "ra", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Number of ambient bounces."
+                }, 
+                {
+                    "name": "rad-ad", 
+                    "default": 512, 
+                    "nick-name": "ra", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Number of ambient divisions."
+                }, 
+                {
+                    "name": "rad-as", 
+                    "default": 32, 
+                    "nick-name": "ra", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Number of ambient super-samples."
+                }, 
+                {
+                    "name": "rad-ar", 
+                    "default": 20, 
+                    "nick-name": "ra", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Ambient resolution."
+                }, 
+                {
+                    "name": "rad-aa", 
+                    "default": 0.15, 
+                    "nick-name": "ra", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Ambient accuracy."
+                }, 
+                {
+                    "name": "rad-lr", 
+                    "default": 8, 
+                    "nick-name": "rl", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Maximum number of reflections."
+                }, 
+                {
+                    "name": "rad-st", 
+                    "default": 0.5, 
+                    "nick-name": "rs", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Specular sampling threshold."
+                }, 
+                {
+                    "name": "rad-sj", 
+                    "default": 0.7, 
+                    "nick-name": "rs", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Specular sampling jitter."
+                }, 
+                {
+                    "name": "rad-lw", 
+                    "default": 0.05, 
+                    "nick-name": "rl", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Minimum weight of each ray."
+                }, 
+                {
+                    "name": "rad-dj", 
+                    "default": 0.7, 
+                    "nick-name": "rd", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Direct jitter."
+                }, 
+                {
+                    "name": "rad-ds", 
+                    "default": 0.0, 
+                    "nick-name": "rd", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Direct sampling ration."
+                }, 
+                {
+                    "name": "rad-dr", 
+                    "default": 0, 
+                    "nick-name": "rd", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Number of relays from secondary sources."
+                }, 
+                {
+                    "name": "rad-dp", 
+                    "default": 32, 
+                    "nick-name": "rd", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Secondary source pre-sampling density."
+                }, 
+                {
+                    "name": "daysim-bin-directory", 
+                    "default": "C:\\Daysim\\bin", 
+                    "nick-name": "dbd", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Path to the Daysim binaries."
+                }, 
+                {
+                    "name": "n-buildings-in-chunk", 
+                    "default": 100, 
+                    "nick-name": "nbic", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Minimum number of building groups (chunks) to be sent for multiprocessing."
+                }, 
+                {
+                    "name": "write-sensor-data", 
+                    "default": true, 
+                    "nick-name": "wsd", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Write also data per point in the grid. (Only needed to run solar technologies). False saves space in disk"
+                }
+            ], 
             "subcategory": "Demand forecasting", 
-            "name": "Building Solar radiation", 
-            "main-function": "radiation", 
-            "icon": "icons/radiation.png", 
-            "id": "ad870f39-7df1-4bee-b7cf-ad94011110db", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
             "class-name": "Radiation", 
-            "description": "Use Daysim to calculate solar radiation for a scenario"
+            "abbreviation": "r", 
+            "main-function": "radiation", 
+            "id": "5e682c1a-c39f-471d-918a-493d2a095017", 
+            "icon": "icons/radiation.png", 
+            "category": "City Energy Analyst", 
+            "name": "Building Solar radiation", 
+            "description": "Use Daysim to calculate solar radiation for a scenario", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "sm", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "multiprocessing", 
+                    "default": true, 
+                    "nick-name": "m", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Multiprocessing (if available) for quicker calculation."
+                }, 
+                {
+                    "name": "number-of-cpus-to-keep-free", 
+                    "default": 1, 
+                    "nick-name": "noctkf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
+                }, 
+                {
+                    "name": "debug", 
+                    "default": false, 
+                    "nick-name": "d", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Enable debugging-specific behaviors."
+                }, 
+                {
+                    "name": "buildings", 
+                    "default": [], 
+                    "nick-name": "b", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of buildings considered for the schedule model (to simulate all buildings leave blank)."
+                }, 
+                {
+                    "name": "schedule-model", 
+                    "default": "deterministic", 
+                    "nick-name": "sm", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Type of schedule model to use (stochastic or deterministic)"
+                }
+            ], 
             "subcategory": "Demand forecasting", 
-            "name": "Building Schedules", 
-            "main-function": "schedule_maker", 
-            "icon": "icons/schedule-maker.png", 
-            "id": "cc4c91c5-9610-457d-8d11-1a3f9fe658af", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
             "class-name": "ScheduleMaker", 
-            "description": "Use CEA models and input schedules to estimate the occupancy profile of buildings"
+            "abbreviation": "sm", 
+            "main-function": "schedule_maker", 
+            "id": "6ce3458c-21c6-44d4-81a5-39ee48c6d32e", 
+            "icon": "icons/schedule-maker.png", 
+            "category": "City Energy Analyst", 
+            "name": "Building Schedules", 
+            "description": "Use CEA models and input schedules to estimate the occupancy profile of buildings", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "d", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "multiprocessing", 
+                    "default": true, 
+                    "nick-name": "m", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Multiprocessing (if available) for quicker calculation."
+                }, 
+                {
+                    "name": "number-of-cpus-to-keep-free", 
+                    "default": 1, 
+                    "nick-name": "noctkf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
+                }, 
+                {
+                    "name": "debug", 
+                    "default": false, 
+                    "nick-name": "d", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Enable debugging-specific behaviors."
+                }, 
+                {
+                    "name": "buildings", 
+                    "default": [], 
+                    "nick-name": "b", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of buildings considered for the demand simulation (to simulate all buildings leave blank)."
+                }, 
+                {
+                    "name": "loads-output", 
+                    "default": [], 
+                    "nick-name": "lo", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of loads output by the demand simulation (to simulate all load types in demand_writer, leave blank)."
+                }, 
+                {
+                    "name": "massflows-output", 
+                    "default": [], 
+                    "nick-name": "mo", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of mass flow rates output by the demand simulation (to simulate all system mass flow rates in demand_writer, leave blank)."
+                }, 
+                {
+                    "name": "temperatures-output", 
+                    "default": [], 
+                    "nick-name": "to", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of temperatures output by the demand simulation (to simulate all temperatures in demand_writer, leave blank)."
+                }, 
+                {
+                    "name": "resolution-output", 
+                    "default": "hourly", 
+                    "nick-name": "ro", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Time step resolution of the demand simulation (hourly or monthly)."
+                }, 
+                {
+                    "name": "use-dynamic-infiltration-calculation", 
+                    "default": false, 
+                    "nick-name": "udic", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if dynamic infiltration calculations are considered (slower run times!)."
+                }, 
+                {
+                    "name": "predefined-hourly-setpoints", 
+                    "default": false, 
+                    "nick-name": "phs", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if deterministic temperature set points for each hour of the year are considered to calculate the system demands."
+                }
+            ], 
             "subcategory": "Demand forecasting", 
-            "name": "Building Energy demand", 
-            "main-function": "demand", 
-            "icon": "icons/demand.png", 
-            "id": "302c3f45-8572-46e4-99b5-f5d94a42e67e", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
             "class-name": "Demand", 
-            "description": "Calculate the Demand"
+            "abbreviation": "d", 
+            "main-function": "demand", 
+            "id": "9d50d3c0-7e40-470e-8eb9-edf769ed53cd", 
+            "icon": "icons/demand.png", 
+            "category": "City Energy Analyst", 
+            "name": "Building Energy demand", 
+            "description": "Calculate the Demand", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "e", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "year-to-calculate", 
+                    "default": 2020, 
+                    "nick-name": "ytc", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Defines the time period (year-to-calculate - year_built or year_renovated) over which embodied emissions are calculated. If greater than 60 years, embodied emissions are not considered."
+                }, 
+                {
+                    "name": "embodied", 
+                    "default": true, 
+                    "nick-name": "e", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Estimate emissions due to construction and dismantling of buidlings (allocated according to the age input database, LCA database and building geometry)"
+                }, 
+                {
+                    "name": "operation", 
+                    "default": true, 
+                    "nick-name": "o", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Estimate emissions due to supply systems operation (allocated according to the supply-systems input database)"
+                }
+            ], 
             "subcategory": "Life Cycle Analysis", 
-            "name": "Emissions", 
-            "main-function": "emissions", 
-            "icon": "icons/emissions.png", 
-            "id": "213c4b59-5610-4573-bb16-dd1a3bc31176", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
             "class-name": "Emissions", 
-            "description": "Calculate emissions and primary energy due to building, construction, operation, dismantling and induced mobility"
+            "abbreviation": "e", 
+            "main-function": "emissions", 
+            "id": "415729cc-8dfe-4e26-9626-d9f1e6319917", 
+            "icon": "icons/emissions.png", 
+            "category": "City Energy Analyst", 
+            "name": "Emissions", 
+            "description": "Calculate emissions and primary energy due to building, construction, operation, dismantling and induced mobility", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "sc", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "capital", 
+                    "default": true, 
+                    "nick-name": "c", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Estimate Capital costs (total and annualized) due to supply systems (allocated according to the supply-systems input database)"
+                }, 
+                {
+                    "name": "operational", 
+                    "default": true, 
+                    "nick-name": "o", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Estimate Operational costs (variable and fixed) due to supply systems operation (allocated according to the supply-systems input database)"
+                }
+            ], 
             "subcategory": "Life Cycle Analysis", 
-            "name": "System Costs", 
-            "main-function": "system_costs", 
-            "icon": "icons/system-costs.png", 
-            "id": "11e5c787-a00f-47d7-a77c-2735b81ad812", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
             "class-name": "SystemCosts", 
-            "description": "Calculate costs due to supply systems"
-        }, 
-        {
-            "abbreviation": "sgp", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Energy potentials", 
-            "name": "Shallow geothermal potential", 
-            "main-function": "shallow_geothermal_potential", 
-            "icon": "icons/shallow-geothermal-potential.png", 
-            "id": "e9f05593-fccf-470b-8c3d-11973fd13285", 
-            "class-name": "ShallowGeothermalPotential", 
-            "description": "Calculate the heat extracted from a geothermal probes (up to 50 m length)"
-        }, 
-        {
-            "abbreviation": "wbp", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Energy potentials", 
-            "name": "Water body potential", 
-            "main-function": "water_body_potential", 
-            "icon": "icons/water-body-potential.png", 
-            "id": "f9141405-c50c-4518-a880-a0e39fecb3ff", 
-            "class-name": "WaterBodyPotential", 
-            "description": "Calculate the heat extracted from a lake or a water body"
-        }, 
-        {
-            "abbreviation": "pt", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Energy potentials", 
-            "name": "Photovoltaic-thermal Panels", 
-            "main-function": "photovoltaic_thermal", 
-            "icon": "icons/photovoltaic-thermal.png", 
-            "id": "f8adf2ac-62e9-4762-87a0-073a899d0a2f", 
-            "class-name": "PhotovoltaicThermal", 
-            "description": "Calculate electricity & heat production from photovoltaic / thermal technologies"
-        }, 
-        {
-            "abbreviation": "p", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Energy potentials", 
-            "name": "Photovoltaic panels", 
-            "main-function": "photovoltaic", 
-            "icon": "icons/photovoltaic.png", 
-            "id": "863eeef3-eb3e-4fea-b1e8-0b338e28aff2", 
-            "class-name": "Photovoltaic", 
-            "description": "Calculate electricity production from solar photovoltaic technologies"
-        }, 
-        {
-            "abbreviation": "sp", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Energy potentials", 
-            "name": "Sewage heat potential", 
-            "main-function": "sewage_potential", 
-            "icon": "icons/sewage-potential.png", 
-            "id": "d2db700e-d56e-4129-83b1-05985ccbd5d1", 
-            "class-name": "SewagePotential", 
-            "description": "Calculate the heat extracted from the sewage heat exchanger."
-        }, 
-        {
             "abbreviation": "sc", 
+            "main-function": "system_costs", 
+            "id": "35b30813-7a0c-4fc1-bbff-692ed8cd7f9a", 
+            "icon": "icons/system-costs.png", 
             "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "name": "System Costs", 
+            "description": "Calculate costs due to supply systems", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "buildings-available", 
+                    "default": [], 
+                    "nick-name": "ba", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of buildings whose footprint can be used for shallow geothermal exploration. Leave it blank to get all buildings area"
+                }, 
+                {
+                    "name": "extra-area-available", 
+                    "default": 0.0, 
+                    "nick-name": "eaa", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Add extra area where shallow geothermal probes can be installed in m2."
+                }, 
+                {
+                    "name": "average-probe-depth", 
+                    "default": 10.0, 
+                    "nick-name": "apd", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Average depth of geothermal probes in m."
+                }
+            ], 
             "subcategory": "Energy potentials", 
-            "name": "Solar collectors", 
-            "main-function": "solar_collector", 
-            "icon": "icons/solar-collector.png", 
-            "id": "cd248495-88eb-4d1d-8bce-8c083c4a77c2", 
-            "class-name": "SolarCollector", 
-            "description": "Calculate heat production from solar collector technologies"
-        }, 
-        {
-            "abbreviation": "nl", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "ShallowGeothermalPotential", 
+            "abbreviation": "sgp", 
+            "main-function": "shallow_geothermal_potential", 
+            "id": "df60b6e8-d1ea-4431-a0a6-e21520db2c10", 
+            "icon": "icons/shallow-geothermal-potential.png", 
             "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Networks", 
-            "name": "Thermal Network Part I (Layout)", 
-            "main-function": "network_layout", 
-            "icon": "icons/network-layout.png", 
-            "id": "481578af-710c-46f5-99c7-ded0dd9dd9e1", 
-            "class-name": "NetworkLayout", 
-            "description": "Create a potential layout of the network with the minimum spanning tree"
+            "name": "Shallow geothermal potential", 
+            "description": "Calculate the heat extracted from a geothermal probes (up to 50 m length)", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "tn", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "max-water-volume-withdrawal", 
+                    "default": 1000.0, 
+                    "nick-name": "mwvw", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "max water volume that can be withdrawn in m3/h"
+                }, 
+                {
+                    "name": "max-delta-temperature-withdrawal", 
+                    "default": 8.0, 
+                    "nick-name": "mdtw", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "max delta of temperature that can be withdrawn in C"
+                }, 
+                {
+                    "name": "temperature-max", 
+                    "default": 6.0, 
+                    "nick-name": "tm", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "maximum temperature of the water body during the year at the extraction point in C"
+                }, 
+                {
+                    "name": "temperature-min", 
+                    "default": 4.0, 
+                    "nick-name": "tm", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "= average temperature of the water body during the year at the extraction point (it can be 30m) in C"
+                }
+            ], 
+            "subcategory": "Energy potentials", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "WaterBodyPotential", 
+            "abbreviation": "wbp", 
+            "main-function": "water_body_potential", 
+            "id": "f52dfce8-03a9-4a96-af05-33ba43c35100", 
+            "icon": "icons/water-body-potential.png", 
             "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Networks", 
-            "name": "Thermal Network Part II (simulation)", 
-            "main-function": "thermal_network", 
-            "icon": "icons/thermal-network.png", 
-            "id": "96cb8b0a-0ee1-431d-a488-ee22290133c9", 
-            "class-name": "ThermalNetwork", 
-            "description": "Solve the thermal hydraulic network"
+            "name": "Water body potential", 
+            "description": "Calculate the heat extracted from a lake or a water body", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "tno", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "multiprocessing", 
+                    "default": true, 
+                    "nick-name": "m", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Multiprocessing (if available) for quicker calculation."
+                }, 
+                {
+                    "name": "number-of-cpus-to-keep-free", 
+                    "default": 1, 
+                    "nick-name": "noctkf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
+                }, 
+                {
+                    "name": "buildings", 
+                    "default": [], 
+                    "nick-name": "b", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of buildings considered for the photovoltaic (PV), photovoltaic thermal (PVT) and solar collector (SC) simulations (to simulate all buildings leave blank)."
+                }, 
+                {
+                    "name": "type-pvpanel", 
+                    "default": "PV1", 
+                    "nick-name": "tp", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Type of PV panel."
+                }, 
+                {
+                    "name": "type-scpanel", 
+                    "default": "FP", 
+                    "nick-name": "ts", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Type of solar collector: \"FP\" (Flat-plate) or \"ET\" (Evacuated-tubes)."
+                }, 
+                {
+                    "name": "panel-on-roof", 
+                    "default": true, 
+                    "nick-name": "por", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if panels are considered on roof surfaces."
+                }, 
+                {
+                    "name": "panel-on-wall", 
+                    "default": true, 
+                    "nick-name": "pow", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if panels are considered on wall surfaces."
+                }, 
+                {
+                    "name": "annual-radiation-threshold", 
+                    "default": 800.0, 
+                    "nick-name": "art", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Only consider panels on surfaces that receive radiation above the defined threshold [kWh/m2/yr]."
+                }, 
+                {
+                    "name": "solar-window-solstice", 
+                    "default": 4, 
+                    "nick-name": "sws", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Desired time of solar exposure on the solstice in hours."
+                }, 
+                {
+                    "name": "t-in-pvt", 
+                    "default": null, 
+                    "nick-name": "tip", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Inlet temperature of PVT panels in celsius (if blank: 35C)."
+                }
+            ], 
+            "subcategory": "Energy potentials", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "PhotovoltaicThermal", 
+            "abbreviation": "pt", 
+            "main-function": "photovoltaic_thermal", 
+            "id": "4af79d42-e907-4109-9f8f-0d8c297f26a4", 
+            "icon": "icons/photovoltaic-thermal.png", 
             "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Optimization", 
-            "name": "Thermal network optimization", 
-            "main-function": "thermal_network_optimization", 
-            "icon": "icons/thermal-network-optimization.png", 
-            "id": "ba2f95bd-8b82-4187-a0eb-b89d55fc3680", 
-            "class-name": "ThermalNetworkOptimization", 
-            "description": "Optimize network design variables (plant locations, layout,...)"
+            "name": "Photovoltaic-thermal Panels", 
+            "description": "Calculate electricity & heat production from photovoltaic / thermal technologies", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "d", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Optimization", 
-            "name": "Supply System Part I (decentralized)", 
-            "main-function": "decentralized", 
-            "icon": "icons/decentralized.png", 
-            "id": "4e9cd461-3934-40c5-8925-0a5ed7175ca9", 
-            "class-name": "Decentralized", 
-            "description": "Run optimization for decentralized operation"
-        }, 
-        {
-            "abbreviation": "o", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Optimization", 
-            "name": "Supply System Part II (centralized)", 
-            "main-function": "optimization", 
-            "icon": "icons/optimization.png", 
-            "id": "d4500b9c-b2c8-4e97-aaea-57adc9fcad26", 
-            "class-name": "Optimization", 
-            "description": "Run optimization for centralized operation"
-        }, 
-        {
-            "abbreviation": "dtetd", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Utilities", 
-            "name": "DBF to Excel to DBF", 
-            "main-function": "dbf_to_excel_to_dbf", 
-            "icon": "icons/dbf-to-excel-to-dbf.png", 
-            "id": "66022676-fca5-4506-a2fc-8fddfba33480", 
-            "class-name": "DbfToExcelToDbf", 
-            "description": "dbf => xls => DBF"
-        }, 
-        {
-            "abbreviation": "di", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Utilities", 
-            "name": "Database Initializer", 
-            "main-function": "data_initializer", 
-            "icon": "icons/data-initializer.png", 
-            "id": "01089bce-0686-49c6-883b-8e97f89d7e08", 
-            "class-name": "DataInitializer", 
-            "description": "Initialize databases for CEA"
-        }, 
-        {
-            "abbreviation": "dm", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Utilities", 
-            "name": "Database migrator", 
-            "main-function": "database_migrator", 
-            "icon": "icons/database-migrator.png", 
-            "id": "c80c0338-0805-48b7-ac5e-327e7fa27d75", 
-            "class-name": "DatabaseMigrator", 
-            "description": "Migrate older scenario inputs to the newest version. NOTE: This cannot be undone - save a copy of the scenario first"
-        }, 
-        {
-            "abbreviation": "cns", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Utilities", 
-            "name": "Create new scenario", 
-            "main-function": "create_new_scenario", 
-            "icon": "icons/create-new-scenario.png", 
-            "id": "f120803d-565b-4947-8d2c-7874ed850870", 
-            "class-name": "CreateNewScenario", 
-            "description": "Creates a new scenario"
-        }, 
-        {
-            "abbreviation": "rb", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Utilities", 
-            "name": "Rename building", 
-            "main-function": "rename_building", 
-            "icon": "icons/rename-building.png", 
-            "id": "8fda0e1a-2631-47a0-a3bc-ee134d089340", 
-            "class-name": "RenameBuilding", 
-            "description": "Renames a building in the input files"
-        }, 
-        {
-            "abbreviation": "cmut", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Utilities", 
-            "name": "Create mixed use-type", 
-            "main-function": "create_mixed_use_type", 
-            "icon": "icons/create-mixed-use-type.png", 
-            "id": "8b84c313-7326-4393-a03b-d02a78308f18", 
-            "class-name": "CreateMixedUseType", 
-            "description": "Creates a new use-type by aggregating values from a list of different use-types"
-        }, 
-        {
-            "abbreviation": "t", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Utilities", 
-            "name": "Test CEA", 
-            "main-function": "test", 
-            "icon": "icons/test.png", 
-            "id": "fd1a2818-ca48-4cd5-8fa2-198b98fd74cb", 
-            "class-name": "Test", 
-            "description": "Run some tests on the CEA"
-        }, 
-        {
-            "abbreviation": "rut", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Utilities", 
-            "name": "Unit Tests", 
-            "main-function": "run_unit_tests", 
-            "icon": "icons/run-unit-tests.png", 
-            "id": "02a4f7b3-f02e-4264-94a4-fcc3528a0bba", 
-            "class-name": "RunUnitTests", 
-            "description": "Run all the unit tests in the cea/tests folder"
-        }, 
-        {
-            "abbreviation": "rap", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "Utilities", 
-            "name": "Run all plots", 
-            "main-function": "run_all_plots", 
-            "icon": "icons/run-all-plots.png", 
-            "id": "b0b69ccc-68aa-4ded-9fdf-3b79c44f2b95", 
-            "class-name": "RunAllPlots", 
-            "description": "Run all the plots for test purposes"
-        }, 
-        {
-            "abbreviation": "mca", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "default", 
-            "name": "Multicriteria analysis", 
-            "main-function": "multi_criteria_analysis", 
-            "icon": "icons/multi-criteria-analysis.png", 
-            "id": "a1128e49-00ee-4829-ada4-de57a625727b", 
-            "class-name": "MultiCriteriaAnalysis", 
-            "description": "Multicriteria analysis"
-        }, 
-        {
-            "abbreviation": "zh", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "default", 
-            "name": "Zone helper", 
-            "main-function": "zone_helper", 
-            "icon": "icons/zone-helper.png", 
-            "id": "2adbab11-6d38-411c-a498-2fb6f6c7f462", 
-            "class-name": "ZoneHelper", 
-            "description": "Query zone geometry from Open Street Maps"
-        }, 
-        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "multiprocessing", 
+                    "default": true, 
+                    "nick-name": "m", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Multiprocessing (if available) for quicker calculation."
+                }, 
+                {
+                    "name": "type-pvpanel", 
+                    "default": "PV1", 
+                    "nick-name": "tp", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Type of PV panel."
+                }, 
+                {
+                    "name": "number-of-cpus-to-keep-free", 
+                    "default": 1, 
+                    "nick-name": "noctkf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
+                }, 
+                {
+                    "name": "panel-on-roof", 
+                    "default": true, 
+                    "nick-name": "por", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if panels are considered on roof surfaces."
+                }, 
+                {
+                    "name": "panel-on-wall", 
+                    "default": true, 
+                    "nick-name": "pow", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if panels are considered on wall surfaces."
+                }, 
+                {
+                    "name": "annual-radiation-threshold", 
+                    "default": 800.0, 
+                    "nick-name": "art", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Only consider panels on surfaces that receive radiation above the defined threshold [kWh/m2/yr]."
+                }, 
+                {
+                    "name": "solar-window-solstice", 
+                    "default": 4, 
+                    "nick-name": "sws", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Desired time of solar exposure on the solstice in hours."
+                }
+            ], 
+            "subcategory": "Energy potentials", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "Photovoltaic", 
             "abbreviation": "p", 
+            "main-function": "photovoltaic", 
+            "id": "906ee7ac-8595-40d0-89db-2fcfd161e391", 
+            "icon": "icons/photovoltaic.png", 
             "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "default", 
-            "name": "Plots basic", 
-            "main-function": "plots", 
-            "icon": "icons/plots.png", 
-            "id": "2e0991c3-faa2-483f-a36e-e56a11ad60ae", 
-            "class-name": "Plots", 
-            "description": "Create plots for the default energy system of an urban scenario"
+            "name": "Photovoltaic panels", 
+            "description": "Calculate electricity production from solar photovoltaic technologies", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "c", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "heat-exchanger-length", 
+                    "default": 120, 
+                    "nick-name": "hel", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Length of pipeline available for a heat exchanger in the sewage in meters (at least 100 meters)."
+                }, 
+                {
+                    "name": "sewage-water-ratio", 
+                    "default": 0.95, 
+                    "nick-name": "swr", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Ratio of decrease/increase in sewage water due to solids and water intakes."
+                }, 
+                {
+                    "name": "sewage-water-district", 
+                    "default": 50.0, 
+                    "nick-name": "swd", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "How many liters of wastewater come from the neighboring districts thoruhg the heat-exchanger LPs"
+                }
+            ], 
+            "subcategory": "Energy potentials", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "SewagePotential", 
+            "abbreviation": "sp", 
+            "main-function": "sewage_potential", 
+            "id": "4a608556-1a70-4cdd-87ba-0e7cc7d887c7", 
+            "icon": "icons/sewage-potential.png", 
             "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
-            "subcategory": "default", 
-            "name": "compile", 
-            "main-function": "compile", 
-            "icon": "icons/compile.png", 
-            "id": "d862fabc-cb6a-44e9-9a55-0d1aa2db903d", 
-            "class-name": "Compile", 
-            "description": "compile"
+            "name": "Sewage heat potential", 
+            "description": "Calculate the heat extracted from the sewage heat exchanger.", 
+            "main-module": "cea_runner"
         }, 
         {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "multiprocessing", 
+                    "default": true, 
+                    "nick-name": "m", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Multiprocessing (if available) for quicker calculation."
+                }, 
+                {
+                    "name": "number-of-cpus-to-keep-free", 
+                    "default": 1, 
+                    "nick-name": "noctkf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
+                }, 
+                {
+                    "name": "type-scpanel", 
+                    "default": "FP", 
+                    "nick-name": "ts", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Type of solar collector: \"FP\" (Flat-plate) or \"ET\" (Evacuated-tubes)."
+                }, 
+                {
+                    "name": "panel-on-roof", 
+                    "default": true, 
+                    "nick-name": "por", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if panels are considered on roof surfaces."
+                }, 
+                {
+                    "name": "panel-on-wall", 
+                    "default": true, 
+                    "nick-name": "pow", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if panels are considered on wall surfaces."
+                }, 
+                {
+                    "name": "annual-radiation-threshold", 
+                    "default": 800.0, 
+                    "nick-name": "art", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Only consider panels on surfaces that receive radiation above the defined threshold [kWh/m2/yr]."
+                }, 
+                {
+                    "name": "solar-window-solstice", 
+                    "default": 4, 
+                    "nick-name": "sws", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Desired time of solar exposure on the solstice in hours."
+                }, 
+                {
+                    "name": "t-in-sc", 
+                    "default": null, 
+                    "nick-name": "tis", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Inlet temperature of solar collectors in celsius (if blank: 60C for Flat-plate and 75C for Evacuated-tube)."
+                }, 
+                {
+                    "name": "buildings", 
+                    "default": [], 
+                    "nick-name": "b", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of buildings considered for the photovoltaic (PV), photovoltaic thermal (PVT) and solar collector (SC) simulations (to simulate all buildings leave blank)."
+                }
+            ], 
+            "subcategory": "Energy potentials", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "SolarCollector", 
+            "abbreviation": "sc", 
+            "main-function": "solar_collector", 
+            "id": "c90cc0fc-014e-4cee-a0b1-b24ba26f8ce3", 
+            "icon": "icons/solar-collector.png", 
+            "category": "City Energy Analyst", 
+            "name": "Solar collectors", 
+            "description": "Calculate heat production from solar collector technologies", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "network-type", 
+                    "default": "DC", 
+                    "nick-name": "nt", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Type of district network: \"DH\" (district heating), or \"DC\" (district cooling)"
+                }, 
+                {
+                    "name": "connected-buildings", 
+                    "default": [], 
+                    "nick-name": "cb", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of buildings/customers to connect (blank if all buildings connected)."
+                }, 
+                {
+                    "name": "pipe-diameter", 
+                    "default": 150, 
+                    "nick-name": "pd", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Nominal diameter of pipe in mm."
+                }, 
+                {
+                    "name": "type-mat", 
+                    "default": "T1", 
+                    "nick-name": "tm", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Type of default material for piping."
+                }, 
+                {
+                    "name": "allow-looped-networks", 
+                    "default": false, 
+                    "nick-name": "aln", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if network loops should be created."
+                }, 
+                {
+                    "name": "consider-only-buildings-with-demand", 
+                    "default": true, 
+                    "nick-name": "cobwd", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "whether when creating networks ONLY buildings with energy demand should be considered or not. default is true"
+                }
+            ], 
+            "subcategory": "Networks", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "NetworkLayout", 
+            "abbreviation": "nl", 
+            "main-function": "network_layout", 
+            "id": "ed6a7b53-2b05-4ec4-bb6c-2459312bdab3", 
+            "icon": "icons/network-layout.png", 
+            "category": "City Energy Analyst", 
+            "name": "Thermal Network Part I (Layout)", 
+            "description": "Create a potential layout of the network with the minimum spanning tree", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "multiprocessing", 
+                    "default": true, 
+                    "nick-name": "m", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Multiprocessing (if available) for quicker calculation."
+                }, 
+                {
+                    "name": "number-of-cpus-to-keep-free", 
+                    "default": 1, 
+                    "nick-name": "noctkf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
+                }, 
+                {
+                    "name": "network-type", 
+                    "default": "DH", 
+                    "nick-name": "nt", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Type of district network to be simulated: \"DH\" (district heating) or \"DC\" (district cooling)."
+                }, 
+                {
+                    "name": "network-model", 
+                    "default": "simplified", 
+                    "nick-name": "nm", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Choose either simplified (seconds) or detailed model (several hours)"
+                }, 
+                {
+                    "name": "min-head-substation", 
+                    "default": 20.0, 
+                    "nick-name": "mhs", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Minimum head loss in kPa expected at each thermal transfer substation"
+                }, 
+                {
+                    "name": "hw-friction-coefficient", 
+                    "default": 100, 
+                    "nick-name": "hfc", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Hanzen-Williams friction coefficient considered for the pipes in mm"
+                }, 
+                {
+                    "name": "peak-load-velocity", 
+                    "default": 2.0, 
+                    "nick-name": "plv", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Maximum velocity expected in pipes in m3/s (Higher values result in smaller pipe diameters)"
+                }, 
+                {
+                    "name": "equivalent-length-factor", 
+                    "default": 0.2, 
+                    "nick-name": "elf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "fraction of pressure losses expected dues to accessories in the network (valid values within 0.0 and 0.6)"
+                }, 
+                {
+                    "name": "peak-load-percentage", 
+                    "default": 100.0, 
+                    "nick-name": "plp", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Percentage of the peak demand in % to use for pipe sizing (valid values within 0 and 200)"
+                }, 
+                {
+                    "name": "network-names", 
+                    "default": [], 
+                    "nick-name": "nn", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of network file names for either DH (district heating) or DC (district cooling) network types."
+                }, 
+                {
+                    "name": "set-diameter", 
+                    "default": true, 
+                    "nick-name": "sd", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if diameters are set by maximum velocity (2m/s), false if diameters are considered a fixed input."
+                }, 
+                {
+                    "name": "load-max-edge-flowrate-from-previous-run", 
+                    "default": false, 
+                    "nick-name": "lmeffpr", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True to bypass the calc_max_edge_flowrate function, using results from the previous simulation (useful for debugging)."
+                }, 
+                {
+                    "name": "start-t", 
+                    "default": 0, 
+                    "nick-name": "st", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Start hour for calculations (0-based)."
+                }, 
+                {
+                    "name": "stop-t", 
+                    "default": 8760, 
+                    "nick-name": "st", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Stop hour for calculations (0-based, upper bound)."
+                }, 
+                {
+                    "name": "use-representative-week-per-month", 
+                    "default": false, 
+                    "nick-name": "urwpm", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True to use the data for first week of each month instead of the full month."
+                }, 
+                {
+                    "name": "minimum-mass-flow-iteration-limit", 
+                    "default": 30, 
+                    "nick-name": "mmfil", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Maximum number of iterations permitted for the increase of minimum mass flows in the network."
+                }, 
+                {
+                    "name": "minimum-edge-mass-flow", 
+                    "default": 0.1, 
+                    "nick-name": "memf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Minimum mass flow rate permitted in the network (in kg/s). If the mass flow rate in any edge is below this value at any time period, the thermal network will be re-sized accordingly"
+                }, 
+                {
+                    "name": "diameter-iteration-limit", 
+                    "default": 10, 
+                    "nick-name": "dil", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Maximum number of iterations permitted for the network diameter optimization (relevant for looped network result convergence)."
+                }, 
+                {
+                    "name": "substation-cooling-systems", 
+                    "default": [
+                        "ahu", 
+                        "aru", 
+                        "scu"
+                    ], 
+                    "nick-name": "scs", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of cooling loads to be supplied (DC mode)"
+                }, 
+                {
+                    "name": "substation-heating-systems", 
+                    "default": [
+                        "ahu", 
+                        "aru", 
+                        "shu", 
+                        "ww"
+                    ], 
+                    "nick-name": "shs", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of heating loads to be supplied (DH mode)"
+                }, 
+                {
+                    "name": "temperature-control", 
+                    "default": "VT", 
+                    "nick-name": "tc", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Type of control strategy for plant operation: \"VT\" (Variable Temperature / Variable Flow) or \"CT\" (Constant Temperature / Variable Flow)."
+                }, 
+                {
+                    "name": "plant-supply-temperature", 
+                    "default": 80.0, 
+                    "nick-name": "pst", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Supply temperature of plants in celsius (relevant if temperature-control is set to 'CT')."
+                }, 
+                {
+                    "name": "use-representative-week-per-month", 
+                    "default": false, 
+                    "nick-name": "urwpm", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True to use the data for first week of each month instead of the full month."
+                }
+            ], 
+            "subcategory": "Networks", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "ThermalNetwork", 
+            "abbreviation": "tn", 
+            "main-function": "thermal_network", 
+            "id": "60701735-db13-4b29-b76b-c634c07a148b", 
+            "icon": "icons/thermal-network.png", 
+            "category": "City Energy Analyst", 
+            "name": "Thermal Network Part II (simulation)", 
+            "description": "Solve the thermal hydraulic network", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "multiprocessing", 
+                    "default": true, 
+                    "nick-name": "m", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Multiprocessing (if available) for quicker calculation."
+                }, 
+                {
+                    "name": "number-of-cpus-to-keep-free", 
+                    "default": 1, 
+                    "nick-name": "noctkf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
+                }, 
+                {
+                    "name": "network-type", 
+                    "default": "DH", 
+                    "nick-name": "nt", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Type of district network to be simulated: \"DH\" (district heating) or \"DC\" (district cooling)."
+                }, 
+                {
+                    "name": "network-names", 
+                    "default": [], 
+                    "nick-name": "nn", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of network file names for either DH (district heating) or DC (district cooling) network types."
+                }, 
+                {
+                    "name": "file-type", 
+                    "default": "shp", 
+                    "nick-name": "ft", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Format of the input files (either csv file or a shape file)."
+                }, 
+                {
+                    "name": "set-diameter", 
+                    "default": true, 
+                    "nick-name": "sd", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if diameters are set by min and max flow rates, false if diameters are considered a fixed input."
+                }, 
+                {
+                    "name": "load-max-edge-flowrate-from-previous-run", 
+                    "default": false, 
+                    "nick-name": "lmeffpr", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True to bypass the calc_max_edge_flowrate function using results from the previous simulation (useful for debugging)."
+                }, 
+                {
+                    "name": "start-t", 
+                    "default": 0, 
+                    "nick-name": "st", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Start hour for calculations (0-based)."
+                }, 
+                {
+                    "name": "stop-t", 
+                    "default": 8760, 
+                    "nick-name": "st", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Stop hour for calculations (0-based, upper bound)."
+                }, 
+                {
+                    "name": "network-name", 
+                    "default": "", 
+                    "nick-name": "nn", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Name of the network for which to run the network optimization."
+                }, 
+                {
+                    "name": "possible-plant-sites", 
+                    "default": [], 
+                    "nick-name": "pps", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List building names considered candidates for plant locations (leave blank if all buildings are considered candidates)."
+                }, 
+                {
+                    "name": "min-number-of-plants", 
+                    "default": 1, 
+                    "nick-name": "mnop", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Minimum number of plants used for thermal network optimization (minimum value is 1)."
+                }, 
+                {
+                    "name": "max-number-of-plants", 
+                    "default": 1, 
+                    "nick-name": "mnop", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Maximum number of plants used for thermal network optimization (minimum value is 1)."
+                }, 
+                {
+                    "name": "number-of-individuals", 
+                    "default": 6, 
+                    "nick-name": "noi", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Number of individuals at the start of the optimization (parameter for genetic algorithm)."
+                }, 
+                {
+                    "name": "chance-of-mutation", 
+                    "default": 20.0, 
+                    "nick-name": "com", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Percentage chance of mutation in the genetic algorithm."
+                }, 
+                {
+                    "name": "number-of-generations", 
+                    "default": 20, 
+                    "nick-name": "nog", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Number of generations used for thermal network optimization."
+                }, 
+                {
+                    "name": "lucky-few", 
+                    "default": 1, 
+                    "nick-name": "lf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Number of individuals which are randomly picked despite not being optimal (must be smaller than the number of individuals minus one)."
+                }, 
+                {
+                    "name": "optimize-loop-branch", 
+                    "default": false, 
+                    "nick-name": "olb", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if the thermal network optimization will dictate the use of purely branched or mixed network layouts."
+                }, 
+                {
+                    "name": "optimize-network-loads", 
+                    "default": false, 
+                    "nick-name": "onl", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if the thermal network optimization will dictate which heat loads are provided by the network."
+                }, 
+                {
+                    "name": "optimize-building-connections", 
+                    "default": false, 
+                    "nick-name": "obc", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if the thermal network optimization will dictate which buildings to connect to the network."
+                }, 
+                {
+                    "name": "use-rule-based-approximation", 
+                    "default": false, 
+                    "nick-name": "urba", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if the thermal network optimization will use a rule based approach to narrow the solution space (e.g. by limiting the amount of possible plant locations)."
+                }, 
+                {
+                    "name": "use-representative-week-per-month", 
+                    "default": false, 
+                    "nick-name": "urwpm", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True to use the data for first week of each month instead of the full month."
+                }, 
+                {
+                    "name": "minimum-mass-flow-iteration-limit", 
+                    "default": 30, 
+                    "nick-name": "mmfil", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Maximum number of iterations permitted for the increase of minimum mass flows in the network."
+                }, 
+                {
+                    "name": "minimum-edge-mass-flow", 
+                    "default": 0.1, 
+                    "nick-name": "memf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Minimum mass flow rate permitted in the network (in kg/s). If the mass flow rate in any edge is below this value at any time period, the thermal network will be re-sized accordingly."
+                }, 
+                {
+                    "name": "diameter-iteration-limit", 
+                    "default": 10, 
+                    "nick-name": "dil", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Maximum number of iterations permitted for the network diameter optimization (relevant for looped network result convergence)."
+                }, 
+                {
+                    "name": "substation-cooling-systems", 
+                    "default": [
+                        "ahu", 
+                        "aru", 
+                        "scu"
+                    ], 
+                    "nick-name": "scs", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of cooling loads to be supplied (DC mode)."
+                }, 
+                {
+                    "name": "substation-heating-systems", 
+                    "default": [
+                        "ahu", 
+                        "aru", 
+                        "shu", 
+                        "ww"
+                    ], 
+                    "nick-name": "shs", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of heating loads to be supplied (DH mode)."
+                }, 
+                {
+                    "name": "disconnected-buildings", 
+                    "default": [], 
+                    "nick-name": "db", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of buildings which are disconnected from the network."
+                }, 
+                {
+                    "name": "yearly-cost-calculations", 
+                    "default": false, 
+                    "nick-name": "ycc", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if cost calculations of CT opex and heat/cooling production are based on a yearly basis."
+                }
+            ], 
+            "subcategory": "Optimization", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "ThermalNetworkOptimization", 
+            "abbreviation": "tno", 
+            "main-function": "thermal_network_optimization", 
+            "id": "ca8dd7d8-f856-4abc-9dac-eff2528d7efa", 
+            "icon": "icons/thermal-network-optimization.png", 
+            "category": "City Energy Analyst", 
+            "name": "Thermal network optimization", 
+            "description": "Optimize network design variables (plant locations, layout,...)", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "multiprocessing", 
+                    "default": true, 
+                    "nick-name": "m", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Multiprocessing (if available) for quicker calculation."
+                }, 
+                {
+                    "name": "number-of-cpus-to-keep-free", 
+                    "default": 1, 
+                    "nick-name": "noctkf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
+                }
+            ], 
+            "subcategory": "Optimization", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "Decentralized", 
             "abbreviation": "d", 
+            "main-function": "decentralized", 
+            "id": "b394c15c-b0b5-444f-a062-53e55f294cdd", 
+            "icon": "icons/decentralized.png", 
             "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "name": "Supply System Part I (decentralized)", 
+            "description": "Run optimization for decentralized operation", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "debug", 
+                    "default": false, 
+                    "nick-name": "d", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Enable debugging-specific behaviors."
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "multiprocessing", 
+                    "default": true, 
+                    "nick-name": "m", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Multiprocessing (if available) for quicker calculation."
+                }, 
+                {
+                    "name": "number-of-cpus-to-keep-free", 
+                    "default": 1, 
+                    "nick-name": "noctkf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
+                }, 
+                {
+                    "name": "network-type", 
+                    "default": "DH", 
+                    "nick-name": "nt", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "District Heating (DH) or District Cooling (DC)"
+                }, 
+                {
+                    "name": "technologies-dh", 
+                    "default": [
+                        "NG_Cogen", 
+                        "WB_Cogen", 
+                        "DB_Cogen", 
+                        "NG_BaseBoiler", 
+                        "NG_PeakBoiler", 
+                        "WS_HP", 
+                        "SS_HP", 
+                        "GS_HP", 
+                        "DS_HP", 
+                        "PVT", 
+                        "SC_ET", 
+                        "SC_FP", 
+                        "PV"
+                    ], 
+                    "nick-name": "td", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Technologies to consider during optimization of the central supply system when DH is selected"
+                }, 
+                {
+                    "name": "technologies-dc", 
+                    "default": [
+                        "NG_Trigen", 
+                        "WS_BaseVCC", 
+                        "WS_PeakVCC", 
+                        "AS_BaseVCC", 
+                        "AS_PeakVCC", 
+                        "Storage", 
+                        "PV"
+                    ], 
+                    "nick-name": "td", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Technologies to consider during optimization of the central supply system when DC is selected"
+                }, 
+                {
+                    "name": "population-size", 
+                    "default": null, 
+                    "nick-name": "ps", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "this denotes the number of individuals, leave in blank to compute the suggested by deb et al., 2014 (92)"
+                }, 
+                {
+                    "name": "number-of-generations", 
+                    "default": 100, 
+                    "nick-name": "nog", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "number of generations for genetic algorithm (NSGA-III)"
+                }, 
+                {
+                    "name": "random-seed", 
+                    "default": 100, 
+                    "nick-name": "rs", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Random seed to make it easy to replicate the results of the scenarios."
+                }, 
+                {
+                    "name": "mutation-prob", 
+                    "default": 0.1, 
+                    "nick-name": "mp", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Mutation probability for genetic algorithm (NSGA-III)"
+                }, 
+                {
+                    "name": "mutation-method-integer", 
+                    "default": "Flipbit", 
+                    "nick-name": "mmi", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Mutation method for integer variables (network connectivity)"
+                }, 
+                {
+                    "name": "mutation-method-continuous", 
+                    "default": "Polynomial", 
+                    "nick-name": "mmc", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Mutation method for continuous variables (plant capacities)"
+                }, 
+                {
+                    "name": "crossover-prob", 
+                    "default": 0.9, 
+                    "nick-name": "cp", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Cross-over probability for genetic algorithm (NSGA-III)"
+                }, 
+                {
+                    "name": "crossover-method-integer", 
+                    "default": "UniformPartialyMatched", 
+                    "nick-name": "cmi", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Crossover method for integer variables (network connectivity)"
+                }, 
+                {
+                    "name": "crossover-method-continuous", 
+                    "default": "Uniform", 
+                    "nick-name": "cmc", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Crossover method for continuous variables (plant capacities)"
+                }
+            ], 
+            "subcategory": "Optimization", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "Optimization", 
+            "abbreviation": "o", 
+            "main-function": "optimization", 
+            "id": "7fad8004-e808-4f04-a97e-1f428c8912ff", 
+            "icon": "icons/optimization.png", 
+            "category": "City Energy Analyst", 
+            "name": "Supply System Part II (centralized)", 
+            "description": "Run optimization for centralized operation", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "input-file", 
+                    "default": "{general:scenario}/inputs/technology/archetypes/construction_properties.xlsx", 
+                    "nick-name": "if", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Path to the DBF or Excel file."
+                }, 
+                {
+                    "name": "output-path", 
+                    "default": "C:\\Users\\darthoma\\Documents\\GitHub\\cea-grasshopper\\{general:scenario}", 
+                    "nick-name": "op", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Path to save the dbf <-> xls conversion results."
+                }, 
+                {
+                    "name": "output-file-name", 
+                    "default": "converted_file", 
+                    "nick-name": "ofn", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Name of the output file (without extension)."
+                }
+            ], 
+            "subcategory": "Utilities", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "DbfToExcelToDbf", 
+            "abbreviation": "dtetd", 
+            "main-function": "dbf_to_excel_to_dbf", 
+            "id": "6ede6282-576f-4f11-97ba-0a9772d20442", 
+            "icon": "icons/dbf-to-excel-to-dbf.png", 
+            "category": "City Energy Analyst", 
+            "name": "DBF to Excel to DBF", 
+            "description": "dbf => xls => DBF", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "databases-path", 
+                    "default": "", 
+                    "nick-name": "dp", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Either a full path to databases or the standard databases contained within the CEA."
+                }, 
+                {
+                    "name": "databases", 
+                    "default": [
+                        "archetypes", 
+                        "assemblies", 
+                        "components"
+                    ], 
+                    "nick-name": "d", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of databases to initialize from the selected path"
+                }
+            ], 
+            "subcategory": "Utilities", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "DataInitializer", 
+            "abbreviation": "di", 
+            "main-function": "data_initializer", 
+            "id": "373878c6-2f84-413d-bf24-4bc2ac8b9bfe", 
+            "icon": "icons/data-initializer.png", 
+            "category": "City Energy Analyst", 
+            "name": "Database Initializer", 
+            "description": "Initialize databases for CEA", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }
+            ], 
+            "subcategory": "Utilities", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "DatabaseMigrator", 
+            "abbreviation": "dm", 
+            "main-function": "database_migrator", 
+            "id": "28604f81-ecf8-479f-b53f-986fa04532b5", 
+            "icon": "icons/database-migrator.png", 
+            "category": "City Energy Analyst", 
+            "name": "Database migrator", 
+            "description": "Migrate older scenario inputs to the newest version. NOTE: This cannot be undone - save a copy of the scenario first", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "project", 
+                    "default": "cea-new-project", 
+                    "nick-name": "p", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Name of the new project."
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "baseline", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Name of the baseline scenario."
+                }, 
+                {
+                    "name": "output-path", 
+                    "default": "C:\\Users\\darthoma\\Documents\\GitHub", 
+                    "nick-name": "op", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Path to new project location."
+                }, 
+                {
+                    "name": "zone", 
+                    "default": "{general:scenario}/inputs/building-geometry/zone.shp", 
+                    "nick-name": "z", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Path to geometry of the zone."
+                }, 
+                {
+                    "name": "terrain", 
+                    "default": "{general:scenario}/inputs/topography/terrain.tif", 
+                    "nick-name": "t", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Path to the digital elevation model."
+                }, 
+                {
+                    "name": "streets", 
+                    "default": "{general:scenario}/inputs/networks/streets.shp", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Path to street geometry."
+                }, 
+                {
+                    "name": "surroundings", 
+                    "default": "", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Path to geometry of zone and surroundings (blank if shading effects are not considered)."
+                }, 
+                {
+                    "name": "typology", 
+                    "default": "", 
+                    "nick-name": "t", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Path to typology database (blank if CEA should create one for you)."
+                }
+            ], 
+            "subcategory": "Utilities", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "CreateNewScenario", 
+            "abbreviation": "cns", 
+            "main-function": "create_new_scenario", 
+            "id": "4849c373-15c8-4160-a8dc-2c2a92437f49", 
+            "icon": "icons/create-new-scenario.png", 
+            "category": "City Energy Analyst", 
+            "name": "Create new scenario", 
+            "description": "Creates a new scenario", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "old", 
+                    "default": "B1000", 
+                    "nick-name": "o", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "The name of the building to rename"
+                }, 
+                {
+                    "name": "new", 
+                    "default": "", 
+                    "nick-name": "n", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "The new name of the building (must be unique)"
+                }
+            ], 
+            "subcategory": "Utilities", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "RenameBuilding", 
+            "abbreviation": "rb", 
+            "main-function": "rename_building", 
+            "id": "edc1b905-bfea-42a9-ae5d-93c43824bebe", 
+            "icon": "icons/rename-building.png", 
+            "category": "City Energy Analyst", 
+            "name": "Rename building", 
+            "description": "Renames a building in the input files", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "use-type", 
+                    "default": "mixed_use", 
+                    "nick-name": "ut", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "The name of the new use-type"
+                }, 
+                {
+                    "name": "metadata", 
+                    "default": "mixed-use", 
+                    "nick-name": "m", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Description for the new use-type"
+                }, 
+                {
+                    "name": "ratios", 
+                    "default": [
+                        "MULTI_RES|1.0"
+                    ], 
+                    "nick-name": "r", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of use type and ratio pairs (e.g. \"MULTI_RES|0.5,SCHOOL|0.5\")"
+                }
+            ], 
+            "subcategory": "Utilities", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "CreateMixedUseType", 
+            "abbreviation": "cmut", 
+            "main-function": "create_mixed_use_type", 
+            "id": "6b4718b4-57ca-498b-982b-0e1f0c501f26", 
+            "icon": "icons/create-mixed-use-type.png", 
+            "category": "City Energy Analyst", 
+            "name": "Create mixed use-type", 
+            "description": "Creates a new use-type by aggregating values from a list of different use-types", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "workflow", 
+                    "default": "quick", 
+                    "nick-name": "w", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "The test workflow to run"
+                }
+            ], 
+            "subcategory": "Utilities", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "Test", 
+            "abbreviation": "t", 
+            "main-function": "test", 
+            "id": "207165c2-d90b-4d4e-9ce6-5e6f09282847", 
+            "icon": "icons/test.png", 
+            "category": "City Energy Analyst", 
+            "name": "Test CEA", 
+            "description": "Run some tests on the CEA", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }
+            ], 
+            "subcategory": "Utilities", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "RunUnitTests", 
+            "abbreviation": "rut", 
+            "main-function": "run_unit_tests", 
+            "id": "3253c974-b38e-42e5-84e5-6d12f8fd5aed", 
+            "icon": "icons/run-unit-tests.png", 
+            "category": "City Energy Analyst", 
+            "name": "Unit Tests", 
+            "description": "Run all the unit tests in the cea/tests folder", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "project", 
+                    "default": "C:\\reference-case-open", 
+                    "nick-name": "p", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the path of the project you're working on."
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "buildings", 
+                    "default": [], 
+                    "nick-name": "b", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of building names to generate plots (leave blank for all buildings)."
+                }, 
+                {
+                    "name": "building", 
+                    "default": "B1000", 
+                    "nick-name": "b", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Building ID for the Energy Demand, Comfort Plot and Heating Reset-schedule plot. Used only for the\ndashboard plots. For the plots tool, use a single building in the \"buildings\" variable."
+                }, 
+                {
+                    "name": "categories", 
+                    "default": [
+                        "demand", 
+                        "solar_potentials", 
+                        "solar_technology", 
+                        "life_cycle_analysis", 
+                        "thermal_network"
+                    ], 
+                    "nick-name": "c", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of plot categories to be created."
+                }, 
+                {
+                    "name": "network-type", 
+                    "default": "DC", 
+                    "nick-name": "nt", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Type of district network: \"DH\" (district heating) or \"DC\" (district cooling)."
+                }, 
+                {
+                    "name": "network-name", 
+                    "default": "", 
+                    "nick-name": "nn", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "The name of the network to plot (defaults to an empty string)."
+                }, 
+                {
+                    "name": "plant-node", 
+                    "default": null, 
+                    "nick-name": "pn", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "The plant node to plot."
+                }, 
+                {
+                    "name": "timeframe", 
+                    "default": "monthly", 
+                    "nick-name": "t", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select one individual configuration of the supply system to visualize."
+                }, 
+                {
+                    "name": "normalization", 
+                    "default": "none", 
+                    "nick-name": "n", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select normalization parameter"
+                }, 
+                {
+                    "name": "scenarios-and-systems", 
+                    "default": [
+                        "baseline_sys_today_"
+                    ], 
+                    "nick-name": "sas", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of pairs of scenario and systems"
+                }, 
+                {
+                    "name": "normalization", 
+                    "default": "none", 
+                    "nick-name": "n", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select normalization parameter"
+                }, 
+                {
+                    "name": "generation", 
+                    "default": "2", 
+                    "nick-name": "g", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select one generation of the optimization routine to be plotted."
+                }, 
+                {
+                    "name": "normalization", 
+                    "default": "none", 
+                    "nick-name": "n", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select normalization parameter"
+                }, 
+                {
+                    "name": "system", 
+                    "default": "_sys_today_", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select one system of the optimization routine where the supply system is going to be studied."
+                }, 
+                {
+                    "name": "timeframe", 
+                    "default": "monthly", 
+                    "nick-name": "t", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select one individual configuration of the supply system to visualize."
+                }
+            ], 
+            "subcategory": "Utilities", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "RunAllPlots", 
+            "abbreviation": "rap", 
+            "main-function": "run_all_plots", 
+            "id": "a141013a-d986-40d3-bd8b-48bbe63bdb56", 
+            "icon": "icons/run-all-plots.png", 
+            "category": "City Energy Analyst", 
+            "name": "Run all plots", 
+            "description": "Run all the plots for test purposes", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "generation", 
+                    "default": 3, 
+                    "nick-name": "g", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Generation for which the multi-criteria analysis should be performed."
+                }, 
+                {
+                    "name": "annualized-capital-costs", 
+                    "default": 0.4, 
+                    "nick-name": "acc", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Weight for total annualized costs (as part of economic sustainability)."
+                }, 
+                {
+                    "name": "total-capital-costs", 
+                    "default": 0.1, 
+                    "nick-name": "tcc", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Weight factor for total investment costs (as part of economic sustainability)."
+                }, 
+                {
+                    "name": "annual-operation-costs", 
+                    "default": 0.1, 
+                    "nick-name": "aoc", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Weight factor for operation costs (as part of economic sustainability)."
+                }, 
+                {
+                    "name": "annual-emissions", 
+                    "default": 0.4, 
+                    "nick-name": "ae", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Weight factor for emissions (as part of environmental sustainability)."
+                }
+            ], 
             "subcategory": "default", 
-            "name": "dashboard", 
-            "main-function": "dashboard", 
-            "icon": "icons/dashboard.png", 
-            "id": "c23ef02c-ec57-47cf-a880-083434b00453", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "MultiCriteriaAnalysis", 
+            "abbreviation": "mca", 
+            "main-function": "multi_criteria_analysis", 
+            "id": "ebede465-2d35-4c9d-93a7-9bb55e30fc1b", 
+            "icon": "icons/multi-criteria-analysis.png", 
+            "category": "City Energy Analyst", 
+            "name": "Multicriteria analysis", 
+            "description": "Multicriteria analysis", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "height-ag", 
+                    "default": null, 
+                    "nick-name": "ha", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Average height of buildings within the zone (in meters). Leave it blank to obtain from Open Street Maps (less accurate)."
+                }, 
+                {
+                    "name": "floors-ag", 
+                    "default": null, 
+                    "nick-name": "fa", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Average number of floors above ground of all buildings within the zone. Leave it blank to obtain from Open Street Maps (less accurate)."
+                }, 
+                {
+                    "name": "year-construction", 
+                    "default": null, 
+                    "nick-name": "yc", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Average year of construction of buildings within the zone. Leave it blank to obtain from Open Street Maps (less accurate)."
+                }, 
+                {
+                    "name": "height-bg", 
+                    "default": 3.0, 
+                    "nick-name": "hb", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Average height of buildings below ground (in meters)."
+                }, 
+                {
+                    "name": "floors-bg", 
+                    "default": 1, 
+                    "nick-name": "fb", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Average number of floors below ground of all buildings within the zone."
+                }, 
+                {
+                    "name": "occupancy-type", 
+                    "default": "Get it from open street maps", 
+                    "nick-name": "ot", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Predominant occupancy type of all buildings. Use \"Get it from open street maps\" to obtain from Open Street Maps (less accurate)."
+                }
+            ], 
+            "subcategory": "default", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "ZoneHelper", 
+            "abbreviation": "zh", 
+            "main-function": "zone_helper", 
+            "id": "0fd92b30-8f04-4c88-8e15-d1582bb1ae3c", 
+            "icon": "icons/zone-helper.png", 
+            "category": "City Energy Analyst", 
+            "name": "Zone helper", 
+            "description": "Query zone geometry from Open Street Maps", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "buildings", 
+                    "default": [], 
+                    "nick-name": "b", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of building names to generate plots (leave blank for all buildings)."
+                }, 
+                {
+                    "name": "building", 
+                    "default": "B1000", 
+                    "nick-name": "b", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Building ID for the Energy Demand, Comfort Plot and Heating Reset-schedule plot. Used only for the\ndashboard plots. For the plots tool, use a single building in the \"buildings\" variable."
+                }, 
+                {
+                    "name": "categories", 
+                    "default": [
+                        "demand", 
+                        "solar_potentials", 
+                        "solar_technology", 
+                        "life_cycle_analysis", 
+                        "thermal_network"
+                    ], 
+                    "nick-name": "c", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "List of plot categories to be created."
+                }, 
+                {
+                    "name": "network-type", 
+                    "default": "DC", 
+                    "nick-name": "nt", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Type of district network: \"DH\" (district heating) or \"DC\" (district cooling)."
+                }, 
+                {
+                    "name": "network-name", 
+                    "default": "", 
+                    "nick-name": "nn", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "The name of the network to plot (defaults to an empty string)."
+                }, 
+                {
+                    "name": "plant-node", 
+                    "default": null, 
+                    "nick-name": "pn", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "The plant node to plot."
+                }, 
+                {
+                    "name": "timeframe", 
+                    "default": "monthly", 
+                    "nick-name": "t", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select one individual configuration of the supply system to visualize."
+                }, 
+                {
+                    "name": "normalization", 
+                    "default": "none", 
+                    "nick-name": "n", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select normalization parameter"
+                }
+            ], 
+            "subcategory": "default", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "Plots", 
+            "abbreviation": "p", 
+            "main-function": "plots", 
+            "id": "e9eede66-b044-4a61-9a21-9401d5fb53b3", 
+            "icon": "icons/plots.png", 
+            "category": "City Energy Analyst", 
+            "name": "Plots basic", 
+            "description": "Create plots for the default energy system of an urban scenario", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }
+            ], 
+            "subcategory": "default", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
+            "class-name": "Compile", 
+            "abbreviation": "c", 
+            "main-function": "compile", 
+            "id": "d862fabc-cb6a-44e9-9a55-0d1aa2db903d", 
+            "icon": "icons/compile.png", 
+            "category": "City Energy Analyst", 
+            "name": "compile", 
+            "description": "compile", 
+            "main-module": "cea_runner"
+        }, 
+        {
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "debug", 
+                    "default": false, 
+                    "nick-name": "d", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Enable debugging-specific behaviors."
+                }
+            ], 
+            "subcategory": "default", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
             "class-name": "Dashboard", 
-            "description": "dashboard"
+            "abbreviation": "d", 
+            "main-function": "dashboard", 
+            "id": "c23ef02c-ec57-47cf-a880-083434b00453", 
+            "icon": "icons/dashboard.png", 
+            "category": "City Energy Analyst", 
+            "name": "dashboard", 
+            "description": "dashboard", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "ets", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "excel-file", 
+                    "default": "{general:scenario}/inputs/building-geometry/zone.xls", 
+                    "nick-name": "ef", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Path to the shapefile or Excel file."
+                }, 
+                {
+                    "name": "shapefile", 
+                    "default": "{general:scenario}/inputs/building-geometry/zone.shp", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Path to the ESRI Shapefile."
+                }, 
+                {
+                    "name": "crs", 
+                    "default": {
+                        "lon_0": 7.439583333333333, 
+                        "k_0": 1, 
+                        "ellps": "bessel", 
+                        "y_0": 200000, 
+                        "no_defs": true, 
+                        "proj": "somerc", 
+                        "x_0": 600000, 
+                        "units": "m", 
+                        "lat_0": 46.95240555555556
+                    }, 
+                    "nick-name": "c", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Contains the value to use for the crs parameter of the shapefile."
+                }, 
+                {
+                    "name": "index", 
+                    "default": "Name", 
+                    "nick-name": "i", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Use this column as the index column of the DataFrame."
+                }, 
+                {
+                    "name": "polygon", 
+                    "default": true, 
+                    "nick-name": "p", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if the geometry column is interpreted as polygon coordinates, false if it is interpreted as a polyline."
+                }
+            ], 
             "subcategory": "default", 
-            "name": "excel-to-shapefile", 
-            "main-function": "excel_to_shapefile", 
-            "icon": "icons/excel-to-shapefile.png", 
-            "id": "6249cc78-9e04-4891-ad4d-7aeb040e66a3", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
             "class-name": "ExcelToShapefile", 
-            "description": "excel-to-shapefile"
+            "abbreviation": "ets", 
+            "main-function": "excel_to_shapefile", 
+            "id": "6249cc78-9e04-4891-ad4d-7aeb040e66a3", 
+            "icon": "icons/excel-to-shapefile.png", 
+            "category": "City Energy Analyst", 
+            "name": "excel-to-shapefile", 
+            "description": "excel-to-shapefile", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "erc", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "destination", 
+                    "default": "C:\\Users\\darthoma\\Documents\\GitHub", 
+                    "nick-name": "d", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Destination for the extracted reference case (zipped within CityEnergyAnalyst/cea/examples)."
+                }, 
+                {
+                    "name": "case", 
+                    "default": "open", 
+                    "nick-name": "c", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Reference case to extract."
+                }
+            ], 
             "subcategory": "default", 
-            "name": "extract-reference-case", 
-            "main-function": "extract_reference_case", 
-            "icon": "icons/extract-reference-case.png", 
-            "id": "e616bdc5-377b-49a0-be71-284554c300d6", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
             "class-name": "ExtractReferenceCase", 
-            "description": "extract-reference-case"
+            "abbreviation": "erc", 
+            "main-function": "extract_reference_case", 
+            "id": "e616bdc5-377b-49a0-be71-284554c300d6", 
+            "icon": "icons/extract-reference-case.png", 
+            "category": "City Energy Analyst", 
+            "name": "extract-reference-case", 
+            "description": "extract-reference-case", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "ldgf", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }
+            ], 
             "subcategory": "default", 
-            "name": "list-demand-graphs-fields", 
-            "main-function": "list_demand_graphs_fields", 
-            "icon": "icons/list-demand-graphs-fields.png", 
-            "id": "07ba6e4c-7422-4b37-ba4e-05bee308b05c", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
             "class-name": "ListDemandGraphsFields", 
-            "description": "list-demand-graphs-fields"
+            "abbreviation": "ldgf", 
+            "main-function": "list_demand_graphs_fields", 
+            "id": "07ba6e4c-7422-4b37-ba4e-05bee308b05c", 
+            "icon": "icons/list-demand-graphs-fields.png", 
+            "category": "City Energy Analyst", 
+            "name": "list-demand-graphs-fields", 
+            "description": "list-demand-graphs-fields", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "ste", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "excel-file", 
+                    "default": "{general:scenario}/inputs/building-geometry/zone.xls", 
+                    "nick-name": "ef", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Path to the shapefile or Excel file."
+                }, 
+                {
+                    "name": "shapefile", 
+                    "default": "{general:scenario}/inputs/building-geometry/zone.shp", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Path to the ESRI Shapefile."
+                }, 
+                {
+                    "name": "crs", 
+                    "default": {
+                        "lon_0": 7.439583333333333, 
+                        "k_0": 1, 
+                        "ellps": "bessel", 
+                        "y_0": 200000, 
+                        "no_defs": true, 
+                        "proj": "somerc", 
+                        "x_0": 600000, 
+                        "units": "m", 
+                        "lat_0": 46.95240555555556
+                    }, 
+                    "nick-name": "c", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Contains the value to use for the crs parameter of the shapefile."
+                }, 
+                {
+                    "name": "index", 
+                    "default": "Name", 
+                    "nick-name": "i", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Use this column as the index column of the DataFrame."
+                }, 
+                {
+                    "name": "polygon", 
+                    "default": true, 
+                    "nick-name": "p", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "True if the geometry column is interpreted as polygon coordinates, false if it is interpreted as a polyline."
+                }
+            ], 
             "subcategory": "default", 
-            "name": "shapefile-to-excel", 
-            "main-function": "shapefile_to_excel", 
-            "icon": "icons/shapefile-to-excel.png", 
-            "id": "e4616e55-08e0-49ac-b5cf-ed86e94f61ca", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
             "class-name": "ShapefileToExcel", 
-            "description": "shapefile-to-excel"
+            "abbreviation": "ste", 
+            "main-function": "shapefile_to_excel", 
+            "id": "e4616e55-08e0-49ac-b5cf-ed86e94f61ca", 
+            "icon": "icons/shapefile-to-excel.png", 
+            "category": "City Energy Analyst", 
+            "name": "shapefile-to-excel", 
+            "description": "shapefile-to-excel", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "ti", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "scenario", 
+                    "default": "{general:project}\\{general:scenario-name}", 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Select the scenario you're working on."
+                }, 
+                {
+                    "name": "scripts", 
+                    "default": [
+                        "archetypes-mapper", 
+                        "demand", 
+                        "emissions"
+                    ], 
+                    "nick-name": "s", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Sequential list of scripts to run."
+                }, 
+                {
+                    "name": "meta-output-file", 
+                    "default": "{general:scenario}/outputs/trace_inputlocator.output.yml", 
+                    "nick-name": "mof", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Path to the filename of the yml output file."
+                }
+            ], 
             "subcategory": "default", 
-            "name": "trace-inputlocator", 
-            "main-function": "trace_inputlocator", 
-            "icon": "icons/trace-inputlocator.png", 
-            "id": "0c798cc6-d535-42c5-9692-51fde24187a1", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
             "class-name": "TraceInputlocator", 
-            "description": "trace all calls to the InputLocator for a script"
+            "abbreviation": "ti", 
+            "main-function": "trace_inputlocator", 
+            "id": "0c798cc6-d535-42c5-9692-51fde24187a1", 
+            "icon": "icons/trace-inputlocator.png", 
+            "category": "City Energy Analyst", 
+            "name": "trace-inputlocator", 
+            "description": "trace all calls to the InputLocator for a script", 
+            "main-module": "cea_runner"
         }, 
         {
-            "abbreviation": "w", 
-            "category": "City Energy Analyst", 
-            "main-module": "cea_runner", 
+            "inputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "ci", 
+                    "description": "Configuration file (path or contents)"
+                }, 
+                {
+                    "name": "workflow", 
+                    "default": "c:\\users\\darthoma\\documents\\github\\cityenergyanalyst\\cea\\workflows\\district_heating_system.yml", 
+                    "nick-name": "w", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Either a built-in workflow (district-heating-system / district-cooling-system) OR a path to a user-specified workflow YAML file"
+                }, 
+                {
+                    "name": "resume", 
+                    "default": false, 
+                    "nick-name": "r", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Turn this parameter on to resume the workflow from the last successful step"
+                }, 
+                {
+                    "name": "resume-file", 
+                    "default": "c:\\users\\darthoma\\appdata\\local\\temp\\resume-workflow.yml", 
+                    "nick-name": "rf", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "Path to a file to store information on how to resume a workflow in case it doesn't run through"
+                }, 
+                {
+                    "name": "trace-input", 
+                    "default": false, 
+                    "nick-name": "ti", 
+                    "access": "item", 
+                    "type": "string", 
+                    "description": "If true, each step is run with the trace-inputlocator to collect info about locator methods"
+                }
+            ], 
             "subcategory": "default", 
-            "name": "workflow", 
-            "main-function": "workflow", 
-            "icon": "icons/workflow.png", 
-            "id": "eea60837-9208-421a-8b3d-47ea4ad3548b", 
+            "outputs": [
+                {
+                    "type": "string", 
+                    "name": "config", 
+                    "nick-name": "co", 
+                    "description": "Configuration file contents"
+                }
+            ], 
             "class-name": "Workflow", 
-            "description": "Run a workflow.yml file from start to end"
+            "abbreviation": "w", 
+            "main-function": "workflow", 
+            "id": "eea60837-9208-421a-8b3d-47ea4ad3548b", 
+            "icon": "icons/workflow.png", 
+            "category": "City Energy Analyst", 
+            "name": "workflow", 
+            "description": "Run a workflow.yml file from start to end", 
+            "main-module": "cea_runner"
         }
     ], 
     "include-files": [

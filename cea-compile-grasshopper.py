@@ -25,10 +25,12 @@ def main():
     # collect previous guids, if possible:
     guids = {c["name"]: c["id"] for c in badgerfile["components"]}
     print(guids)
+    print()
 
+    badgerfile["components"] = []
     for script in cea.scripts.for_interface("cli"):        
         component = {
-            "id": guids[script.name] if script.name in guids else str(uuid.uuid4()),
+            "id": guids[script.label] if script.label in guids else str(uuid.uuid4()),
             "class-name": "".join(s.capitalize() for s in script.name.split("-")),
             "abbreviation": "".join(s[0] for s in script.name.split("-")),
             "name": script.label,
@@ -38,10 +40,35 @@ def main():
             "icon": "icons/{name}.png".format(name=script.name),
             "main-module": "cea_runner",
             "main-function": script.name.replace("-", "_"),
+            "inputs": [
+                {
+                    "type": "string",
+                    "name": "config",
+                    "description": "Configuration file (path or contents)",
+                    "nick-name": "ci"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "string",
+                    "name": "config",
+                    "description": "Configuration file contents",
+                    "nick-name": "co"
+                }
+            ],
         }
         print(script.name)
-        for _, parameter in config.matching_parameters(script.parameters):
+        for _, parameter in config.matching_parameters(script.parameters):            
             print("\t{pname}={pvalue}".format(pname=parameter.name, pvalue=parameter.get_raw()))
+            input = {
+                "type": "string",
+                "name": parameter.name,
+                "description": parameter.help,
+                "nick-name": "".join(s[0] for s in parameter.name.split("-")),
+                "default": parameter.default,
+                "access": "item"
+            }
+            component["inputs"].append(input)
         badgerfile["components"].append(component)
         
 
