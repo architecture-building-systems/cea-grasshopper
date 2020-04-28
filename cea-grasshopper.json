@@ -61,7 +61,7 @@
             "category": "City Energy Analyst", 
             "name": "Archetypes Mapper", 
             "description": "Assign building properties and systems types from the Archetypes DataBase", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -106,7 +106,7 @@
             "category": "City Energy Analyst", 
             "name": "Weather helper", 
             "description": "Sets the weather file to use for simulation for a scenario", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -167,7 +167,7 @@
             "category": "City Energy Analyst", 
             "name": "Surroundings helper", 
             "description": "Query geometry of surrounding buildings from Open Street Maps", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -220,7 +220,7 @@
             "category": "City Energy Analyst", 
             "name": "Terrain helper", 
             "description": "Query topography with a fixed elevation", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -273,7 +273,7 @@
             "category": "City Energy Analyst", 
             "name": "Streets helper", 
             "description": "Query streets geometry from Open Street Maps", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -526,7 +526,7 @@
             "category": "City Energy Analyst", 
             "name": "Building Solar radiation", 
             "description": "Use Daysim to calculate solar radiation for a scenario", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -603,7 +603,7 @@
             "category": "City Energy Analyst", 
             "name": "Building Schedules", 
             "description": "Use CEA models and input schedules to estimate the occupancy profile of buildings", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -720,7 +720,7 @@
             "category": "City Energy Analyst", 
             "name": "Building Energy demand", 
             "description": "Calculate the Demand", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -781,7 +781,7 @@
             "category": "City Energy Analyst", 
             "name": "Emissions", 
             "description": "Calculate emissions and primary energy due to building, construction, operation, dismantling and induced mobility", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -834,7 +834,7 @@
             "category": "City Energy Analyst", 
             "name": "System Costs", 
             "description": "Calculate costs due to supply systems", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -895,7 +895,7 @@
             "category": "City Energy Analyst", 
             "name": "Shallow geothermal potential", 
             "description": "Calculate the heat extracted from a geothermal probes (up to 50 m length)", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -964,7 +964,7 @@
             "category": "City Energy Analyst", 
             "name": "Water body potential", 
             "description": "Calculate the heat extracted from a lake or a water body", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -1081,7 +1081,7 @@
             "category": "City Energy Analyst", 
             "name": "Photovoltaic-thermal Panels", 
             "description": "Calculate electricity & heat production from photovoltaic / thermal technologies", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -1174,7 +1174,7 @@
             "category": "City Energy Analyst", 
             "name": "Photovoltaic panels", 
             "description": "Calculate electricity production from solar photovoltaic technologies", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -1235,7 +1235,7 @@
             "category": "City Energy Analyst", 
             "name": "Sewage heat potential", 
             "description": "Calculate the heat extracted from the sewage heat exchanger.", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -1344,7 +1344,7 @@
             "category": "City Energy Analyst", 
             "name": "Solar collectors", 
             "description": "Calculate heat production from solar collector technologies", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -1429,7 +1429,7 @@
             "category": "City Energy Analyst", 
             "name": "Thermal Network Part I (Layout)", 
             "description": "Create a potential layout of the network with the minimum spanning tree", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -1659,7 +1659,7 @@
             "category": "City Energy Analyst", 
             "name": "Thermal Network Part II (simulation)", 
             "description": "Solve the thermal hydraulic network", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -1937,7 +1937,7 @@
             "category": "City Energy Analyst", 
             "name": "Thermal network optimization", 
             "description": "Optimize network design variables (plant locations, layout,...)", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -1990,7 +1990,7 @@
             "category": "City Energy Analyst", 
             "name": "Supply System Part I (decentralized)", 
             "description": "Run optimization for decentralized operation", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -2169,7 +2169,7 @@
             "category": "City Energy Analyst", 
             "name": "Supply System Part II (centralized)", 
             "description": "Run optimization for centralized operation", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -2230,7 +2230,7 @@
             "category": "City Energy Analyst", 
             "name": "DBF to Excel to DBF", 
             "description": "dbf => xls => DBF", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -2287,7 +2287,7 @@
             "category": "City Energy Analyst", 
             "name": "Database Initializer", 
             "description": "Initialize databases for CEA", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -2324,7 +2324,7 @@
             "category": "City Energy Analyst", 
             "name": "Database migrator", 
             "description": "Migrate older scenario inputs to the newest version. NOTE: This cannot be undone - save a copy of the scenario first", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -2417,7 +2417,7 @@
             "category": "City Energy Analyst", 
             "name": "Create new scenario", 
             "description": "Creates a new scenario", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -2470,7 +2470,7 @@
             "category": "City Energy Analyst", 
             "name": "Rename building", 
             "description": "Renames a building in the input files", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -2533,7 +2533,7 @@
             "category": "City Energy Analyst", 
             "name": "Create mixed use-type", 
             "description": "Creates a new use-type by aggregating values from a list of different use-types", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -2570,7 +2570,7 @@
             "category": "City Energy Analyst", 
             "name": "Test CEA", 
             "description": "Run some tests on the CEA", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -2599,7 +2599,7 @@
             "category": "City Energy Analyst", 
             "name": "Unit Tests", 
             "description": "Run all the unit tests in the cea/tests folder", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -2764,7 +2764,7 @@
             "category": "City Energy Analyst", 
             "name": "Run all plots", 
             "description": "Run all the plots for test purposes", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -2841,7 +2841,7 @@
             "category": "City Energy Analyst", 
             "name": "Multicriteria analysis", 
             "description": "Multicriteria analysis", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -2926,7 +2926,7 @@
             "category": "City Energy Analyst", 
             "name": "Zone helper", 
             "description": "Query zone geometry from Open Street Maps", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -3033,7 +3033,7 @@
             "category": "City Energy Analyst", 
             "name": "Plots basic", 
             "description": "Create plots for the default energy system of an urban scenario", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -3062,7 +3062,7 @@
             "category": "City Energy Analyst", 
             "name": "compile", 
             "description": "compile", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -3099,7 +3099,7 @@
             "category": "City Energy Analyst", 
             "name": "dashboard", 
             "description": "dashboard", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -3178,7 +3178,7 @@
             "category": "City Energy Analyst", 
             "name": "excel-to-shapefile", 
             "description": "excel-to-shapefile", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -3223,7 +3223,7 @@
             "category": "City Energy Analyst", 
             "name": "extract-reference-case", 
             "description": "extract-reference-case", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -3260,7 +3260,7 @@
             "category": "City Energy Analyst", 
             "name": "list-demand-graphs-fields", 
             "description": "list-demand-graphs-fields", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -3339,7 +3339,7 @@
             "category": "City Energy Analyst", 
             "name": "shapefile-to-excel", 
             "description": "shapefile-to-excel", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -3396,7 +3396,7 @@
             "category": "City Energy Analyst", 
             "name": "trace-inputlocator", 
             "description": "trace all calls to the InputLocator for a script", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }, 
         {
             "use-kwargs": true, 
@@ -3457,11 +3457,12 @@
             "category": "City Energy Analyst", 
             "name": "workflow", 
             "description": "Run a workflow.yml file from start to end", 
-            "main-module": "cea_runner"
+            "main-module": "cea_scripts"
         }
     ], 
     "include-files": [
-        "cea_runner.py"
+        "cea_runner.py", 
+        "cea_scripts.py"
     ], 
     "id": "85c9f079-0d3b-4581-bda4-c5e9ea2d4893", 
     "description": "Rhino/Grasshopper interface to City Energy Analyst scripts"

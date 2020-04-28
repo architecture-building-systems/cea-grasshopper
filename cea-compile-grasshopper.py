@@ -14,22 +14,27 @@ import cea.config
 import cea.scripts
 
 BADGERFILE = os.path.join(os.path.dirname(__file__), "cea-grasshopper.json")
+SCRIPTS_FILE = os.path.join(os.path.dirname(__file__), "cea_scripts.py")
+SCRIPT_DEF_TEMPLATE_FILE = os.path.join(os.path.dirname(__file__), "script_def.py")
 CATEGORY = "City Energy Analyst"  # this is the Panel to show in Grasshopper
 
 
 def main():
     config = cea.config.Configuration(config_file=cea.config.DEFAULT_CONFIG)
+    script_defs = []  # a list of script defs in SCRIPTS_FILE
+    
+    with open(SCRIPT_DEF_TEMPLATE_FILE, "r") as script_def_fp:
+        script_def_template = script_def_fp.read()
 
     with open(BADGERFILE, "r") as badger_fp:
         badgerfile = json.load(badger_fp)
 
     # collect previous guids, if possible:
     guids = {c["name"]: c["id"] for c in badgerfile["components"]}
-    print(guids)
-    print()
-
+    
     badgerfile["components"] = []
-    for script in cea.scripts.for_interface("cli"):        
+    for script in cea.scripts.for_interface("cli"):
+        script_py_name = script.name.replace("-", "_") 
         component = {
             "id": guids[script.label] if script.label in guids else str(uuid.uuid4()),
             "class-name": "".join(s.capitalize() for s in script.name.split("-")),
@@ -38,9 +43,9 @@ def main():
             "description": script.description,
             "category": CATEGORY,
             "subcategory": script.category,
-            "icon": "icons/{name}.png".format(name=script.name),
-            "main-module": "cea_runner",
-            "main-function": script.name.replace("-", "_"),
+            "icon": "icons/{name}.png".format(name=script.name),           
+            "main-module": "cea_scripts",
+            "main-function": script_py_name,
             "use-kwargs": True,
             "inputs": [
                 {
@@ -59,6 +64,7 @@ def main():
                 }
             ],
         }
+        script_defs.append(script_def_template.replace("SCRIPT_PY_NAME", script_py_name).replace("SCRIPT_NAME", script.name))
         print(script.name)
         for _, parameter in config.matching_parameters(script.parameters):            
             print("\t{pname}={pvalue}".format(pname=parameter.name, pvalue=parameter.get_raw()))
@@ -82,6 +88,9 @@ def main():
 
     with open(BADGERFILE, "w") as badger_fp:
         json.dump(badgerfile, badger_fp, indent=4)
+
+    with open(SCRIPTS_FILE, "w") as scripts_fp:
+        scripts_fp.write("\n".join(script_defs))
 
 
 if __name__ == "__main__":
