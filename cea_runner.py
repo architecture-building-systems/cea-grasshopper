@@ -12,6 +12,14 @@ Script output is sent to RhinoApp.WriteLine.
 The function __run_cea is used to run a cea script. It assumes the first parameter is the script name
 and returns the updated config file - CEA scripts don't really have a return value, though it might
 be an idea to add a list of files (possibly) produced. I'll look into that later.
+
+We use the technique specified here: http://stackoverflow.com/questions/2447353/getattr-on-a-module
+to add the scripts automatically to the module.
 """
 
-def __run_cea()
+class CeaRunner(object):
+    def run(script, )
+    def __getattr__(self, name):
+        if not name in self.elementFactories:
+            self.__createElementFactory(name)
+        return self.elementFactories[name]

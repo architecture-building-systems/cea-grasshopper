@@ -9,6 +9,7 @@ from __future__ import print_function
 import os
 import uuid
 import json
+import shutil
 import cea.config
 import cea.scripts
 
@@ -37,9 +38,10 @@ def main():
             "description": script.description,
             "category": CATEGORY,
             "subcategory": script.category,
-            # "icon": "icons/{name}.png".format(name=script.name),
+            "icon": "icons/{name}.png".format(name=script.name),
             "main-module": "cea_runner",
             "main-function": script.name.replace("-", "_"),
+            "use-kwargs": True,
             "inputs": [
                 {
                     "type": "string",
@@ -70,6 +72,12 @@ def main():
             }
             component["inputs"].append(input)
         badgerfile["components"].append(component)
+
+        # copy the icon if it doesn't exist yet
+        icon_path = os.path.join(os.path.dirname(__file__), component["icon"])
+        default_icon_path = os.path.join(os.path.dirname(__file__), "default_icon.png")
+        if not os.path.exists(icon_path):
+            shutil.copyfile(default_icon_path, icon_path)
         
 
     with open(BADGERFILE, "w") as badger_fp:
