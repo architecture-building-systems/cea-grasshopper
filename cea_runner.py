@@ -19,7 +19,7 @@ to add the scripts automatically to the module.
 import sys
 import os
 import subprocess
-from Rhino import RhinoApp
+import Rhino
 
 def get_python_exe_and_env():
     """
@@ -57,7 +57,7 @@ def run(script, parameters):
         command.append('--' + parameter_name)
         command.append(str(parameter_value))
 
-    RhinoApp.WriteLine('Executing: ' + ' '.join(command))
+    Rhino.RhinoApp.WriteLine('Executing: ' + ' '.join(command))
 
     process = subprocess.Popen(command, startupinfo=startupinfo, 
                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env)
@@ -65,9 +65,9 @@ def run(script, parameters):
         next_line = process.stdout.readline()
         if next_line == '' and process.poll() is not None:
             break
-        RhinoApp.WriteLine(next_line.rstrip())
+        Rhino.RhinoApp.WriteLine(next_line.rstrip())
     stdout, stderr = process.communicate()
-    RinoApp.WriteLine(stdout)
-    RinoApp.WriteLine(stderr)
+    Rhino.RhinoApp.WriteLine(stdout)
+    Rhino.RhinoApp.WriteLine(stderr)
     if process.returncode != 0:
         raise Exception('Tool did not run successfully')
