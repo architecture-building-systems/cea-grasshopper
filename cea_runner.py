@@ -35,11 +35,11 @@ def get_python_exe_and_env():
 
     # copying this stuff from dashboard.bat
     env = os.environ.copy()
-    env["PATH"] = os.pathsep.join(
+    env["PATH"] = os.pathsep.join((
         python_path,
         os.path.join(python_path, "Scripts"),
         os.path.join(cea_path, "Dependencies", "Daysim"),
-        env["PATH"])
+        env["PATH"]))
     env["PYTHONHOME"] = python_path
     env["GDAL_DATA"] = os.path.join(python_path, "Library", "share", "gdal")
     env["PROJ_LIB"] = os.path.join(python_path, "Library", "share")
