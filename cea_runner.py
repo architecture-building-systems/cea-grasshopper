@@ -56,7 +56,7 @@ def run(script, parameters):
         if parameter_name == "config":
             # we're ignoring this for the moment
             continue
-        section_name = parameter_name = parameter_name.split(":")
+        section_name, parameter_name = parameter_name.split(":")
         command.append('--' + parameter_name)
         command.append(str(parameter_value))
 

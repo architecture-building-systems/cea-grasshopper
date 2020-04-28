@@ -14,15 +14,15 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "input-databases", 
+                    "name": "archetypes-mapper:input-databases", 
                     "default": [
                         "comfort", 
                         "architecture", 
@@ -31,15 +31,15 @@
                         "supply", 
                         "schedules"
                     ], 
-                    "nick-name": "id", 
+                    "nick-name": "input-databases", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of inputs to map from your databases to your new/existing scenario"
                 }, 
                 {
-                    "name": "buildings", 
+                    "name": "archetypes-mapper:buildings", 
                     "default": [], 
-                    "nick-name": "b", 
+                    "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of buildings to create schedules for (leave blank to consider all)."
@@ -74,17 +74,17 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "weather", 
+                    "name": "weather-helper:weather", 
                     "default": "", 
-                    "nick-name": "w", 
+                    "nick-name": "weather", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Either a full path to a weather file or the name of one of the weather files contained within the CEA."
@@ -119,33 +119,33 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "buffer", 
+                    "name": "surroundings-helper:buffer", 
                     "default": 50.0, 
-                    "nick-name": "b", 
+                    "nick-name": "buffer", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Perimeter buffer length to the surrounding area (in meters)."
                 }, 
                 {
-                    "name": "height-ag", 
+                    "name": "surroundings-helper:height-ag", 
                     "default": null, 
-                    "nick-name": "ha", 
+                    "nick-name": "height-ag", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Average height of buildings within the surroundings (in meters). Leave it blank to obtain from Open Street Maps (less accurate)."
                 }, 
                 {
-                    "name": "floors-ag", 
+                    "name": "surroundings-helper:floors-ag", 
                     "default": null, 
-                    "nick-name": "fa", 
+                    "nick-name": "floors-ag", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Average number of floors above ground of all buildings within the surroundings. Leave it blank to obtain from Open Street Maps (less accurate)."
@@ -180,25 +180,25 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "grid-size", 
+                    "name": "terrain-helper:grid-size", 
                     "default": 30, 
-                    "nick-name": "gs", 
+                    "nick-name": "grid-size", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Grid size for the terrain file (do not use less than 10 meters)."
                 }, 
                 {
-                    "name": "elevation", 
+                    "name": "terrain-helper:elevation", 
                     "default": 1, 
-                    "nick-name": "e", 
+                    "nick-name": "elevation", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Fixed elevation of the terrain (in meters)."
@@ -233,25 +233,25 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "bbox", 
+                    "name": "streets-helper:bbox", 
                     "default": [], 
-                    "nick-name": "b", 
+                    "nick-name": "bbox", 
                     "access": "item", 
                     "type": "string", 
                     "description": "The bounding box of the surroundings using the surroundings shapefile (leave blank) or a list of coordinates (bbox = min Longitude , min Latitude , max Longitude , max Latitude)"
                 }, 
                 {
-                    "name": "streets", 
+                    "name": "streets-helper:streets", 
                     "default": "all_private", 
-                    "nick-name": "s", 
+                    "nick-name": "streets", 
                     "access": "item", 
                     "type": "string", 
                     "description": "The type of streets to gather."
@@ -286,225 +286,225 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "multiprocessing", 
+                    "name": "general:multiprocessing", 
                     "default": true, 
-                    "nick-name": "m", 
+                    "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Multiprocessing (if available) for quicker calculation."
                 }, 
                 {
-                    "name": "number-of-cpus-to-keep-free", 
+                    "name": "general:number-of-cpus-to-keep-free", 
                     "default": 1, 
-                    "nick-name": "noctkf", 
+                    "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
                 }, 
                 {
-                    "name": "debug", 
+                    "name": "general:debug", 
                     "default": false, 
-                    "nick-name": "d", 
+                    "nick-name": "debug", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Enable debugging-specific behaviors."
                 }, 
                 {
-                    "name": "buildings", 
+                    "name": "radiation:buildings", 
                     "default": [], 
-                    "nick-name": "b", 
+                    "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of buildings considered for the radiation simulation (to simulate all buildings leave blank)."
                 }, 
                 {
-                    "name": "albedo", 
+                    "name": "radiation:albedo", 
                     "default": 0.2, 
-                    "nick-name": "a", 
+                    "nick-name": "albedo", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Albedo of the terrain."
                 }, 
                 {
-                    "name": "roof-grid", 
+                    "name": "radiation:roof-grid", 
                     "default": 10, 
-                    "nick-name": "rg", 
+                    "nick-name": "roof-grid", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Grid resolution for the roof surfaces. Use 200 (maximum) if you want only one point per surface."
                 }, 
                 {
-                    "name": "walls-grid", 
+                    "name": "radiation:walls-grid", 
                     "default": 200, 
-                    "nick-name": "wg", 
+                    "nick-name": "walls-grid", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Grid resolution for wall surfaces. Use 200 (maximum) if you want only one point per surface."
                 }, 
                 {
-                    "name": "zone-geometry", 
+                    "name": "radiation:zone-geometry", 
                     "default": 2, 
-                    "nick-name": "zg", 
+                    "nick-name": "zone-geometry", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Simplification level of the zone geometry (1 is the lowest)."
                 }, 
                 {
-                    "name": "surrounding-geometry", 
+                    "name": "radiation:surrounding-geometry", 
                     "default": 5, 
-                    "nick-name": "sg", 
+                    "nick-name": "surrounding-geometry", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Simplification level of the surroundings geometry (1 is the lowest)."
                 }, 
                 {
-                    "name": "consider-floors", 
+                    "name": "radiation:consider-floors", 
                     "default": true, 
-                    "nick-name": "cf", 
+                    "nick-name": "consider-floors", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if floors are considered in the geometry."
                 }, 
                 {
-                    "name": "consider-intersections", 
+                    "name": "radiation:consider-intersections", 
                     "default": false, 
-                    "nick-name": "ci", 
+                    "nick-name": "consider-intersections", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if intersecting walls between buildings are considered (this increases simulation time in x5), but can give more precise estimates."
                 }, 
                 {
-                    "name": "rad-ab", 
+                    "name": "radiation:rad-ab", 
                     "default": 4, 
-                    "nick-name": "ra", 
+                    "nick-name": "rad-ab", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Number of ambient bounces."
                 }, 
                 {
-                    "name": "rad-ad", 
+                    "name": "radiation:rad-ad", 
                     "default": 512, 
-                    "nick-name": "ra", 
+                    "nick-name": "rad-ad", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Number of ambient divisions."
                 }, 
                 {
-                    "name": "rad-as", 
+                    "name": "radiation:rad-as", 
                     "default": 32, 
-                    "nick-name": "ra", 
+                    "nick-name": "rad-as", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Number of ambient super-samples."
                 }, 
                 {
-                    "name": "rad-ar", 
+                    "name": "radiation:rad-ar", 
                     "default": 20, 
-                    "nick-name": "ra", 
+                    "nick-name": "rad-ar", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Ambient resolution."
                 }, 
                 {
-                    "name": "rad-aa", 
+                    "name": "radiation:rad-aa", 
                     "default": 0.15, 
-                    "nick-name": "ra", 
+                    "nick-name": "rad-aa", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Ambient accuracy."
                 }, 
                 {
-                    "name": "rad-lr", 
+                    "name": "radiation:rad-lr", 
                     "default": 8, 
-                    "nick-name": "rl", 
+                    "nick-name": "rad-lr", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Maximum number of reflections."
                 }, 
                 {
-                    "name": "rad-st", 
+                    "name": "radiation:rad-st", 
                     "default": 0.5, 
-                    "nick-name": "rs", 
+                    "nick-name": "rad-st", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Specular sampling threshold."
                 }, 
                 {
-                    "name": "rad-sj", 
+                    "name": "radiation:rad-sj", 
                     "default": 0.7, 
-                    "nick-name": "rs", 
+                    "nick-name": "rad-sj", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Specular sampling jitter."
                 }, 
                 {
-                    "name": "rad-lw", 
+                    "name": "radiation:rad-lw", 
                     "default": 0.05, 
-                    "nick-name": "rl", 
+                    "nick-name": "rad-lw", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Minimum weight of each ray."
                 }, 
                 {
-                    "name": "rad-dj", 
+                    "name": "radiation:rad-dj", 
                     "default": 0.7, 
-                    "nick-name": "rd", 
+                    "nick-name": "rad-dj", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Direct jitter."
                 }, 
                 {
-                    "name": "rad-ds", 
+                    "name": "radiation:rad-ds", 
                     "default": 0.0, 
-                    "nick-name": "rd", 
+                    "nick-name": "rad-ds", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Direct sampling ration."
                 }, 
                 {
-                    "name": "rad-dr", 
+                    "name": "radiation:rad-dr", 
                     "default": 0, 
-                    "nick-name": "rd", 
+                    "nick-name": "rad-dr", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Number of relays from secondary sources."
                 }, 
                 {
-                    "name": "rad-dp", 
+                    "name": "radiation:rad-dp", 
                     "default": 32, 
-                    "nick-name": "rd", 
+                    "nick-name": "rad-dp", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Secondary source pre-sampling density."
                 }, 
                 {
-                    "name": "daysim-bin-directory", 
+                    "name": "radiation:daysim-bin-directory", 
                     "default": "C:\\Daysim\\bin", 
-                    "nick-name": "dbd", 
+                    "nick-name": "daysim-bin-directory", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Path to the Daysim binaries."
                 }, 
                 {
-                    "name": "n-buildings-in-chunk", 
+                    "name": "radiation:n-buildings-in-chunk", 
                     "default": 100, 
-                    "nick-name": "nbic", 
+                    "nick-name": "n-buildings-in-chunk", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Minimum number of building groups (chunks) to be sent for multiprocessing."
                 }, 
                 {
-                    "name": "write-sensor-data", 
+                    "name": "radiation:write-sensor-data", 
                     "default": true, 
-                    "nick-name": "wsd", 
+                    "nick-name": "write-sensor-data", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Write also data per point in the grid. (Only needed to run solar technologies). False saves space in disk"
@@ -539,49 +539,49 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "multiprocessing", 
+                    "name": "general:multiprocessing", 
                     "default": true, 
-                    "nick-name": "m", 
+                    "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Multiprocessing (if available) for quicker calculation."
                 }, 
                 {
-                    "name": "number-of-cpus-to-keep-free", 
+                    "name": "general:number-of-cpus-to-keep-free", 
                     "default": 1, 
-                    "nick-name": "noctkf", 
+                    "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
                 }, 
                 {
-                    "name": "debug", 
+                    "name": "general:debug", 
                     "default": false, 
-                    "nick-name": "d", 
+                    "nick-name": "debug", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Enable debugging-specific behaviors."
                 }, 
                 {
-                    "name": "buildings", 
+                    "name": "schedule-maker:buildings", 
                     "default": [], 
-                    "nick-name": "b", 
+                    "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of buildings considered for the schedule model (to simulate all buildings leave blank)."
                 }, 
                 {
-                    "name": "schedule-model", 
+                    "name": "schedule-maker:schedule-model", 
                     "default": "deterministic", 
-                    "nick-name": "sm", 
+                    "nick-name": "schedule-model", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Type of schedule model to use (stochastic or deterministic)"
@@ -616,89 +616,89 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "multiprocessing", 
+                    "name": "general:multiprocessing", 
                     "default": true, 
-                    "nick-name": "m", 
+                    "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Multiprocessing (if available) for quicker calculation."
                 }, 
                 {
-                    "name": "number-of-cpus-to-keep-free", 
+                    "name": "general:number-of-cpus-to-keep-free", 
                     "default": 1, 
-                    "nick-name": "noctkf", 
+                    "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
                 }, 
                 {
-                    "name": "debug", 
+                    "name": "general:debug", 
                     "default": false, 
-                    "nick-name": "d", 
+                    "nick-name": "debug", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Enable debugging-specific behaviors."
                 }, 
                 {
-                    "name": "buildings", 
+                    "name": "demand:buildings", 
                     "default": [], 
-                    "nick-name": "b", 
+                    "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of buildings considered for the demand simulation (to simulate all buildings leave blank)."
                 }, 
                 {
-                    "name": "loads-output", 
+                    "name": "demand:loads-output", 
                     "default": [], 
-                    "nick-name": "lo", 
+                    "nick-name": "loads-output", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of loads output by the demand simulation (to simulate all load types in demand_writer, leave blank)."
                 }, 
                 {
-                    "name": "massflows-output", 
+                    "name": "demand:massflows-output", 
                     "default": [], 
-                    "nick-name": "mo", 
+                    "nick-name": "massflows-output", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of mass flow rates output by the demand simulation (to simulate all system mass flow rates in demand_writer, leave blank)."
                 }, 
                 {
-                    "name": "temperatures-output", 
+                    "name": "demand:temperatures-output", 
                     "default": [], 
-                    "nick-name": "to", 
+                    "nick-name": "temperatures-output", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of temperatures output by the demand simulation (to simulate all temperatures in demand_writer, leave blank)."
                 }, 
                 {
-                    "name": "resolution-output", 
+                    "name": "demand:resolution-output", 
                     "default": "hourly", 
-                    "nick-name": "ro", 
+                    "nick-name": "resolution-output", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Time step resolution of the demand simulation (hourly or monthly)."
                 }, 
                 {
-                    "name": "use-dynamic-infiltration-calculation", 
+                    "name": "demand:use-dynamic-infiltration-calculation", 
                     "default": false, 
-                    "nick-name": "udic", 
+                    "nick-name": "use-dynamic-infiltration-calculation", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if dynamic infiltration calculations are considered (slower run times!)."
                 }, 
                 {
-                    "name": "predefined-hourly-setpoints", 
+                    "name": "demand:predefined-hourly-setpoints", 
                     "default": false, 
-                    "nick-name": "phs", 
+                    "nick-name": "predefined-hourly-setpoints", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if deterministic temperature set points for each hour of the year are considered to calculate the system demands."
@@ -733,33 +733,33 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "year-to-calculate", 
+                    "name": "emissions:year-to-calculate", 
                     "default": 2020, 
-                    "nick-name": "ytc", 
+                    "nick-name": "year-to-calculate", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Defines the time period (year-to-calculate - year_built or year_renovated) over which embodied emissions are calculated. If greater than 60 years, embodied emissions are not considered."
                 }, 
                 {
-                    "name": "embodied", 
+                    "name": "emissions:embodied", 
                     "default": true, 
-                    "nick-name": "e", 
+                    "nick-name": "embodied", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Estimate emissions due to construction and dismantling of buidlings (allocated according to the age input database, LCA database and building geometry)"
                 }, 
                 {
-                    "name": "operation", 
+                    "name": "emissions:operation", 
                     "default": true, 
-                    "nick-name": "o", 
+                    "nick-name": "operation", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Estimate emissions due to supply systems operation (allocated according to the supply-systems input database)"
@@ -794,25 +794,25 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "capital", 
+                    "name": "costs:capital", 
                     "default": true, 
-                    "nick-name": "c", 
+                    "nick-name": "capital", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Estimate Capital costs (total and annualized) due to supply systems (allocated according to the supply-systems input database)"
                 }, 
                 {
-                    "name": "operational", 
+                    "name": "costs:operational", 
                     "default": true, 
-                    "nick-name": "o", 
+                    "nick-name": "operational", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Estimate Operational costs (variable and fixed) due to supply systems operation (allocated according to the supply-systems input database)"
@@ -847,33 +847,33 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "buildings-available", 
+                    "name": "shallow-geothermal:buildings-available", 
                     "default": [], 
-                    "nick-name": "ba", 
+                    "nick-name": "buildings-available", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of buildings whose footprint can be used for shallow geothermal exploration. Leave it blank to get all buildings area"
                 }, 
                 {
-                    "name": "extra-area-available", 
+                    "name": "shallow-geothermal:extra-area-available", 
                     "default": 0.0, 
-                    "nick-name": "eaa", 
+                    "nick-name": "extra-area-available", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Add extra area where shallow geothermal probes can be installed in m2."
                 }, 
                 {
-                    "name": "average-probe-depth", 
+                    "name": "shallow-geothermal:average-probe-depth", 
                     "default": 10.0, 
-                    "nick-name": "apd", 
+                    "nick-name": "average-probe-depth", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Average depth of geothermal probes in m."
@@ -908,41 +908,41 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "max-water-volume-withdrawal", 
+                    "name": "water-body:max-water-volume-withdrawal", 
                     "default": 1000.0, 
-                    "nick-name": "mwvw", 
+                    "nick-name": "max-water-volume-withdrawal", 
                     "access": "item", 
                     "type": "string", 
                     "description": "max water volume that can be withdrawn in m3/h"
                 }, 
                 {
-                    "name": "max-delta-temperature-withdrawal", 
+                    "name": "water-body:max-delta-temperature-withdrawal", 
                     "default": 8.0, 
-                    "nick-name": "mdtw", 
+                    "nick-name": "max-delta-temperature-withdrawal", 
                     "access": "item", 
                     "type": "string", 
                     "description": "max delta of temperature that can be withdrawn in C"
                 }, 
                 {
-                    "name": "temperature-max", 
+                    "name": "water-body:temperature-max", 
                     "default": 6.0, 
-                    "nick-name": "tm", 
+                    "nick-name": "temperature-max", 
                     "access": "item", 
                     "type": "string", 
                     "description": "maximum temperature of the water body during the year at the extraction point in C"
                 }, 
                 {
-                    "name": "temperature-min", 
+                    "name": "water-body:temperature-min", 
                     "default": 4.0, 
-                    "nick-name": "tm", 
+                    "nick-name": "temperature-min", 
                     "access": "item", 
                     "type": "string", 
                     "description": "= average temperature of the water body during the year at the extraction point (it can be 30m) in C"
@@ -977,89 +977,89 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "multiprocessing", 
+                    "name": "general:multiprocessing", 
                     "default": true, 
-                    "nick-name": "m", 
+                    "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Multiprocessing (if available) for quicker calculation."
                 }, 
                 {
-                    "name": "number-of-cpus-to-keep-free", 
+                    "name": "general:number-of-cpus-to-keep-free", 
                     "default": 1, 
-                    "nick-name": "noctkf", 
+                    "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
                 }, 
                 {
-                    "name": "buildings", 
+                    "name": "solar:buildings", 
                     "default": [], 
-                    "nick-name": "b", 
+                    "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of buildings considered for the photovoltaic (PV), photovoltaic thermal (PVT) and solar collector (SC) simulations (to simulate all buildings leave blank)."
                 }, 
                 {
-                    "name": "type-pvpanel", 
+                    "name": "solar:type-pvpanel", 
                     "default": "PV1", 
-                    "nick-name": "tp", 
+                    "nick-name": "type-pvpanel", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Type of PV panel."
                 }, 
                 {
-                    "name": "type-scpanel", 
+                    "name": "solar:type-scpanel", 
                     "default": "FP", 
-                    "nick-name": "ts", 
+                    "nick-name": "type-scpanel", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Type of solar collector: \"FP\" (Flat-plate) or \"ET\" (Evacuated-tubes)."
                 }, 
                 {
-                    "name": "panel-on-roof", 
+                    "name": "solar:panel-on-roof", 
                     "default": true, 
-                    "nick-name": "por", 
+                    "nick-name": "panel-on-roof", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if panels are considered on roof surfaces."
                 }, 
                 {
-                    "name": "panel-on-wall", 
+                    "name": "solar:panel-on-wall", 
                     "default": true, 
-                    "nick-name": "pow", 
+                    "nick-name": "panel-on-wall", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if panels are considered on wall surfaces."
                 }, 
                 {
-                    "name": "annual-radiation-threshold", 
+                    "name": "solar:annual-radiation-threshold", 
                     "default": 800.0, 
-                    "nick-name": "art", 
+                    "nick-name": "annual-radiation-threshold", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Only consider panels on surfaces that receive radiation above the defined threshold [kWh/m2/yr]."
                 }, 
                 {
-                    "name": "solar-window-solstice", 
+                    "name": "solar:solar-window-solstice", 
                     "default": 4, 
-                    "nick-name": "sws", 
+                    "nick-name": "solar-window-solstice", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Desired time of solar exposure on the solstice in hours."
                 }, 
                 {
-                    "name": "t-in-pvt", 
+                    "name": "solar:t-in-pvt", 
                     "default": null, 
-                    "nick-name": "tip", 
+                    "nick-name": "t-in-pvt", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Inlet temperature of PVT panels in celsius (if blank: 35C)."
@@ -1094,65 +1094,65 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "multiprocessing", 
+                    "name": "general:multiprocessing", 
                     "default": true, 
-                    "nick-name": "m", 
+                    "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Multiprocessing (if available) for quicker calculation."
                 }, 
                 {
-                    "name": "type-pvpanel", 
+                    "name": "solar:type-pvpanel", 
                     "default": "PV1", 
-                    "nick-name": "tp", 
+                    "nick-name": "type-pvpanel", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Type of PV panel."
                 }, 
                 {
-                    "name": "number-of-cpus-to-keep-free", 
+                    "name": "general:number-of-cpus-to-keep-free", 
                     "default": 1, 
-                    "nick-name": "noctkf", 
+                    "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
                 }, 
                 {
-                    "name": "panel-on-roof", 
+                    "name": "solar:panel-on-roof", 
                     "default": true, 
-                    "nick-name": "por", 
+                    "nick-name": "panel-on-roof", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if panels are considered on roof surfaces."
                 }, 
                 {
-                    "name": "panel-on-wall", 
+                    "name": "solar:panel-on-wall", 
                     "default": true, 
-                    "nick-name": "pow", 
+                    "nick-name": "panel-on-wall", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if panels are considered on wall surfaces."
                 }, 
                 {
-                    "name": "annual-radiation-threshold", 
+                    "name": "solar:annual-radiation-threshold", 
                     "default": 800.0, 
-                    "nick-name": "art", 
+                    "nick-name": "annual-radiation-threshold", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Only consider panels on surfaces that receive radiation above the defined threshold [kWh/m2/yr]."
                 }, 
                 {
-                    "name": "solar-window-solstice", 
+                    "name": "solar:solar-window-solstice", 
                     "default": 4, 
-                    "nick-name": "sws", 
+                    "nick-name": "solar-window-solstice", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Desired time of solar exposure on the solstice in hours."
@@ -1187,33 +1187,33 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "heat-exchanger-length", 
+                    "name": "sewage:heat-exchanger-length", 
                     "default": 120, 
-                    "nick-name": "hel", 
+                    "nick-name": "heat-exchanger-length", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Length of pipeline available for a heat exchanger in the sewage in meters (at least 100 meters)."
                 }, 
                 {
-                    "name": "sewage-water-ratio", 
+                    "name": "sewage:sewage-water-ratio", 
                     "default": 0.95, 
-                    "nick-name": "swr", 
+                    "nick-name": "sewage-water-ratio", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Ratio of decrease/increase in sewage water due to solids and water intakes."
                 }, 
                 {
-                    "name": "sewage-water-district", 
+                    "name": "sewage:sewage-water-district", 
                     "default": 50.0, 
-                    "nick-name": "swd", 
+                    "nick-name": "sewage-water-district", 
                     "access": "item", 
                     "type": "string", 
                     "description": "How many liters of wastewater come from the neighboring districts thoruhg the heat-exchanger LPs"
@@ -1248,81 +1248,81 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "multiprocessing", 
+                    "name": "general:multiprocessing", 
                     "default": true, 
-                    "nick-name": "m", 
+                    "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Multiprocessing (if available) for quicker calculation."
                 }, 
                 {
-                    "name": "number-of-cpus-to-keep-free", 
+                    "name": "general:number-of-cpus-to-keep-free", 
                     "default": 1, 
-                    "nick-name": "noctkf", 
+                    "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
                 }, 
                 {
-                    "name": "type-scpanel", 
+                    "name": "solar:type-scpanel", 
                     "default": "FP", 
-                    "nick-name": "ts", 
+                    "nick-name": "type-scpanel", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Type of solar collector: \"FP\" (Flat-plate) or \"ET\" (Evacuated-tubes)."
                 }, 
                 {
-                    "name": "panel-on-roof", 
+                    "name": "solar:panel-on-roof", 
                     "default": true, 
-                    "nick-name": "por", 
+                    "nick-name": "panel-on-roof", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if panels are considered on roof surfaces."
                 }, 
                 {
-                    "name": "panel-on-wall", 
+                    "name": "solar:panel-on-wall", 
                     "default": true, 
-                    "nick-name": "pow", 
+                    "nick-name": "panel-on-wall", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if panels are considered on wall surfaces."
                 }, 
                 {
-                    "name": "annual-radiation-threshold", 
+                    "name": "solar:annual-radiation-threshold", 
                     "default": 800.0, 
-                    "nick-name": "art", 
+                    "nick-name": "annual-radiation-threshold", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Only consider panels on surfaces that receive radiation above the defined threshold [kWh/m2/yr]."
                 }, 
                 {
-                    "name": "solar-window-solstice", 
+                    "name": "solar:solar-window-solstice", 
                     "default": 4, 
-                    "nick-name": "sws", 
+                    "nick-name": "solar-window-solstice", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Desired time of solar exposure on the solstice in hours."
                 }, 
                 {
-                    "name": "t-in-sc", 
+                    "name": "solar:t-in-sc", 
                     "default": null, 
-                    "nick-name": "tis", 
+                    "nick-name": "t-in-sc", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Inlet temperature of solar collectors in celsius (if blank: 60C for Flat-plate and 75C for Evacuated-tube)."
                 }, 
                 {
-                    "name": "buildings", 
+                    "name": "solar:buildings", 
                     "default": [], 
-                    "nick-name": "b", 
+                    "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of buildings considered for the photovoltaic (PV), photovoltaic thermal (PVT) and solar collector (SC) simulations (to simulate all buildings leave blank)."
@@ -1357,57 +1357,57 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "network-type", 
+                    "name": "network-layout:network-type", 
                     "default": "DC", 
-                    "nick-name": "nt", 
+                    "nick-name": "network-type", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Type of district network: \"DH\" (district heating), or \"DC\" (district cooling)"
                 }, 
                 {
-                    "name": "connected-buildings", 
+                    "name": "network-layout:connected-buildings", 
                     "default": [], 
-                    "nick-name": "cb", 
+                    "nick-name": "connected-buildings", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of buildings/customers to connect (blank if all buildings connected)."
                 }, 
                 {
-                    "name": "pipe-diameter", 
+                    "name": "network-layout:pipe-diameter", 
                     "default": 150, 
-                    "nick-name": "pd", 
+                    "nick-name": "pipe-diameter", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Nominal diameter of pipe in mm."
                 }, 
                 {
-                    "name": "type-mat", 
+                    "name": "network-layout:type-mat", 
                     "default": "T1", 
-                    "nick-name": "tm", 
+                    "nick-name": "type-mat", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Type of default material for piping."
                 }, 
                 {
-                    "name": "allow-looped-networks", 
+                    "name": "network-layout:allow-looped-networks", 
                     "default": false, 
-                    "nick-name": "aln", 
+                    "nick-name": "allow-looped-networks", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if network loops should be created."
                 }, 
                 {
-                    "name": "consider-only-buildings-with-demand", 
+                    "name": "network-layout:consider-only-buildings-with-demand", 
                     "default": true, 
-                    "nick-name": "cobwd", 
+                    "nick-name": "consider-only-buildings-with-demand", 
                     "access": "item", 
                     "type": "string", 
                     "description": "whether when creating networks ONLY buildings with energy demand should be considered or not. default is true"
@@ -1442,202 +1442,202 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "multiprocessing", 
+                    "name": "general:multiprocessing", 
                     "default": true, 
-                    "nick-name": "m", 
+                    "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Multiprocessing (if available) for quicker calculation."
                 }, 
                 {
-                    "name": "number-of-cpus-to-keep-free", 
+                    "name": "general:number-of-cpus-to-keep-free", 
                     "default": 1, 
-                    "nick-name": "noctkf", 
+                    "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
                 }, 
                 {
-                    "name": "network-type", 
+                    "name": "thermal-network:network-type", 
                     "default": "DH", 
-                    "nick-name": "nt", 
+                    "nick-name": "network-type", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Type of district network to be simulated: \"DH\" (district heating) or \"DC\" (district cooling)."
                 }, 
                 {
-                    "name": "network-model", 
+                    "name": "thermal-network:network-model", 
                     "default": "simplified", 
-                    "nick-name": "nm", 
+                    "nick-name": "network-model", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Choose either simplified (seconds) or detailed model (several hours)"
                 }, 
                 {
-                    "name": "min-head-substation", 
+                    "name": "thermal-network:min-head-substation", 
                     "default": 20.0, 
-                    "nick-name": "mhs", 
+                    "nick-name": "min-head-substation", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Minimum head loss in kPa expected at each thermal transfer substation"
                 }, 
                 {
-                    "name": "hw-friction-coefficient", 
+                    "name": "thermal-network:hw-friction-coefficient", 
                     "default": 100, 
-                    "nick-name": "hfc", 
+                    "nick-name": "hw-friction-coefficient", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Hanzen-Williams friction coefficient considered for the pipes in mm"
                 }, 
                 {
-                    "name": "peak-load-velocity", 
+                    "name": "thermal-network:peak-load-velocity", 
                     "default": 2.0, 
-                    "nick-name": "plv", 
+                    "nick-name": "peak-load-velocity", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Maximum velocity expected in pipes in m3/s (Higher values result in smaller pipe diameters)"
                 }, 
                 {
-                    "name": "equivalent-length-factor", 
+                    "name": "thermal-network:equivalent-length-factor", 
                     "default": 0.2, 
-                    "nick-name": "elf", 
+                    "nick-name": "equivalent-length-factor", 
                     "access": "item", 
                     "type": "string", 
                     "description": "fraction of pressure losses expected dues to accessories in the network (valid values within 0.0 and 0.6)"
                 }, 
                 {
-                    "name": "peak-load-percentage", 
+                    "name": "thermal-network:peak-load-percentage", 
                     "default": 100.0, 
-                    "nick-name": "plp", 
+                    "nick-name": "peak-load-percentage", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Percentage of the peak demand in % to use for pipe sizing (valid values within 0 and 200)"
                 }, 
                 {
-                    "name": "network-names", 
+                    "name": "thermal-network:network-names", 
                     "default": [], 
-                    "nick-name": "nn", 
+                    "nick-name": "network-names", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of network file names for either DH (district heating) or DC (district cooling) network types."
                 }, 
                 {
-                    "name": "set-diameter", 
+                    "name": "thermal-network:set-diameter", 
                     "default": true, 
-                    "nick-name": "sd", 
+                    "nick-name": "set-diameter", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if diameters are set by maximum velocity (2m/s), false if diameters are considered a fixed input."
                 }, 
                 {
-                    "name": "load-max-edge-flowrate-from-previous-run", 
+                    "name": "thermal-network:load-max-edge-flowrate-from-previous-run", 
                     "default": false, 
-                    "nick-name": "lmeffpr", 
+                    "nick-name": "load-max-edge-flowrate-from-previous-run", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True to bypass the calc_max_edge_flowrate function, using results from the previous simulation (useful for debugging)."
                 }, 
                 {
-                    "name": "start-t", 
+                    "name": "thermal-network:start-t", 
                     "default": 0, 
-                    "nick-name": "st", 
+                    "nick-name": "start-t", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Start hour for calculations (0-based)."
                 }, 
                 {
-                    "name": "stop-t", 
+                    "name": "thermal-network:stop-t", 
                     "default": 8760, 
-                    "nick-name": "st", 
+                    "nick-name": "stop-t", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Stop hour for calculations (0-based, upper bound)."
                 }, 
                 {
-                    "name": "use-representative-week-per-month", 
+                    "name": "thermal-network:use-representative-week-per-month", 
                     "default": false, 
-                    "nick-name": "urwpm", 
+                    "nick-name": "use-representative-week-per-month", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True to use the data for first week of each month instead of the full month."
                 }, 
                 {
-                    "name": "minimum-mass-flow-iteration-limit", 
+                    "name": "thermal-network:minimum-mass-flow-iteration-limit", 
                     "default": 30, 
-                    "nick-name": "mmfil", 
+                    "nick-name": "minimum-mass-flow-iteration-limit", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Maximum number of iterations permitted for the increase of minimum mass flows in the network."
                 }, 
                 {
-                    "name": "minimum-edge-mass-flow", 
+                    "name": "thermal-network:minimum-edge-mass-flow", 
                     "default": 0.1, 
-                    "nick-name": "memf", 
+                    "nick-name": "minimum-edge-mass-flow", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Minimum mass flow rate permitted in the network (in kg/s). If the mass flow rate in any edge is below this value at any time period, the thermal network will be re-sized accordingly"
                 }, 
                 {
-                    "name": "diameter-iteration-limit", 
+                    "name": "thermal-network:diameter-iteration-limit", 
                     "default": 10, 
-                    "nick-name": "dil", 
+                    "nick-name": "diameter-iteration-limit", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Maximum number of iterations permitted for the network diameter optimization (relevant for looped network result convergence)."
                 }, 
                 {
-                    "name": "substation-cooling-systems", 
+                    "name": "thermal-network:substation-cooling-systems", 
                     "default": [
                         "ahu", 
                         "aru", 
                         "scu"
                     ], 
-                    "nick-name": "scs", 
+                    "nick-name": "substation-cooling-systems", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of cooling loads to be supplied (DC mode)"
                 }, 
                 {
-                    "name": "substation-heating-systems", 
+                    "name": "thermal-network:substation-heating-systems", 
                     "default": [
                         "ahu", 
                         "aru", 
                         "shu", 
                         "ww"
                     ], 
-                    "nick-name": "shs", 
+                    "nick-name": "substation-heating-systems", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of heating loads to be supplied (DH mode)"
                 }, 
                 {
-                    "name": "temperature-control", 
+                    "name": "thermal-network:temperature-control", 
                     "default": "VT", 
-                    "nick-name": "tc", 
+                    "nick-name": "temperature-control", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Type of control strategy for plant operation: \"VT\" (Variable Temperature / Variable Flow) or \"CT\" (Constant Temperature / Variable Flow)."
                 }, 
                 {
-                    "name": "plant-supply-temperature", 
+                    "name": "thermal-network:plant-supply-temperature", 
                     "default": 80.0, 
-                    "nick-name": "pst", 
+                    "nick-name": "plant-supply-temperature", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Supply temperature of plants in celsius (relevant if temperature-control is set to 'CT')."
                 }, 
                 {
-                    "name": "use-representative-week-per-month", 
+                    "name": "thermal-network-optimization:use-representative-week-per-month", 
                     "default": false, 
-                    "nick-name": "urwpm", 
+                    "nick-name": "use-representative-week-per-month", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True to use the data for first week of each month instead of the full month."
@@ -1672,250 +1672,250 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "multiprocessing", 
+                    "name": "general:multiprocessing", 
                     "default": true, 
-                    "nick-name": "m", 
+                    "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Multiprocessing (if available) for quicker calculation."
                 }, 
                 {
-                    "name": "number-of-cpus-to-keep-free", 
+                    "name": "general:number-of-cpus-to-keep-free", 
                     "default": 1, 
-                    "nick-name": "noctkf", 
+                    "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
                 }, 
                 {
-                    "name": "network-type", 
+                    "name": "thermal-network-optimization:network-type", 
                     "default": "DH", 
-                    "nick-name": "nt", 
+                    "nick-name": "network-type", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Type of district network to be simulated: \"DH\" (district heating) or \"DC\" (district cooling)."
                 }, 
                 {
-                    "name": "network-names", 
+                    "name": "thermal-network-optimization:network-names", 
                     "default": [], 
-                    "nick-name": "nn", 
+                    "nick-name": "network-names", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of network file names for either DH (district heating) or DC (district cooling) network types."
                 }, 
                 {
-                    "name": "file-type", 
+                    "name": "thermal-network-optimization:file-type", 
                     "default": "shp", 
-                    "nick-name": "ft", 
+                    "nick-name": "file-type", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Format of the input files (either csv file or a shape file)."
                 }, 
                 {
-                    "name": "set-diameter", 
+                    "name": "thermal-network-optimization:set-diameter", 
                     "default": true, 
-                    "nick-name": "sd", 
+                    "nick-name": "set-diameter", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if diameters are set by min and max flow rates, false if diameters are considered a fixed input."
                 }, 
                 {
-                    "name": "load-max-edge-flowrate-from-previous-run", 
+                    "name": "thermal-network-optimization:load-max-edge-flowrate-from-previous-run", 
                     "default": false, 
-                    "nick-name": "lmeffpr", 
+                    "nick-name": "load-max-edge-flowrate-from-previous-run", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True to bypass the calc_max_edge_flowrate function using results from the previous simulation (useful for debugging)."
                 }, 
                 {
-                    "name": "start-t", 
+                    "name": "thermal-network-optimization:start-t", 
                     "default": 0, 
-                    "nick-name": "st", 
+                    "nick-name": "start-t", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Start hour for calculations (0-based)."
                 }, 
                 {
-                    "name": "stop-t", 
+                    "name": "thermal-network-optimization:stop-t", 
                     "default": 8760, 
-                    "nick-name": "st", 
+                    "nick-name": "stop-t", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Stop hour for calculations (0-based, upper bound)."
                 }, 
                 {
-                    "name": "network-name", 
+                    "name": "thermal-network-optimization:network-name", 
                     "default": "", 
-                    "nick-name": "nn", 
+                    "nick-name": "network-name", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Name of the network for which to run the network optimization."
                 }, 
                 {
-                    "name": "possible-plant-sites", 
+                    "name": "thermal-network-optimization:possible-plant-sites", 
                     "default": [], 
-                    "nick-name": "pps", 
+                    "nick-name": "possible-plant-sites", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List building names considered candidates for plant locations (leave blank if all buildings are considered candidates)."
                 }, 
                 {
-                    "name": "min-number-of-plants", 
+                    "name": "thermal-network-optimization:min-number-of-plants", 
                     "default": 1, 
-                    "nick-name": "mnop", 
+                    "nick-name": "min-number-of-plants", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Minimum number of plants used for thermal network optimization (minimum value is 1)."
                 }, 
                 {
-                    "name": "max-number-of-plants", 
+                    "name": "thermal-network-optimization:max-number-of-plants", 
                     "default": 1, 
-                    "nick-name": "mnop", 
+                    "nick-name": "max-number-of-plants", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Maximum number of plants used for thermal network optimization (minimum value is 1)."
                 }, 
                 {
-                    "name": "number-of-individuals", 
+                    "name": "thermal-network-optimization:number-of-individuals", 
                     "default": 6, 
-                    "nick-name": "noi", 
+                    "nick-name": "number-of-individuals", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Number of individuals at the start of the optimization (parameter for genetic algorithm)."
                 }, 
                 {
-                    "name": "chance-of-mutation", 
+                    "name": "thermal-network-optimization:chance-of-mutation", 
                     "default": 20.0, 
-                    "nick-name": "com", 
+                    "nick-name": "chance-of-mutation", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Percentage chance of mutation in the genetic algorithm."
                 }, 
                 {
-                    "name": "number-of-generations", 
+                    "name": "thermal-network-optimization:number-of-generations", 
                     "default": 20, 
-                    "nick-name": "nog", 
+                    "nick-name": "number-of-generations", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Number of generations used for thermal network optimization."
                 }, 
                 {
-                    "name": "lucky-few", 
+                    "name": "thermal-network-optimization:lucky-few", 
                     "default": 1, 
-                    "nick-name": "lf", 
+                    "nick-name": "lucky-few", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Number of individuals which are randomly picked despite not being optimal (must be smaller than the number of individuals minus one)."
                 }, 
                 {
-                    "name": "optimize-loop-branch", 
+                    "name": "thermal-network-optimization:optimize-loop-branch", 
                     "default": false, 
-                    "nick-name": "olb", 
+                    "nick-name": "optimize-loop-branch", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if the thermal network optimization will dictate the use of purely branched or mixed network layouts."
                 }, 
                 {
-                    "name": "optimize-network-loads", 
+                    "name": "thermal-network-optimization:optimize-network-loads", 
                     "default": false, 
-                    "nick-name": "onl", 
+                    "nick-name": "optimize-network-loads", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if the thermal network optimization will dictate which heat loads are provided by the network."
                 }, 
                 {
-                    "name": "optimize-building-connections", 
+                    "name": "thermal-network-optimization:optimize-building-connections", 
                     "default": false, 
-                    "nick-name": "obc", 
+                    "nick-name": "optimize-building-connections", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if the thermal network optimization will dictate which buildings to connect to the network."
                 }, 
                 {
-                    "name": "use-rule-based-approximation", 
+                    "name": "thermal-network-optimization:use-rule-based-approximation", 
                     "default": false, 
-                    "nick-name": "urba", 
+                    "nick-name": "use-rule-based-approximation", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if the thermal network optimization will use a rule based approach to narrow the solution space (e.g. by limiting the amount of possible plant locations)."
                 }, 
                 {
-                    "name": "use-representative-week-per-month", 
+                    "name": "thermal-network-optimization:use-representative-week-per-month", 
                     "default": false, 
-                    "nick-name": "urwpm", 
+                    "nick-name": "use-representative-week-per-month", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True to use the data for first week of each month instead of the full month."
                 }, 
                 {
-                    "name": "minimum-mass-flow-iteration-limit", 
+                    "name": "thermal-network-optimization:minimum-mass-flow-iteration-limit", 
                     "default": 30, 
-                    "nick-name": "mmfil", 
+                    "nick-name": "minimum-mass-flow-iteration-limit", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Maximum number of iterations permitted for the increase of minimum mass flows in the network."
                 }, 
                 {
-                    "name": "minimum-edge-mass-flow", 
+                    "name": "thermal-network-optimization:minimum-edge-mass-flow", 
                     "default": 0.1, 
-                    "nick-name": "memf", 
+                    "nick-name": "minimum-edge-mass-flow", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Minimum mass flow rate permitted in the network (in kg/s). If the mass flow rate in any edge is below this value at any time period, the thermal network will be re-sized accordingly."
                 }, 
                 {
-                    "name": "diameter-iteration-limit", 
+                    "name": "thermal-network-optimization:diameter-iteration-limit", 
                     "default": 10, 
-                    "nick-name": "dil", 
+                    "nick-name": "diameter-iteration-limit", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Maximum number of iterations permitted for the network diameter optimization (relevant for looped network result convergence)."
                 }, 
                 {
-                    "name": "substation-cooling-systems", 
+                    "name": "thermal-network-optimization:substation-cooling-systems", 
                     "default": [
                         "ahu", 
                         "aru", 
                         "scu"
                     ], 
-                    "nick-name": "scs", 
+                    "nick-name": "substation-cooling-systems", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of cooling loads to be supplied (DC mode)."
                 }, 
                 {
-                    "name": "substation-heating-systems", 
+                    "name": "thermal-network-optimization:substation-heating-systems", 
                     "default": [
                         "ahu", 
                         "aru", 
                         "shu", 
                         "ww"
                     ], 
-                    "nick-name": "shs", 
+                    "nick-name": "substation-heating-systems", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of heating loads to be supplied (DH mode)."
                 }, 
                 {
-                    "name": "disconnected-buildings", 
+                    "name": "thermal-network-optimization:disconnected-buildings", 
                     "default": [], 
-                    "nick-name": "db", 
+                    "nick-name": "disconnected-buildings", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of buildings which are disconnected from the network."
                 }, 
                 {
-                    "name": "yearly-cost-calculations", 
+                    "name": "thermal-network-optimization:yearly-cost-calculations", 
                     "default": false, 
-                    "nick-name": "ycc", 
+                    "nick-name": "yearly-cost-calculations", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if cost calculations of CT opex and heat/cooling production are based on a yearly basis."
@@ -1950,25 +1950,25 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "multiprocessing", 
+                    "name": "general:multiprocessing", 
                     "default": true, 
-                    "nick-name": "m", 
+                    "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Multiprocessing (if available) for quicker calculation."
                 }, 
                 {
-                    "name": "number-of-cpus-to-keep-free", 
+                    "name": "general:number-of-cpus-to-keep-free", 
                     "default": 1, 
-                    "nick-name": "noctkf", 
+                    "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
@@ -2003,47 +2003,47 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "debug", 
+                    "name": "general:debug", 
                     "default": false, 
-                    "nick-name": "d", 
+                    "nick-name": "debug", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Enable debugging-specific behaviors."
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "multiprocessing", 
+                    "name": "general:multiprocessing", 
                     "default": true, 
-                    "nick-name": "m", 
+                    "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Multiprocessing (if available) for quicker calculation."
                 }, 
                 {
-                    "name": "number-of-cpus-to-keep-free", 
+                    "name": "general:number-of-cpus-to-keep-free", 
                     "default": 1, 
-                    "nick-name": "noctkf", 
+                    "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Limits the maximum number of processors to use for multiprocessing. By default, one CPU is kept free."
                 }, 
                 {
-                    "name": "network-type", 
+                    "name": "optimization:network-type", 
                     "default": "DH", 
-                    "nick-name": "nt", 
+                    "nick-name": "network-type", 
                     "access": "item", 
                     "type": "string", 
                     "description": "District Heating (DH) or District Cooling (DC)"
                 }, 
                 {
-                    "name": "technologies-dh", 
+                    "name": "optimization:technologies-dh", 
                     "default": [
                         "NG_Cogen", 
                         "WB_Cogen", 
@@ -2059,13 +2059,13 @@
                         "SC_FP", 
                         "PV"
                     ], 
-                    "nick-name": "td", 
+                    "nick-name": "technologies-dh", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Technologies to consider during optimization of the central supply system when DH is selected"
                 }, 
                 {
-                    "name": "technologies-dc", 
+                    "name": "optimization:technologies-dc", 
                     "default": [
                         "NG_Trigen", 
                         "WS_BaseVCC", 
@@ -2075,79 +2075,79 @@
                         "Storage", 
                         "PV"
                     ], 
-                    "nick-name": "td", 
+                    "nick-name": "technologies-dc", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Technologies to consider during optimization of the central supply system when DC is selected"
                 }, 
                 {
-                    "name": "population-size", 
+                    "name": "optimization:population-size", 
                     "default": null, 
-                    "nick-name": "ps", 
+                    "nick-name": "population-size", 
                     "access": "item", 
                     "type": "string", 
                     "description": "this denotes the number of individuals, leave in blank to compute the suggested by deb et al., 2014 (92)"
                 }, 
                 {
-                    "name": "number-of-generations", 
+                    "name": "optimization:number-of-generations", 
                     "default": 100, 
-                    "nick-name": "nog", 
+                    "nick-name": "number-of-generations", 
                     "access": "item", 
                     "type": "string", 
                     "description": "number of generations for genetic algorithm (NSGA-III)"
                 }, 
                 {
-                    "name": "random-seed", 
+                    "name": "optimization:random-seed", 
                     "default": 100, 
-                    "nick-name": "rs", 
+                    "nick-name": "random-seed", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Random seed to make it easy to replicate the results of the scenarios."
                 }, 
                 {
-                    "name": "mutation-prob", 
+                    "name": "optimization:mutation-prob", 
                     "default": 0.1, 
-                    "nick-name": "mp", 
+                    "nick-name": "mutation-prob", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Mutation probability for genetic algorithm (NSGA-III)"
                 }, 
                 {
-                    "name": "mutation-method-integer", 
+                    "name": "optimization:mutation-method-integer", 
                     "default": "Flipbit", 
-                    "nick-name": "mmi", 
+                    "nick-name": "mutation-method-integer", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Mutation method for integer variables (network connectivity)"
                 }, 
                 {
-                    "name": "mutation-method-continuous", 
+                    "name": "optimization:mutation-method-continuous", 
                     "default": "Polynomial", 
-                    "nick-name": "mmc", 
+                    "nick-name": "mutation-method-continuous", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Mutation method for continuous variables (plant capacities)"
                 }, 
                 {
-                    "name": "crossover-prob", 
+                    "name": "optimization:crossover-prob", 
                     "default": 0.9, 
-                    "nick-name": "cp", 
+                    "nick-name": "crossover-prob", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Cross-over probability for genetic algorithm (NSGA-III)"
                 }, 
                 {
-                    "name": "crossover-method-integer", 
+                    "name": "optimization:crossover-method-integer", 
                     "default": "UniformPartialyMatched", 
-                    "nick-name": "cmi", 
+                    "nick-name": "crossover-method-integer", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Crossover method for integer variables (network connectivity)"
                 }, 
                 {
-                    "name": "crossover-method-continuous", 
+                    "name": "optimization:crossover-method-continuous", 
                     "default": "Uniform", 
-                    "nick-name": "cmc", 
+                    "nick-name": "crossover-method-continuous", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Crossover method for continuous variables (plant capacities)"
@@ -2182,33 +2182,33 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "input-file", 
+                    "name": "dbf-tools:input-file", 
                     "default": "{general:scenario}/inputs/technology/archetypes/construction_properties.xlsx", 
-                    "nick-name": "if", 
+                    "nick-name": "input-file", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Path to the DBF or Excel file."
                 }, 
                 {
-                    "name": "output-path", 
+                    "name": "dbf-tools:output-path", 
                     "default": "C:\\Users\\darthoma\\Documents\\GitHub\\cea-grasshopper\\{general:scenario}", 
-                    "nick-name": "op", 
+                    "nick-name": "output-path", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Path to save the dbf <-> xls conversion results."
                 }, 
                 {
-                    "name": "output-file-name", 
+                    "name": "dbf-tools:output-file-name", 
                     "default": "converted_file", 
-                    "nick-name": "ofn", 
+                    "nick-name": "output-file-name", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Name of the output file (without extension)."
@@ -2243,29 +2243,29 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "databases-path", 
+                    "name": "data-initializer:databases-path", 
                     "default": "", 
-                    "nick-name": "dp", 
+                    "nick-name": "databases-path", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Either a full path to databases or the standard databases contained within the CEA."
                 }, 
                 {
-                    "name": "databases", 
+                    "name": "data-initializer:databases", 
                     "default": [
                         "archetypes", 
                         "assemblies", 
                         "components"
                     ], 
-                    "nick-name": "d", 
+                    "nick-name": "databases", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of databases to initialize from the selected path"
@@ -2300,9 +2300,9 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
@@ -2337,65 +2337,65 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "project", 
+                    "name": "create-new-scenario:project", 
                     "default": "cea-new-project", 
-                    "nick-name": "p", 
+                    "nick-name": "project", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Name of the new project."
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "create-new-scenario:scenario", 
                     "default": "baseline", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Name of the baseline scenario."
                 }, 
                 {
-                    "name": "output-path", 
+                    "name": "create-new-scenario:output-path", 
                     "default": "C:\\Users\\darthoma\\Documents\\GitHub", 
-                    "nick-name": "op", 
+                    "nick-name": "output-path", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Path to new project location."
                 }, 
                 {
-                    "name": "zone", 
+                    "name": "create-new-scenario:zone", 
                     "default": "{general:scenario}/inputs/building-geometry/zone.shp", 
-                    "nick-name": "z", 
+                    "nick-name": "zone", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Path to geometry of the zone."
                 }, 
                 {
-                    "name": "terrain", 
+                    "name": "create-new-scenario:terrain", 
                     "default": "{general:scenario}/inputs/topography/terrain.tif", 
-                    "nick-name": "t", 
+                    "nick-name": "terrain", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Path to the digital elevation model."
                 }, 
                 {
-                    "name": "streets", 
+                    "name": "create-new-scenario:streets", 
                     "default": "{general:scenario}/inputs/networks/streets.shp", 
-                    "nick-name": "s", 
+                    "nick-name": "streets", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Path to street geometry."
                 }, 
                 {
-                    "name": "surroundings", 
+                    "name": "create-new-scenario:surroundings", 
                     "default": "", 
-                    "nick-name": "s", 
+                    "nick-name": "surroundings", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Path to geometry of zone and surroundings (blank if shading effects are not considered)."
                 }, 
                 {
-                    "name": "typology", 
+                    "name": "create-new-scenario:typology", 
                     "default": "", 
-                    "nick-name": "t", 
+                    "nick-name": "typology", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Path to typology database (blank if CEA should create one for you)."
@@ -2430,25 +2430,25 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "old", 
+                    "name": "rename-building:old", 
                     "default": "B1000", 
-                    "nick-name": "o", 
+                    "nick-name": "old", 
                     "access": "item", 
                     "type": "string", 
                     "description": "The name of the building to rename"
                 }, 
                 {
-                    "name": "new", 
+                    "name": "rename-building:new", 
                     "default": "", 
-                    "nick-name": "n", 
+                    "nick-name": "new", 
                     "access": "item", 
                     "type": "string", 
                     "description": "The new name of the building (must be unique)"
@@ -2483,35 +2483,35 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "use-type", 
+                    "name": "create-mixed-use-type:use-type", 
                     "default": "mixed_use", 
-                    "nick-name": "ut", 
+                    "nick-name": "use-type", 
                     "access": "item", 
                     "type": "string", 
                     "description": "The name of the new use-type"
                 }, 
                 {
-                    "name": "metadata", 
+                    "name": "create-mixed-use-type:metadata", 
                     "default": "mixed-use", 
-                    "nick-name": "m", 
+                    "nick-name": "metadata", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Description for the new use-type"
                 }, 
                 {
-                    "name": "ratios", 
+                    "name": "create-mixed-use-type:ratios", 
                     "default": [
                         "MULTI_RES|1.0"
                     ], 
-                    "nick-name": "r", 
+                    "nick-name": "ratios", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of use type and ratio pairs (e.g. \"MULTI_RES|0.5,SCHOOL|0.5\")"
@@ -2546,9 +2546,9 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "workflow", 
+                    "name": "test:workflow", 
                     "default": "quick", 
-                    "nick-name": "w", 
+                    "nick-name": "workflow", 
                     "access": "item", 
                     "type": "string", 
                     "description": "The test workflow to run"
@@ -2612,39 +2612,39 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "project", 
+                    "name": "general:project", 
                     "default": "C:\\reference-case-open", 
-                    "nick-name": "p", 
+                    "nick-name": "project", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the path of the project you're working on."
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "buildings", 
+                    "name": "plots:buildings", 
                     "default": [], 
-                    "nick-name": "b", 
+                    "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of building names to generate plots (leave blank for all buildings)."
                 }, 
                 {
-                    "name": "building", 
+                    "name": "plots:building", 
                     "default": "B1000", 
-                    "nick-name": "b", 
+                    "nick-name": "building", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Building ID for the Energy Demand, Comfort Plot and Heating Reset-schedule plot. Used only for the\ndashboard plots. For the plots tool, use a single building in the \"buildings\" variable."
                 }, 
                 {
-                    "name": "categories", 
+                    "name": "plots:categories", 
                     "default": [
                         "demand", 
                         "solar_potentials", 
@@ -2652,97 +2652,97 @@
                         "life_cycle_analysis", 
                         "thermal_network"
                     ], 
-                    "nick-name": "c", 
+                    "nick-name": "categories", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of plot categories to be created."
                 }, 
                 {
-                    "name": "network-type", 
+                    "name": "plots:network-type", 
                     "default": "DC", 
-                    "nick-name": "nt", 
+                    "nick-name": "network-type", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Type of district network: \"DH\" (district heating) or \"DC\" (district cooling)."
                 }, 
                 {
-                    "name": "network-name", 
+                    "name": "plots:network-name", 
                     "default": "", 
-                    "nick-name": "nn", 
+                    "nick-name": "network-name", 
                     "access": "item", 
                     "type": "string", 
                     "description": "The name of the network to plot (defaults to an empty string)."
                 }, 
                 {
-                    "name": "plant-node", 
+                    "name": "plots:plant-node", 
                     "default": null, 
-                    "nick-name": "pn", 
+                    "nick-name": "plant-node", 
                     "access": "item", 
                     "type": "string", 
                     "description": "The plant node to plot."
                 }, 
                 {
-                    "name": "timeframe", 
+                    "name": "plots:timeframe", 
                     "default": "monthly", 
-                    "nick-name": "t", 
+                    "nick-name": "timeframe", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select one individual configuration of the supply system to visualize."
                 }, 
                 {
-                    "name": "normalization", 
+                    "name": "plots:normalization", 
                     "default": "none", 
-                    "nick-name": "n", 
+                    "nick-name": "normalization", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select normalization parameter"
                 }, 
                 {
-                    "name": "scenarios-and-systems", 
+                    "name": "plots-comparisons:scenarios-and-systems", 
                     "default": [
                         "baseline_sys_today_"
                     ], 
-                    "nick-name": "sas", 
+                    "nick-name": "scenarios-and-systems", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of pairs of scenario and systems"
                 }, 
                 {
-                    "name": "normalization", 
+                    "name": "plots-comparisons:normalization", 
                     "default": "none", 
-                    "nick-name": "n", 
+                    "nick-name": "normalization", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select normalization parameter"
                 }, 
                 {
-                    "name": "generation", 
+                    "name": "plots-optimization:generation", 
                     "default": "2", 
-                    "nick-name": "g", 
+                    "nick-name": "generation", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select one generation of the optimization routine to be plotted."
                 }, 
                 {
-                    "name": "normalization", 
+                    "name": "plots-optimization:normalization", 
                     "default": "none", 
-                    "nick-name": "n", 
+                    "nick-name": "normalization", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select normalization parameter"
                 }, 
                 {
-                    "name": "system", 
+                    "name": "plots-supply-system:system", 
                     "default": "_sys_today_", 
-                    "nick-name": "s", 
+                    "nick-name": "system", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select one system of the optimization routine where the supply system is going to be studied."
                 }, 
                 {
-                    "name": "timeframe", 
+                    "name": "plots-supply-system:timeframe", 
                     "default": "monthly", 
-                    "nick-name": "t", 
+                    "nick-name": "timeframe", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select one individual configuration of the supply system to visualize."
@@ -2777,49 +2777,49 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "generation", 
+                    "name": "multi-criteria:generation", 
                     "default": 3, 
-                    "nick-name": "g", 
+                    "nick-name": "generation", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Generation for which the multi-criteria analysis should be performed."
                 }, 
                 {
-                    "name": "annualized-capital-costs", 
+                    "name": "multi-criteria:annualized-capital-costs", 
                     "default": 0.4, 
-                    "nick-name": "acc", 
+                    "nick-name": "annualized-capital-costs", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Weight for total annualized costs (as part of economic sustainability)."
                 }, 
                 {
-                    "name": "total-capital-costs", 
+                    "name": "multi-criteria:total-capital-costs", 
                     "default": 0.1, 
-                    "nick-name": "tcc", 
+                    "nick-name": "total-capital-costs", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Weight factor for total investment costs (as part of economic sustainability)."
                 }, 
                 {
-                    "name": "annual-operation-costs", 
+                    "name": "multi-criteria:annual-operation-costs", 
                     "default": 0.1, 
-                    "nick-name": "aoc", 
+                    "nick-name": "annual-operation-costs", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Weight factor for operation costs (as part of economic sustainability)."
                 }, 
                 {
-                    "name": "annual-emissions", 
+                    "name": "multi-criteria:annual-emissions", 
                     "default": 0.4, 
-                    "nick-name": "ae", 
+                    "nick-name": "annual-emissions", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Weight factor for emissions (as part of environmental sustainability)."
@@ -2854,57 +2854,57 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "height-ag", 
+                    "name": "zone-helper:height-ag", 
                     "default": null, 
-                    "nick-name": "ha", 
+                    "nick-name": "height-ag", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Average height of buildings within the zone (in meters). Leave it blank to obtain from Open Street Maps (less accurate)."
                 }, 
                 {
-                    "name": "floors-ag", 
+                    "name": "zone-helper:floors-ag", 
                     "default": null, 
-                    "nick-name": "fa", 
+                    "nick-name": "floors-ag", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Average number of floors above ground of all buildings within the zone. Leave it blank to obtain from Open Street Maps (less accurate)."
                 }, 
                 {
-                    "name": "year-construction", 
+                    "name": "zone-helper:year-construction", 
                     "default": null, 
-                    "nick-name": "yc", 
+                    "nick-name": "year-construction", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Average year of construction of buildings within the zone. Leave it blank to obtain from Open Street Maps (less accurate)."
                 }, 
                 {
-                    "name": "height-bg", 
+                    "name": "zone-helper:height-bg", 
                     "default": 3.0, 
-                    "nick-name": "hb", 
+                    "nick-name": "height-bg", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Average height of buildings below ground (in meters)."
                 }, 
                 {
-                    "name": "floors-bg", 
+                    "name": "zone-helper:floors-bg", 
                     "default": 1, 
-                    "nick-name": "fb", 
+                    "nick-name": "floors-bg", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Average number of floors below ground of all buildings within the zone."
                 }, 
                 {
-                    "name": "occupancy-type", 
+                    "name": "zone-helper:occupancy-type", 
                     "default": "Get it from open street maps", 
-                    "nick-name": "ot", 
+                    "nick-name": "occupancy-type", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Predominant occupancy type of all buildings. Use \"Get it from open street maps\" to obtain from Open Street Maps (less accurate)."
@@ -2939,31 +2939,31 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "buildings", 
+                    "name": "plots:buildings", 
                     "default": [], 
-                    "nick-name": "b", 
+                    "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of building names to generate plots (leave blank for all buildings)."
                 }, 
                 {
-                    "name": "building", 
+                    "name": "plots:building", 
                     "default": "B1000", 
-                    "nick-name": "b", 
+                    "nick-name": "building", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Building ID for the Energy Demand, Comfort Plot and Heating Reset-schedule plot. Used only for the\ndashboard plots. For the plots tool, use a single building in the \"buildings\" variable."
                 }, 
                 {
-                    "name": "categories", 
+                    "name": "plots:categories", 
                     "default": [
                         "demand", 
                         "solar_potentials", 
@@ -2971,47 +2971,47 @@
                         "life_cycle_analysis", 
                         "thermal_network"
                     ], 
-                    "nick-name": "c", 
+                    "nick-name": "categories", 
                     "access": "item", 
                     "type": "string", 
                     "description": "List of plot categories to be created."
                 }, 
                 {
-                    "name": "network-type", 
+                    "name": "plots:network-type", 
                     "default": "DC", 
-                    "nick-name": "nt", 
+                    "nick-name": "network-type", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Type of district network: \"DH\" (district heating) or \"DC\" (district cooling)."
                 }, 
                 {
-                    "name": "network-name", 
+                    "name": "plots:network-name", 
                     "default": "", 
-                    "nick-name": "nn", 
+                    "nick-name": "network-name", 
                     "access": "item", 
                     "type": "string", 
                     "description": "The name of the network to plot (defaults to an empty string)."
                 }, 
                 {
-                    "name": "plant-node", 
+                    "name": "plots:plant-node", 
                     "default": null, 
-                    "nick-name": "pn", 
+                    "nick-name": "plant-node", 
                     "access": "item", 
                     "type": "string", 
                     "description": "The plant node to plot."
                 }, 
                 {
-                    "name": "timeframe", 
+                    "name": "plots:timeframe", 
                     "default": "monthly", 
-                    "nick-name": "t", 
+                    "nick-name": "timeframe", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select one individual configuration of the supply system to visualize."
                 }, 
                 {
-                    "name": "normalization", 
+                    "name": "plots:normalization", 
                     "default": "none", 
-                    "nick-name": "n", 
+                    "nick-name": "normalization", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select normalization parameter"
@@ -3075,9 +3075,9 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "debug", 
+                    "name": "general:debug", 
                     "default": false, 
-                    "nick-name": "d", 
+                    "nick-name": "debug", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Enable debugging-specific behaviors."
@@ -3112,23 +3112,23 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "excel-file", 
+                    "name": "shapefile-tools:excel-file", 
                     "default": "{general:scenario}/inputs/building-geometry/zone.xls", 
-                    "nick-name": "ef", 
+                    "nick-name": "excel-file", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Path to the shapefile or Excel file."
                 }, 
                 {
-                    "name": "shapefile", 
+                    "name": "shapefile-tools:shapefile", 
                     "default": "{general:scenario}/inputs/building-geometry/zone.shp", 
-                    "nick-name": "s", 
+                    "nick-name": "shapefile", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Path to the ESRI Shapefile."
                 }, 
                 {
-                    "name": "crs", 
+                    "name": "shapefile-tools:crs", 
                     "default": {
                         "lon_0": 7.439583333333333, 
                         "k_0": 1, 
@@ -3140,23 +3140,23 @@
                         "units": "m", 
                         "lat_0": 46.95240555555556
                     }, 
-                    "nick-name": "c", 
+                    "nick-name": "crs", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Contains the value to use for the crs parameter of the shapefile."
                 }, 
                 {
-                    "name": "index", 
+                    "name": "shapefile-tools:index", 
                     "default": "Name", 
-                    "nick-name": "i", 
+                    "nick-name": "index", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Use this column as the index column of the DataFrame."
                 }, 
                 {
-                    "name": "polygon", 
+                    "name": "shapefile-tools:polygon", 
                     "default": true, 
-                    "nick-name": "p", 
+                    "nick-name": "polygon", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if the geometry column is interpreted as polygon coordinates, false if it is interpreted as a polyline."
@@ -3191,17 +3191,17 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "destination", 
+                    "name": "extract-reference-case:destination", 
                     "default": "C:\\Users\\darthoma\\Documents\\GitHub", 
-                    "nick-name": "d", 
+                    "nick-name": "destination", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Destination for the extracted reference case (zipped within CityEnergyAnalyst/cea/examples)."
                 }, 
                 {
-                    "name": "case", 
+                    "name": "extract-reference-case:case", 
                     "default": "open", 
-                    "nick-name": "c", 
+                    "nick-name": "case", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Reference case to extract."
@@ -3236,9 +3236,9 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
@@ -3273,23 +3273,23 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "excel-file", 
+                    "name": "shapefile-tools:excel-file", 
                     "default": "{general:scenario}/inputs/building-geometry/zone.xls", 
-                    "nick-name": "ef", 
+                    "nick-name": "excel-file", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Path to the shapefile or Excel file."
                 }, 
                 {
-                    "name": "shapefile", 
+                    "name": "shapefile-tools:shapefile", 
                     "default": "{general:scenario}/inputs/building-geometry/zone.shp", 
-                    "nick-name": "s", 
+                    "nick-name": "shapefile", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Path to the ESRI Shapefile."
                 }, 
                 {
-                    "name": "crs", 
+                    "name": "shapefile-tools:crs", 
                     "default": {
                         "lon_0": 7.439583333333333, 
                         "k_0": 1, 
@@ -3301,23 +3301,23 @@
                         "units": "m", 
                         "lat_0": 46.95240555555556
                     }, 
-                    "nick-name": "c", 
+                    "nick-name": "crs", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Contains the value to use for the crs parameter of the shapefile."
                 }, 
                 {
-                    "name": "index", 
+                    "name": "shapefile-tools:index", 
                     "default": "Name", 
-                    "nick-name": "i", 
+                    "nick-name": "index", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Use this column as the index column of the DataFrame."
                 }, 
                 {
-                    "name": "polygon", 
+                    "name": "shapefile-tools:polygon", 
                     "default": true, 
-                    "nick-name": "p", 
+                    "nick-name": "polygon", 
                     "access": "item", 
                     "type": "string", 
                     "description": "True if the geometry column is interpreted as polygon coordinates, false if it is interpreted as a polyline."
@@ -3352,29 +3352,29 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "scenario", 
+                    "name": "general:scenario", 
                     "default": "{general:project}\\{general:scenario-name}", 
-                    "nick-name": "s", 
+                    "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Select the scenario you're working on."
                 }, 
                 {
-                    "name": "scripts", 
+                    "name": "trace-inputlocator:scripts", 
                     "default": [
                         "archetypes-mapper", 
                         "demand", 
                         "emissions"
                     ], 
-                    "nick-name": "s", 
+                    "nick-name": "scripts", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Sequential list of scripts to run."
                 }, 
                 {
-                    "name": "meta-output-file", 
+                    "name": "trace-inputlocator:meta-output-file", 
                     "default": "{general:scenario}/outputs/trace_inputlocator.output.yml", 
-                    "nick-name": "mof", 
+                    "nick-name": "meta-output-file", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Path to the filename of the yml output file."
@@ -3409,33 +3409,33 @@
                     "description": "Configuration file (path or contents)"
                 }, 
                 {
-                    "name": "workflow", 
+                    "name": "workflow:workflow", 
                     "default": "c:\\users\\darthoma\\documents\\github\\cityenergyanalyst\\cea\\workflows\\district_heating_system.yml", 
-                    "nick-name": "w", 
+                    "nick-name": "workflow", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Either a built-in workflow (district-heating-system / district-cooling-system) OR a path to a user-specified workflow YAML file"
                 }, 
                 {
-                    "name": "resume", 
+                    "name": "workflow:resume", 
                     "default": false, 
-                    "nick-name": "r", 
+                    "nick-name": "resume", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Turn this parameter on to resume the workflow from the last successful step"
                 }, 
                 {
-                    "name": "resume-file", 
+                    "name": "workflow:resume-file", 
                     "default": "c:\\users\\darthoma\\appdata\\local\\temp\\resume-workflow.yml", 
-                    "nick-name": "rf", 
+                    "nick-name": "resume-file", 
                     "access": "item", 
                     "type": "string", 
                     "description": "Path to a file to store information on how to resume a workflow in case it doesn't run through"
                 }, 
                 {
-                    "name": "trace-input", 
+                    "name": "workflow:trace-input", 
                     "default": false, 
-                    "nick-name": "ti", 
+                    "nick-name": "trace-input", 
                     "access": "item", 
                     "type": "string", 
                     "description": "If true, each step is run with the trace-inputlocator to collect info about locator methods"
