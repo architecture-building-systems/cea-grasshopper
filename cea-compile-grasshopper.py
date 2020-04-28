@@ -70,9 +70,9 @@ def main():
             print("\t{pname}={pvalue}".format(pname=parameter.name, pvalue=parameter.get_raw()))
             input = {
                 "type": "string",
-                "name": parameter.name,
+                "name": parameter.fqname,
                 "description": parameter.help,
-                "nick-name": "".join(s[0] for s in parameter.name.split("-")),
+                "nick-name": parameter.name,
                 "default": parameter.default,
                 "access": "item"
             }

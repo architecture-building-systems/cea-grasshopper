@@ -53,7 +53,10 @@ def run(script, parameters):
     python_exe, env = get_python_exe_and_env()
     command = [python_exe, '-u', '-m', 'cea.interfaces.cli.cli', script]
     for parameter_name, parameter_value in parameters.items():
-        parameter_name = parameter_name.replace('_', '-')
+        if parameter_name == "config":
+            # we're ignoring this for the moment
+            continue
+        section_name = parameter_name = parameter_name.split(":")
         command.append('--' + parameter_name)
         command.append(str(parameter_value))
 
@@ -71,3 +74,6 @@ def run(script, parameters):
     Rhino.RhinoApp.WriteLine(stderr)
     if process.returncode != 0:
         raise Exception('Tool did not run successfully')
+
+    # FIXME: somehow merge the config file here
+    return parameters["config"]
