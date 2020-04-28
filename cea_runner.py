@@ -16,10 +16,68 @@ be an idea to add a list of files (possibly) produced. I'll look into that later
 We use the technique specified here: http://stackoverflow.com/questions/2447353/getattr-on-a-module
 to add the scripts automatically to the module.
 """
+import sys
+import os
+import subprocess
+from Rhino import RhinoApp
 
 class CeaRunner(object):
-    def run(script, )
+    def __get_python_exe_and_env(self):
+        """
+        Try really hard to find the CEA python executable. Also, return the environment to use.
+        For now: Assume CEA is installed in the default place.
+        """
+        cea_path = os.path.expandvars(os.path.join("${userprofile}", "Documents", "CityEnergyAnalyst"))
+        python_path = os.path.join(cea_path, "Dependencies", "Python")
+        python_exe = os.path.join(python_path, "python.exe")
+
+        if not os.path.exists(python_exe):
+            raise Exception("Could not fine python executable here: {python_exe}".format(python_exe=python_exe))
+
+        # copying this stuff from dashboard.bat
+        env = os.environ.copy()
+        env["PATH"] = os.pathsep.join(
+            python_path,
+            os.path.join(python_path, "Scripts"),
+            os.path.join(cea_path, "Dependencies", "Daysim"),
+            env["PATH"])
+        env["PYTHONHOME"] = python_path
+        env["GDAL_DATA"] = os.path.join(python_path, "Library", "share", "gdal")
+        env["PROJ_LIB"] = os.path.join(python_path, "Library", "share")
+        env["RAYPATH"] = os.path.join(cea_path, "Dependencies", "Daysim")
+        return python_exe, env
+
+    def __run(self, script, parameters):
+        """Shell out to CEA"""
+        startupinfo = subprocess.STARTUPINFO()
+        startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+        python_exe, env = self.__get_python_exe_and_env()
+        command = [python_exe, '-u', '-m', 'cea.interfaces.cli.cli', script]
+        for parameter_name, parameter_value in parameters.items():
+            parameter_name = parameter_name.replace('_', '-')
+            command.append('--' + parameter_name)
+            command.append(str(parameter_value))
+
+        RhinoApp.WriteLine('Executing: ' + ' '.join(command))
+
+        process = subprocess.Popen(command, startupinfo=startupinfo, 
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env)
+        while True:
+            next_line = process.stdout.readline()
+            if next_line == '' and process.poll() is not None:
+                break
+            RhinoApp.WriteLine(next_line.rstrip())
+        stdout, stderr = process.communicate()
+        RinoApp.WriteLine(stdout)
+        RinoApp.WriteLine(stderr)
+        if process.returncode != 0:
+            raise Exception('Tool did not run successfully')
+
     def __getattr__(self, name):
-        if not name in self.elementFactories:
-            self.__createElementFactory(name)
-        return self.elementFactories[name]
+        """Return a function that represents the script called name"""
+        def script_wrapper(**kwargs):
+            return self.__run(name, kwargs)
+        return script_wrapper
+
+# wrap up this module to use CeaRunner for finding functions!
+sys.modules[__name__] = CeaRunner()
