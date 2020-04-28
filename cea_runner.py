@@ -9,7 +9,7 @@ component) going out and is produced _after_ the script has run.
 
 Script output is sent to RhinoApp.WriteLine.
 
-The function __run_cea is used to run a cea script. It assumes the first parameter is the script name
+The function "run" is used to run a cea script. It assumes the first parameter is the script name
 and returns the updated config file - CEA scripts don't really have a return value, though it might
 be an idea to add a list of files (possibly) produced. I'll look into that later.
 
@@ -50,7 +50,7 @@ def run(script, parameters):
     """Shell out to CEA"""
     startupinfo = subprocess.STARTUPINFO()
     startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-    python_exe, env = self.__get_python_exe_and_env()
+    python_exe, env = get_python_exe_and_env()
     command = [python_exe, '-u', '-m', 'cea.interfaces.cli.cli', script]
     for parameter_name, parameter_value in parameters.items():
         parameter_name = parameter_name.replace('_', '-')
