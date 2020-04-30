@@ -49,18 +49,19 @@ def main():
             "use-kwargs": True,
             "inputs": [
                 {
-                    "type": "string",
-                    "name": "config",
-                    "description": "Configuration file (path or contents)",
-                    "nick-name": "ci"
+                    "type": "boolean",
+                    "name": "start",
+                    "description": "Set this to true to start computation",
+                    "default": False,
+                    "nick-name": "start"
                 }
             ],
             "outputs": [
                 {
-                    "type": "string",
-                    "name": "config",
-                    "description": "Configuration file contents",
-                    "nick-name": "co"
+                    "type": "boolean",
+                    "name": "continue",                    
+                    "description": "This is set to true if component successfully ran and start was set to true",
+                    "nick-name": "continue"
                 }
             ],
         }

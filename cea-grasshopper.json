@@ -8,10 +8,11 @@
             "subcategory": "Data Management", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -47,10 +48,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "ArchetypesMapper", 
@@ -68,10 +69,11 @@
             "subcategory": "Data Management", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -92,10 +94,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "WeatherHelper", 
@@ -113,10 +115,11 @@
             "subcategory": "Data Management", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -153,10 +156,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "SurroundingsHelper", 
@@ -174,10 +177,11 @@
             "subcategory": "Data Management", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -206,10 +210,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "TerrainHelper", 
@@ -227,10 +231,11 @@
             "subcategory": "Data Management", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -259,10 +264,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "StreetsHelper", 
@@ -280,10 +285,11 @@
             "subcategory": "Demand forecasting", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -512,10 +518,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "Radiation", 
@@ -533,10 +539,11 @@
             "subcategory": "Demand forecasting", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -589,10 +596,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "ScheduleMaker", 
@@ -610,10 +617,11 @@
             "subcategory": "Demand forecasting", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -706,10 +714,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "Demand", 
@@ -727,10 +735,11 @@
             "subcategory": "Life Cycle Analysis", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -767,10 +776,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "Emissions", 
@@ -788,10 +797,11 @@
             "subcategory": "Life Cycle Analysis", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -820,10 +830,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "SystemCosts", 
@@ -841,10 +851,11 @@
             "subcategory": "Energy potentials", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -881,10 +892,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "ShallowGeothermalPotential", 
@@ -902,10 +913,11 @@
             "subcategory": "Energy potentials", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -950,10 +962,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "WaterBodyPotential", 
@@ -971,10 +983,11 @@
             "subcategory": "Energy potentials", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -1067,10 +1080,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "PhotovoltaicThermal", 
@@ -1088,10 +1101,11 @@
             "subcategory": "Energy potentials", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -1160,10 +1174,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "Photovoltaic", 
@@ -1181,10 +1195,11 @@
             "subcategory": "Energy potentials", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -1221,10 +1236,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "SewagePotential", 
@@ -1242,10 +1257,11 @@
             "subcategory": "Energy potentials", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -1330,10 +1346,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "SolarCollector", 
@@ -1351,10 +1367,11 @@
             "subcategory": "Networks", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -1415,10 +1432,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "NetworkLayout", 
@@ -1436,10 +1453,11 @@
             "subcategory": "Networks", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -1645,10 +1663,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "ThermalNetwork", 
@@ -1666,10 +1684,11 @@
             "subcategory": "Optimization", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -1923,10 +1942,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "ThermalNetworkOptimization", 
@@ -1944,10 +1963,11 @@
             "subcategory": "Optimization", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -1976,10 +1996,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "Decentralized", 
@@ -1997,10 +2017,11 @@
             "subcategory": "Optimization", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:debug", 
@@ -2155,10 +2176,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "Optimization", 
@@ -2176,10 +2197,11 @@
             "subcategory": "Utilities", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -2216,10 +2238,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "DbfToExcelToDbf", 
@@ -2237,10 +2259,11 @@
             "subcategory": "Utilities", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -2273,10 +2296,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "DataInitializer", 
@@ -2294,10 +2317,11 @@
             "subcategory": "Utilities", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -2310,10 +2334,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "DatabaseMigrator", 
@@ -2331,10 +2355,11 @@
             "subcategory": "Utilities", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "create-new-scenario:project", 
@@ -2403,10 +2428,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "CreateNewScenario", 
@@ -2424,10 +2449,11 @@
             "subcategory": "Utilities", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -2456,10 +2482,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "RenameBuilding", 
@@ -2477,10 +2503,11 @@
             "subcategory": "Utilities", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -2519,10 +2546,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "CreateMixedUseType", 
@@ -2540,10 +2567,11 @@
             "subcategory": "Utilities", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "test:workflow", 
@@ -2556,10 +2584,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "Test", 
@@ -2577,18 +2605,19 @@
             "subcategory": "Utilities", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "RunUnitTests", 
@@ -2606,10 +2635,11 @@
             "subcategory": "Utilities", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:project", 
@@ -2750,10 +2780,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "RunAllPlots", 
@@ -2771,10 +2801,11 @@
             "subcategory": "default", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -2827,10 +2858,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "MultiCriteriaAnalysis", 
@@ -2848,10 +2879,11 @@
             "subcategory": "default", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -2912,10 +2944,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "ZoneHelper", 
@@ -2933,10 +2965,11 @@
             "subcategory": "default", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -3019,10 +3052,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "Plots", 
@@ -3040,18 +3073,19 @@
             "subcategory": "default", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "Compile", 
@@ -3069,10 +3103,11 @@
             "subcategory": "default", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:debug", 
@@ -3085,10 +3120,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "Dashboard", 
@@ -3106,10 +3141,11 @@
             "subcategory": "default", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "shapefile-tools:excel-file", 
@@ -3164,10 +3200,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "ExcelToShapefile", 
@@ -3185,10 +3221,11 @@
             "subcategory": "default", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "extract-reference-case:destination", 
@@ -3209,10 +3246,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "ExtractReferenceCase", 
@@ -3230,10 +3267,11 @@
             "subcategory": "default", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -3246,10 +3284,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "ListDemandGraphsFields", 
@@ -3267,10 +3305,11 @@
             "subcategory": "default", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "shapefile-tools:excel-file", 
@@ -3325,10 +3364,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "ShapefileToExcel", 
@@ -3346,10 +3385,11 @@
             "subcategory": "default", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "general:scenario", 
@@ -3382,10 +3422,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "TraceInputlocator", 
@@ -3403,10 +3443,11 @@
             "subcategory": "default", 
             "inputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "ci", 
-                    "description": "Configuration file (path or contents)"
+                    "default": false, 
+                    "type": "boolean", 
+                    "name": "start", 
+                    "nick-name": "start", 
+                    "description": "Set this to true to start computation"
                 }, 
                 {
                     "name": "workflow:workflow", 
@@ -3443,10 +3484,10 @@
             ], 
             "outputs": [
                 {
-                    "type": "string", 
-                    "name": "config", 
-                    "nick-name": "co", 
-                    "description": "Configuration file contents"
+                    "type": "boolean", 
+                    "name": "continue", 
+                    "nick-name": "continue", 
+                    "description": "This is set to true if component successfully ran and start was set to true"
                 }
             ], 
             "class-name": "Workflow", 
