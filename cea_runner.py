@@ -14,6 +14,7 @@ import os
 import subprocess
 import Rhino
 import System.Windows.Forms
+import System.Threading
 
 def get_python_exe_and_env():
     """
@@ -64,7 +65,7 @@ def run(script, parameters):
         if next_line == '' and process.poll() is not None:
             break
         Rhino.RhinoApp.WriteLine(next_line.rstrip())
-        System.Windows.Forms.Application.DoEvents()
+        System.Threading.Thread.Sleep(100)
     stdout, stderr = process.communicate()
     Rhino.RhinoApp.WriteLine(stdout)
     Rhino.RhinoApp.WriteLine(stderr)
