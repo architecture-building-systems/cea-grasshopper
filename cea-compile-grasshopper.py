@@ -38,7 +38,7 @@ def main():
         component = {
             "id": guids[script.label] if script.label in guids else str(uuid.uuid4()),
             "class-name": "".join(s.capitalize() for s in script.name.split("-")),
-            "abbreviation": "".join(s[0] for s in script.name.split("-")),
+            "abbreviation": script.name,
             "name": script.label,
             "description": script.description,
             "category": CATEGORY,
@@ -74,7 +74,7 @@ def main():
                 "name": parameter.fqname,
                 "description": parameter.help,
                 "nick-name": parameter.name,
-                "default": parameter.default,
+                "default": parameter.get_raw(),
                 "access": "item"
             }
             component["inputs"].append(input)

@@ -16,7 +16,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -24,14 +24,7 @@
                 }, 
                 {
                     "name": "archetypes-mapper:input-databases", 
-                    "default": [
-                        "comfort", 
-                        "architecture", 
-                        "air-conditioning", 
-                        "internal-loads", 
-                        "supply", 
-                        "schedules"
-                    ], 
+                    "default": "comfort, architecture, air-conditioning, internal-loads, supply, schedules", 
                     "nick-name": "input-databases", 
                     "access": "item", 
                     "type": "string", 
@@ -39,7 +32,7 @@
                 }, 
                 {
                     "name": "archetypes-mapper:buildings", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
@@ -55,7 +48,7 @@
                 }
             ], 
             "class-name": "ArchetypesMapper", 
-            "abbreviation": "am", 
+            "abbreviation": "archetypes-mapper", 
             "main-function": "archetypes_mapper", 
             "id": "a421ddc7-5429-4b42-936c-36c87a3c484d", 
             "icon": "icons/archetypes-mapper.png", 
@@ -77,7 +70,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -101,7 +94,7 @@
                 }
             ], 
             "class-name": "WeatherHelper", 
-            "abbreviation": "wh", 
+            "abbreviation": "weather-helper", 
             "main-function": "weather_helper", 
             "id": "e66bdf31-8967-404a-8a15-368ecb1afa8e", 
             "icon": "icons/weather-helper.png", 
@@ -123,7 +116,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -131,7 +124,7 @@
                 }, 
                 {
                     "name": "surroundings-helper:buffer", 
-                    "default": 50.0, 
+                    "default": "50", 
                     "nick-name": "buffer", 
                     "access": "item", 
                     "type": "string", 
@@ -139,7 +132,7 @@
                 }, 
                 {
                     "name": "surroundings-helper:height-ag", 
-                    "default": null, 
+                    "default": "", 
                     "nick-name": "height-ag", 
                     "access": "item", 
                     "type": "string", 
@@ -147,7 +140,7 @@
                 }, 
                 {
                     "name": "surroundings-helper:floors-ag", 
-                    "default": null, 
+                    "default": "", 
                     "nick-name": "floors-ag", 
                     "access": "item", 
                     "type": "string", 
@@ -163,7 +156,7 @@
                 }
             ], 
             "class-name": "SurroundingsHelper", 
-            "abbreviation": "sh", 
+            "abbreviation": "surroundings-helper", 
             "main-function": "surroundings_helper", 
             "id": "fb8f613c-8817-4f2a-b6d6-9f4afe172c06", 
             "icon": "icons/surroundings-helper.png", 
@@ -185,7 +178,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -193,7 +186,7 @@
                 }, 
                 {
                     "name": "terrain-helper:grid-size", 
-                    "default": 30, 
+                    "default": "30", 
                     "nick-name": "grid-size", 
                     "access": "item", 
                     "type": "string", 
@@ -201,7 +194,7 @@
                 }, 
                 {
                     "name": "terrain-helper:elevation", 
-                    "default": 1, 
+                    "default": "1", 
                     "nick-name": "elevation", 
                     "access": "item", 
                     "type": "string", 
@@ -217,7 +210,7 @@
                 }
             ], 
             "class-name": "TerrainHelper", 
-            "abbreviation": "th", 
+            "abbreviation": "terrain-helper", 
             "main-function": "terrain_helper", 
             "id": "c42ebdbd-d485-44d4-bf9c-79cf6b172481", 
             "icon": "icons/terrain-helper.png", 
@@ -239,7 +232,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -247,7 +240,7 @@
                 }, 
                 {
                     "name": "streets-helper:bbox", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "bbox", 
                     "access": "item", 
                     "type": "string", 
@@ -271,7 +264,7 @@
                 }
             ], 
             "class-name": "StreetsHelper", 
-            "abbreviation": "sh", 
+            "abbreviation": "streets-helper", 
             "main-function": "streets_helper", 
             "id": "aa9567b6-afbf-4f21-93a8-902f32bb7154", 
             "icon": "icons/streets-helper.png", 
@@ -293,7 +286,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -301,7 +294,7 @@
                 }, 
                 {
                     "name": "general:multiprocessing", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
@@ -309,7 +302,7 @@
                 }, 
                 {
                     "name": "general:number-of-cpus-to-keep-free", 
-                    "default": 1, 
+                    "default": "1", 
                     "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
@@ -317,7 +310,7 @@
                 }, 
                 {
                     "name": "general:debug", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "debug", 
                     "access": "item", 
                     "type": "string", 
@@ -325,7 +318,7 @@
                 }, 
                 {
                     "name": "radiation:buildings", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
@@ -333,7 +326,7 @@
                 }, 
                 {
                     "name": "radiation:albedo", 
-                    "default": 0.2, 
+                    "default": "0.2", 
                     "nick-name": "albedo", 
                     "access": "item", 
                     "type": "string", 
@@ -341,7 +334,7 @@
                 }, 
                 {
                     "name": "radiation:roof-grid", 
-                    "default": 10, 
+                    "default": "10", 
                     "nick-name": "roof-grid", 
                     "access": "item", 
                     "type": "string", 
@@ -349,7 +342,7 @@
                 }, 
                 {
                     "name": "radiation:walls-grid", 
-                    "default": 200, 
+                    "default": "200", 
                     "nick-name": "walls-grid", 
                     "access": "item", 
                     "type": "string", 
@@ -357,7 +350,7 @@
                 }, 
                 {
                     "name": "radiation:zone-geometry", 
-                    "default": 2, 
+                    "default": "2", 
                     "nick-name": "zone-geometry", 
                     "access": "item", 
                     "type": "string", 
@@ -365,7 +358,7 @@
                 }, 
                 {
                     "name": "radiation:surrounding-geometry", 
-                    "default": 5, 
+                    "default": "5", 
                     "nick-name": "surrounding-geometry", 
                     "access": "item", 
                     "type": "string", 
@@ -373,7 +366,7 @@
                 }, 
                 {
                     "name": "radiation:consider-floors", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "consider-floors", 
                     "access": "item", 
                     "type": "string", 
@@ -381,7 +374,7 @@
                 }, 
                 {
                     "name": "radiation:consider-intersections", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "consider-intersections", 
                     "access": "item", 
                     "type": "string", 
@@ -389,7 +382,7 @@
                 }, 
                 {
                     "name": "radiation:rad-ab", 
-                    "default": 4, 
+                    "default": "4", 
                     "nick-name": "rad-ab", 
                     "access": "item", 
                     "type": "string", 
@@ -397,7 +390,7 @@
                 }, 
                 {
                     "name": "radiation:rad-ad", 
-                    "default": 512, 
+                    "default": "512", 
                     "nick-name": "rad-ad", 
                     "access": "item", 
                     "type": "string", 
@@ -405,7 +398,7 @@
                 }, 
                 {
                     "name": "radiation:rad-as", 
-                    "default": 32, 
+                    "default": "32", 
                     "nick-name": "rad-as", 
                     "access": "item", 
                     "type": "string", 
@@ -413,7 +406,7 @@
                 }, 
                 {
                     "name": "radiation:rad-ar", 
-                    "default": 20, 
+                    "default": "20", 
                     "nick-name": "rad-ar", 
                     "access": "item", 
                     "type": "string", 
@@ -421,7 +414,7 @@
                 }, 
                 {
                     "name": "radiation:rad-aa", 
-                    "default": 0.15, 
+                    "default": "0.15", 
                     "nick-name": "rad-aa", 
                     "access": "item", 
                     "type": "string", 
@@ -429,7 +422,7 @@
                 }, 
                 {
                     "name": "radiation:rad-lr", 
-                    "default": 8, 
+                    "default": "8", 
                     "nick-name": "rad-lr", 
                     "access": "item", 
                     "type": "string", 
@@ -437,7 +430,7 @@
                 }, 
                 {
                     "name": "radiation:rad-st", 
-                    "default": 0.5, 
+                    "default": "0.5", 
                     "nick-name": "rad-st", 
                     "access": "item", 
                     "type": "string", 
@@ -445,7 +438,7 @@
                 }, 
                 {
                     "name": "radiation:rad-sj", 
-                    "default": 0.7, 
+                    "default": "0.7", 
                     "nick-name": "rad-sj", 
                     "access": "item", 
                     "type": "string", 
@@ -453,7 +446,7 @@
                 }, 
                 {
                     "name": "radiation:rad-lw", 
-                    "default": 0.05, 
+                    "default": "0.05", 
                     "nick-name": "rad-lw", 
                     "access": "item", 
                     "type": "string", 
@@ -461,7 +454,7 @@
                 }, 
                 {
                     "name": "radiation:rad-dj", 
-                    "default": 0.7, 
+                    "default": "0.7", 
                     "nick-name": "rad-dj", 
                     "access": "item", 
                     "type": "string", 
@@ -469,7 +462,7 @@
                 }, 
                 {
                     "name": "radiation:rad-ds", 
-                    "default": 0.0, 
+                    "default": "0", 
                     "nick-name": "rad-ds", 
                     "access": "item", 
                     "type": "string", 
@@ -477,7 +470,7 @@
                 }, 
                 {
                     "name": "radiation:rad-dr", 
-                    "default": 0, 
+                    "default": "0", 
                     "nick-name": "rad-dr", 
                     "access": "item", 
                     "type": "string", 
@@ -485,7 +478,7 @@
                 }, 
                 {
                     "name": "radiation:rad-dp", 
-                    "default": 32, 
+                    "default": "32", 
                     "nick-name": "rad-dp", 
                     "access": "item", 
                     "type": "string", 
@@ -501,7 +494,7 @@
                 }, 
                 {
                     "name": "radiation:n-buildings-in-chunk", 
-                    "default": 100, 
+                    "default": "100", 
                     "nick-name": "n-buildings-in-chunk", 
                     "access": "item", 
                     "type": "string", 
@@ -509,7 +502,7 @@
                 }, 
                 {
                     "name": "radiation:write-sensor-data", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "write-sensor-data", 
                     "access": "item", 
                     "type": "string", 
@@ -525,7 +518,7 @@
                 }
             ], 
             "class-name": "Radiation", 
-            "abbreviation": "r", 
+            "abbreviation": "radiation", 
             "main-function": "radiation", 
             "id": "5e682c1a-c39f-471d-918a-493d2a095017", 
             "icon": "icons/radiation.png", 
@@ -547,7 +540,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -555,7 +548,7 @@
                 }, 
                 {
                     "name": "general:multiprocessing", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
@@ -563,7 +556,7 @@
                 }, 
                 {
                     "name": "general:number-of-cpus-to-keep-free", 
-                    "default": 1, 
+                    "default": "1", 
                     "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
@@ -571,7 +564,7 @@
                 }, 
                 {
                     "name": "general:debug", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "debug", 
                     "access": "item", 
                     "type": "string", 
@@ -579,7 +572,7 @@
                 }, 
                 {
                     "name": "schedule-maker:buildings", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
@@ -603,7 +596,7 @@
                 }
             ], 
             "class-name": "ScheduleMaker", 
-            "abbreviation": "sm", 
+            "abbreviation": "schedule-maker", 
             "main-function": "schedule_maker", 
             "id": "6ce3458c-21c6-44d4-81a5-39ee48c6d32e", 
             "icon": "icons/schedule-maker.png", 
@@ -625,7 +618,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -633,7 +626,7 @@
                 }, 
                 {
                     "name": "general:multiprocessing", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
@@ -641,7 +634,7 @@
                 }, 
                 {
                     "name": "general:number-of-cpus-to-keep-free", 
-                    "default": 1, 
+                    "default": "1", 
                     "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
@@ -649,7 +642,7 @@
                 }, 
                 {
                     "name": "general:debug", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "debug", 
                     "access": "item", 
                     "type": "string", 
@@ -657,7 +650,7 @@
                 }, 
                 {
                     "name": "demand:buildings", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
@@ -665,7 +658,7 @@
                 }, 
                 {
                     "name": "demand:loads-output", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "loads-output", 
                     "access": "item", 
                     "type": "string", 
@@ -673,7 +666,7 @@
                 }, 
                 {
                     "name": "demand:massflows-output", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "massflows-output", 
                     "access": "item", 
                     "type": "string", 
@@ -681,7 +674,7 @@
                 }, 
                 {
                     "name": "demand:temperatures-output", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "temperatures-output", 
                     "access": "item", 
                     "type": "string", 
@@ -697,7 +690,7 @@
                 }, 
                 {
                     "name": "demand:use-dynamic-infiltration-calculation", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "use-dynamic-infiltration-calculation", 
                     "access": "item", 
                     "type": "string", 
@@ -705,7 +698,7 @@
                 }, 
                 {
                     "name": "demand:predefined-hourly-setpoints", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "predefined-hourly-setpoints", 
                     "access": "item", 
                     "type": "string", 
@@ -721,7 +714,7 @@
                 }
             ], 
             "class-name": "Demand", 
-            "abbreviation": "d", 
+            "abbreviation": "demand", 
             "main-function": "demand", 
             "id": "9d50d3c0-7e40-470e-8eb9-edf769ed53cd", 
             "icon": "icons/demand.png", 
@@ -743,7 +736,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -751,7 +744,7 @@
                 }, 
                 {
                     "name": "emissions:year-to-calculate", 
-                    "default": 2020, 
+                    "default": "2020", 
                     "nick-name": "year-to-calculate", 
                     "access": "item", 
                     "type": "string", 
@@ -759,7 +752,7 @@
                 }, 
                 {
                     "name": "emissions:embodied", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "embodied", 
                     "access": "item", 
                     "type": "string", 
@@ -767,7 +760,7 @@
                 }, 
                 {
                     "name": "emissions:operation", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "operation", 
                     "access": "item", 
                     "type": "string", 
@@ -783,7 +776,7 @@
                 }
             ], 
             "class-name": "Emissions", 
-            "abbreviation": "e", 
+            "abbreviation": "emissions", 
             "main-function": "emissions", 
             "id": "415729cc-8dfe-4e26-9626-d9f1e6319917", 
             "icon": "icons/emissions.png", 
@@ -805,7 +798,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -813,7 +806,7 @@
                 }, 
                 {
                     "name": "costs:capital", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "capital", 
                     "access": "item", 
                     "type": "string", 
@@ -821,7 +814,7 @@
                 }, 
                 {
                     "name": "costs:operational", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "operational", 
                     "access": "item", 
                     "type": "string", 
@@ -837,7 +830,7 @@
                 }
             ], 
             "class-name": "SystemCosts", 
-            "abbreviation": "sc", 
+            "abbreviation": "system-costs", 
             "main-function": "system_costs", 
             "id": "35b30813-7a0c-4fc1-bbff-692ed8cd7f9a", 
             "icon": "icons/system-costs.png", 
@@ -859,7 +852,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -867,7 +860,7 @@
                 }, 
                 {
                     "name": "shallow-geothermal:buildings-available", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "buildings-available", 
                     "access": "item", 
                     "type": "string", 
@@ -875,7 +868,7 @@
                 }, 
                 {
                     "name": "shallow-geothermal:extra-area-available", 
-                    "default": 0.0, 
+                    "default": "0.0", 
                     "nick-name": "extra-area-available", 
                     "access": "item", 
                     "type": "string", 
@@ -883,7 +876,7 @@
                 }, 
                 {
                     "name": "shallow-geothermal:average-probe-depth", 
-                    "default": 10.0, 
+                    "default": "10", 
                     "nick-name": "average-probe-depth", 
                     "access": "item", 
                     "type": "string", 
@@ -899,7 +892,7 @@
                 }
             ], 
             "class-name": "ShallowGeothermalPotential", 
-            "abbreviation": "sgp", 
+            "abbreviation": "shallow-geothermal-potential", 
             "main-function": "shallow_geothermal_potential", 
             "id": "df60b6e8-d1ea-4431-a0a6-e21520db2c10", 
             "icon": "icons/shallow-geothermal-potential.png", 
@@ -921,7 +914,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -929,7 +922,7 @@
                 }, 
                 {
                     "name": "water-body:max-water-volume-withdrawal", 
-                    "default": 1000.0, 
+                    "default": "1000", 
                     "nick-name": "max-water-volume-withdrawal", 
                     "access": "item", 
                     "type": "string", 
@@ -937,7 +930,7 @@
                 }, 
                 {
                     "name": "water-body:max-delta-temperature-withdrawal", 
-                    "default": 8.0, 
+                    "default": "8", 
                     "nick-name": "max-delta-temperature-withdrawal", 
                     "access": "item", 
                     "type": "string", 
@@ -945,7 +938,7 @@
                 }, 
                 {
                     "name": "water-body:temperature-max", 
-                    "default": 6.0, 
+                    "default": "6", 
                     "nick-name": "temperature-max", 
                     "access": "item", 
                     "type": "string", 
@@ -953,7 +946,7 @@
                 }, 
                 {
                     "name": "water-body:temperature-min", 
-                    "default": 4.0, 
+                    "default": "4", 
                     "nick-name": "temperature-min", 
                     "access": "item", 
                     "type": "string", 
@@ -969,7 +962,7 @@
                 }
             ], 
             "class-name": "WaterBodyPotential", 
-            "abbreviation": "wbp", 
+            "abbreviation": "water-body-potential", 
             "main-function": "water_body_potential", 
             "id": "f52dfce8-03a9-4a96-af05-33ba43c35100", 
             "icon": "icons/water-body-potential.png", 
@@ -991,7 +984,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -999,7 +992,7 @@
                 }, 
                 {
                     "name": "general:multiprocessing", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
@@ -1007,7 +1000,7 @@
                 }, 
                 {
                     "name": "general:number-of-cpus-to-keep-free", 
-                    "default": 1, 
+                    "default": "1", 
                     "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
@@ -1015,7 +1008,7 @@
                 }, 
                 {
                     "name": "solar:buildings", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
@@ -1039,7 +1032,7 @@
                 }, 
                 {
                     "name": "solar:panel-on-roof", 
-                    "default": true, 
+                    "default": "True", 
                     "nick-name": "panel-on-roof", 
                     "access": "item", 
                     "type": "string", 
@@ -1047,7 +1040,7 @@
                 }, 
                 {
                     "name": "solar:panel-on-wall", 
-                    "default": true, 
+                    "default": "True", 
                     "nick-name": "panel-on-wall", 
                     "access": "item", 
                     "type": "string", 
@@ -1055,7 +1048,7 @@
                 }, 
                 {
                     "name": "solar:annual-radiation-threshold", 
-                    "default": 800.0, 
+                    "default": "800", 
                     "nick-name": "annual-radiation-threshold", 
                     "access": "item", 
                     "type": "string", 
@@ -1063,7 +1056,7 @@
                 }, 
                 {
                     "name": "solar:solar-window-solstice", 
-                    "default": 4, 
+                    "default": "4", 
                     "nick-name": "solar-window-solstice", 
                     "access": "item", 
                     "type": "string", 
@@ -1071,7 +1064,7 @@
                 }, 
                 {
                     "name": "solar:t-in-pvt", 
-                    "default": null, 
+                    "default": "", 
                     "nick-name": "t-in-pvt", 
                     "access": "item", 
                     "type": "string", 
@@ -1087,7 +1080,7 @@
                 }
             ], 
             "class-name": "PhotovoltaicThermal", 
-            "abbreviation": "pt", 
+            "abbreviation": "photovoltaic-thermal", 
             "main-function": "photovoltaic_thermal", 
             "id": "4af79d42-e907-4109-9f8f-0d8c297f26a4", 
             "icon": "icons/photovoltaic-thermal.png", 
@@ -1109,7 +1102,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -1117,7 +1110,7 @@
                 }, 
                 {
                     "name": "general:multiprocessing", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
@@ -1133,7 +1126,7 @@
                 }, 
                 {
                     "name": "general:number-of-cpus-to-keep-free", 
-                    "default": 1, 
+                    "default": "1", 
                     "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
@@ -1141,7 +1134,7 @@
                 }, 
                 {
                     "name": "solar:panel-on-roof", 
-                    "default": true, 
+                    "default": "True", 
                     "nick-name": "panel-on-roof", 
                     "access": "item", 
                     "type": "string", 
@@ -1149,7 +1142,7 @@
                 }, 
                 {
                     "name": "solar:panel-on-wall", 
-                    "default": true, 
+                    "default": "True", 
                     "nick-name": "panel-on-wall", 
                     "access": "item", 
                     "type": "string", 
@@ -1157,7 +1150,7 @@
                 }, 
                 {
                     "name": "solar:annual-radiation-threshold", 
-                    "default": 800.0, 
+                    "default": "800", 
                     "nick-name": "annual-radiation-threshold", 
                     "access": "item", 
                     "type": "string", 
@@ -1165,7 +1158,7 @@
                 }, 
                 {
                     "name": "solar:solar-window-solstice", 
-                    "default": 4, 
+                    "default": "4", 
                     "nick-name": "solar-window-solstice", 
                     "access": "item", 
                     "type": "string", 
@@ -1181,7 +1174,7 @@
                 }
             ], 
             "class-name": "Photovoltaic", 
-            "abbreviation": "p", 
+            "abbreviation": "photovoltaic", 
             "main-function": "photovoltaic", 
             "id": "906ee7ac-8595-40d0-89db-2fcfd161e391", 
             "icon": "icons/photovoltaic.png", 
@@ -1203,7 +1196,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -1211,7 +1204,7 @@
                 }, 
                 {
                     "name": "sewage:heat-exchanger-length", 
-                    "default": 120, 
+                    "default": "120", 
                     "nick-name": "heat-exchanger-length", 
                     "access": "item", 
                     "type": "string", 
@@ -1219,7 +1212,7 @@
                 }, 
                 {
                     "name": "sewage:sewage-water-ratio", 
-                    "default": 0.95, 
+                    "default": "0.95", 
                     "nick-name": "sewage-water-ratio", 
                     "access": "item", 
                     "type": "string", 
@@ -1227,7 +1220,7 @@
                 }, 
                 {
                     "name": "sewage:sewage-water-district", 
-                    "default": 50.0, 
+                    "default": "50", 
                     "nick-name": "sewage-water-district", 
                     "access": "item", 
                     "type": "string", 
@@ -1243,7 +1236,7 @@
                 }
             ], 
             "class-name": "SewagePotential", 
-            "abbreviation": "sp", 
+            "abbreviation": "sewage-potential", 
             "main-function": "sewage_potential", 
             "id": "4a608556-1a70-4cdd-87ba-0e7cc7d887c7", 
             "icon": "icons/sewage-potential.png", 
@@ -1265,7 +1258,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -1273,7 +1266,7 @@
                 }, 
                 {
                     "name": "general:multiprocessing", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
@@ -1281,7 +1274,7 @@
                 }, 
                 {
                     "name": "general:number-of-cpus-to-keep-free", 
-                    "default": 1, 
+                    "default": "1", 
                     "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
@@ -1297,7 +1290,7 @@
                 }, 
                 {
                     "name": "solar:panel-on-roof", 
-                    "default": true, 
+                    "default": "True", 
                     "nick-name": "panel-on-roof", 
                     "access": "item", 
                     "type": "string", 
@@ -1305,7 +1298,7 @@
                 }, 
                 {
                     "name": "solar:panel-on-wall", 
-                    "default": true, 
+                    "default": "True", 
                     "nick-name": "panel-on-wall", 
                     "access": "item", 
                     "type": "string", 
@@ -1313,7 +1306,7 @@
                 }, 
                 {
                     "name": "solar:annual-radiation-threshold", 
-                    "default": 800.0, 
+                    "default": "800", 
                     "nick-name": "annual-radiation-threshold", 
                     "access": "item", 
                     "type": "string", 
@@ -1321,7 +1314,7 @@
                 }, 
                 {
                     "name": "solar:solar-window-solstice", 
-                    "default": 4, 
+                    "default": "4", 
                     "nick-name": "solar-window-solstice", 
                     "access": "item", 
                     "type": "string", 
@@ -1329,7 +1322,7 @@
                 }, 
                 {
                     "name": "solar:t-in-sc", 
-                    "default": null, 
+                    "default": "", 
                     "nick-name": "t-in-sc", 
                     "access": "item", 
                     "type": "string", 
@@ -1337,7 +1330,7 @@
                 }, 
                 {
                     "name": "solar:buildings", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
@@ -1353,7 +1346,7 @@
                 }
             ], 
             "class-name": "SolarCollector", 
-            "abbreviation": "sc", 
+            "abbreviation": "solar-collector", 
             "main-function": "solar_collector", 
             "id": "c90cc0fc-014e-4cee-a0b1-b24ba26f8ce3", 
             "icon": "icons/solar-collector.png", 
@@ -1375,7 +1368,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -1391,7 +1384,7 @@
                 }, 
                 {
                     "name": "network-layout:connected-buildings", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "connected-buildings", 
                     "access": "item", 
                     "type": "string", 
@@ -1399,7 +1392,7 @@
                 }, 
                 {
                     "name": "network-layout:pipe-diameter", 
-                    "default": 150, 
+                    "default": "150", 
                     "nick-name": "pipe-diameter", 
                     "access": "item", 
                     "type": "string", 
@@ -1415,7 +1408,7 @@
                 }, 
                 {
                     "name": "network-layout:allow-looped-networks", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "allow-looped-networks", 
                     "access": "item", 
                     "type": "string", 
@@ -1423,7 +1416,7 @@
                 }, 
                 {
                     "name": "network-layout:consider-only-buildings-with-demand", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "consider-only-buildings-with-demand", 
                     "access": "item", 
                     "type": "string", 
@@ -1439,7 +1432,7 @@
                 }
             ], 
             "class-name": "NetworkLayout", 
-            "abbreviation": "nl", 
+            "abbreviation": "network-layout", 
             "main-function": "network_layout", 
             "id": "ed6a7b53-2b05-4ec4-bb6c-2459312bdab3", 
             "icon": "icons/network-layout.png", 
@@ -1461,7 +1454,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -1469,7 +1462,7 @@
                 }, 
                 {
                     "name": "general:multiprocessing", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
@@ -1477,7 +1470,7 @@
                 }, 
                 {
                     "name": "general:number-of-cpus-to-keep-free", 
-                    "default": 1, 
+                    "default": "1", 
                     "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
@@ -1501,7 +1494,7 @@
                 }, 
                 {
                     "name": "thermal-network:min-head-substation", 
-                    "default": 20.0, 
+                    "default": "20", 
                     "nick-name": "min-head-substation", 
                     "access": "item", 
                     "type": "string", 
@@ -1509,7 +1502,7 @@
                 }, 
                 {
                     "name": "thermal-network:hw-friction-coefficient", 
-                    "default": 100, 
+                    "default": "100", 
                     "nick-name": "hw-friction-coefficient", 
                     "access": "item", 
                     "type": "string", 
@@ -1517,7 +1510,7 @@
                 }, 
                 {
                     "name": "thermal-network:peak-load-velocity", 
-                    "default": 2.0, 
+                    "default": "2", 
                     "nick-name": "peak-load-velocity", 
                     "access": "item", 
                     "type": "string", 
@@ -1525,7 +1518,7 @@
                 }, 
                 {
                     "name": "thermal-network:equivalent-length-factor", 
-                    "default": 0.2, 
+                    "default": "0.2", 
                     "nick-name": "equivalent-length-factor", 
                     "access": "item", 
                     "type": "string", 
@@ -1533,7 +1526,7 @@
                 }, 
                 {
                     "name": "thermal-network:peak-load-percentage", 
-                    "default": 100.0, 
+                    "default": "100", 
                     "nick-name": "peak-load-percentage", 
                     "access": "item", 
                     "type": "string", 
@@ -1541,7 +1534,7 @@
                 }, 
                 {
                     "name": "thermal-network:network-names", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "network-names", 
                     "access": "item", 
                     "type": "string", 
@@ -1549,7 +1542,7 @@
                 }, 
                 {
                     "name": "thermal-network:set-diameter", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "set-diameter", 
                     "access": "item", 
                     "type": "string", 
@@ -1557,7 +1550,7 @@
                 }, 
                 {
                     "name": "thermal-network:load-max-edge-flowrate-from-previous-run", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "load-max-edge-flowrate-from-previous-run", 
                     "access": "item", 
                     "type": "string", 
@@ -1565,7 +1558,7 @@
                 }, 
                 {
                     "name": "thermal-network:start-t", 
-                    "default": 0, 
+                    "default": "0", 
                     "nick-name": "start-t", 
                     "access": "item", 
                     "type": "string", 
@@ -1573,7 +1566,7 @@
                 }, 
                 {
                     "name": "thermal-network:stop-t", 
-                    "default": 8760, 
+                    "default": "8760", 
                     "nick-name": "stop-t", 
                     "access": "item", 
                     "type": "string", 
@@ -1581,7 +1574,7 @@
                 }, 
                 {
                     "name": "thermal-network:use-representative-week-per-month", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "use-representative-week-per-month", 
                     "access": "item", 
                     "type": "string", 
@@ -1589,7 +1582,7 @@
                 }, 
                 {
                     "name": "thermal-network:minimum-mass-flow-iteration-limit", 
-                    "default": 30, 
+                    "default": "30", 
                     "nick-name": "minimum-mass-flow-iteration-limit", 
                     "access": "item", 
                     "type": "string", 
@@ -1597,7 +1590,7 @@
                 }, 
                 {
                     "name": "thermal-network:minimum-edge-mass-flow", 
-                    "default": 0.1, 
+                    "default": "0.1", 
                     "nick-name": "minimum-edge-mass-flow", 
                     "access": "item", 
                     "type": "string", 
@@ -1605,7 +1598,7 @@
                 }, 
                 {
                     "name": "thermal-network:diameter-iteration-limit", 
-                    "default": 10, 
+                    "default": "10", 
                     "nick-name": "diameter-iteration-limit", 
                     "access": "item", 
                     "type": "string", 
@@ -1613,11 +1606,7 @@
                 }, 
                 {
                     "name": "thermal-network:substation-cooling-systems", 
-                    "default": [
-                        "ahu", 
-                        "aru", 
-                        "scu"
-                    ], 
+                    "default": "ahu, aru, scu", 
                     "nick-name": "substation-cooling-systems", 
                     "access": "item", 
                     "type": "string", 
@@ -1625,12 +1614,7 @@
                 }, 
                 {
                     "name": "thermal-network:substation-heating-systems", 
-                    "default": [
-                        "ahu", 
-                        "aru", 
-                        "shu", 
-                        "ww"
-                    ], 
+                    "default": "ahu, aru, shu, ww", 
                     "nick-name": "substation-heating-systems", 
                     "access": "item", 
                     "type": "string", 
@@ -1646,7 +1630,7 @@
                 }, 
                 {
                     "name": "thermal-network:plant-supply-temperature", 
-                    "default": 80.0, 
+                    "default": "80", 
                     "nick-name": "plant-supply-temperature", 
                     "access": "item", 
                     "type": "string", 
@@ -1654,7 +1638,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:use-representative-week-per-month", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "use-representative-week-per-month", 
                     "access": "item", 
                     "type": "string", 
@@ -1670,7 +1654,7 @@
                 }
             ], 
             "class-name": "ThermalNetwork", 
-            "abbreviation": "tn", 
+            "abbreviation": "thermal-network", 
             "main-function": "thermal_network", 
             "id": "60701735-db13-4b29-b76b-c634c07a148b", 
             "icon": "icons/thermal-network.png", 
@@ -1692,7 +1676,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -1700,7 +1684,7 @@
                 }, 
                 {
                     "name": "general:multiprocessing", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
@@ -1708,7 +1692,7 @@
                 }, 
                 {
                     "name": "general:number-of-cpus-to-keep-free", 
-                    "default": 1, 
+                    "default": "1", 
                     "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
@@ -1724,7 +1708,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:network-names", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "network-names", 
                     "access": "item", 
                     "type": "string", 
@@ -1740,7 +1724,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:set-diameter", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "set-diameter", 
                     "access": "item", 
                     "type": "string", 
@@ -1748,7 +1732,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:load-max-edge-flowrate-from-previous-run", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "load-max-edge-flowrate-from-previous-run", 
                     "access": "item", 
                     "type": "string", 
@@ -1756,7 +1740,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:start-t", 
-                    "default": 0, 
+                    "default": "0", 
                     "nick-name": "start-t", 
                     "access": "item", 
                     "type": "string", 
@@ -1764,7 +1748,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:stop-t", 
-                    "default": 8760, 
+                    "default": "8760", 
                     "nick-name": "stop-t", 
                     "access": "item", 
                     "type": "string", 
@@ -1780,7 +1764,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:possible-plant-sites", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "possible-plant-sites", 
                     "access": "item", 
                     "type": "string", 
@@ -1788,7 +1772,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:min-number-of-plants", 
-                    "default": 1, 
+                    "default": "1", 
                     "nick-name": "min-number-of-plants", 
                     "access": "item", 
                     "type": "string", 
@@ -1796,7 +1780,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:max-number-of-plants", 
-                    "default": 1, 
+                    "default": "1", 
                     "nick-name": "max-number-of-plants", 
                     "access": "item", 
                     "type": "string", 
@@ -1804,7 +1788,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:number-of-individuals", 
-                    "default": 6, 
+                    "default": "6", 
                     "nick-name": "number-of-individuals", 
                     "access": "item", 
                     "type": "string", 
@@ -1812,7 +1796,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:chance-of-mutation", 
-                    "default": 20.0, 
+                    "default": "20", 
                     "nick-name": "chance-of-mutation", 
                     "access": "item", 
                     "type": "string", 
@@ -1820,7 +1804,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:number-of-generations", 
-                    "default": 20, 
+                    "default": "20", 
                     "nick-name": "number-of-generations", 
                     "access": "item", 
                     "type": "string", 
@@ -1828,7 +1812,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:lucky-few", 
-                    "default": 1, 
+                    "default": "1", 
                     "nick-name": "lucky-few", 
                     "access": "item", 
                     "type": "string", 
@@ -1836,7 +1820,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:optimize-loop-branch", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "optimize-loop-branch", 
                     "access": "item", 
                     "type": "string", 
@@ -1844,7 +1828,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:optimize-network-loads", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "optimize-network-loads", 
                     "access": "item", 
                     "type": "string", 
@@ -1852,7 +1836,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:optimize-building-connections", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "optimize-building-connections", 
                     "access": "item", 
                     "type": "string", 
@@ -1860,7 +1844,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:use-rule-based-approximation", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "use-rule-based-approximation", 
                     "access": "item", 
                     "type": "string", 
@@ -1868,7 +1852,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:use-representative-week-per-month", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "use-representative-week-per-month", 
                     "access": "item", 
                     "type": "string", 
@@ -1876,7 +1860,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:minimum-mass-flow-iteration-limit", 
-                    "default": 30, 
+                    "default": "30", 
                     "nick-name": "minimum-mass-flow-iteration-limit", 
                     "access": "item", 
                     "type": "string", 
@@ -1884,7 +1868,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:minimum-edge-mass-flow", 
-                    "default": 0.1, 
+                    "default": "0.1", 
                     "nick-name": "minimum-edge-mass-flow", 
                     "access": "item", 
                     "type": "string", 
@@ -1892,7 +1876,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:diameter-iteration-limit", 
-                    "default": 10, 
+                    "default": "10", 
                     "nick-name": "diameter-iteration-limit", 
                     "access": "item", 
                     "type": "string", 
@@ -1900,11 +1884,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:substation-cooling-systems", 
-                    "default": [
-                        "ahu", 
-                        "aru", 
-                        "scu"
-                    ], 
+                    "default": "ahu, aru, scu", 
                     "nick-name": "substation-cooling-systems", 
                     "access": "item", 
                     "type": "string", 
@@ -1912,12 +1892,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:substation-heating-systems", 
-                    "default": [
-                        "ahu", 
-                        "aru", 
-                        "shu", 
-                        "ww"
-                    ], 
+                    "default": "ahu, aru, shu, ww", 
                     "nick-name": "substation-heating-systems", 
                     "access": "item", 
                     "type": "string", 
@@ -1925,7 +1900,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:disconnected-buildings", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "disconnected-buildings", 
                     "access": "item", 
                     "type": "string", 
@@ -1933,7 +1908,7 @@
                 }, 
                 {
                     "name": "thermal-network-optimization:yearly-cost-calculations", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "yearly-cost-calculations", 
                     "access": "item", 
                     "type": "string", 
@@ -1949,7 +1924,7 @@
                 }
             ], 
             "class-name": "ThermalNetworkOptimization", 
-            "abbreviation": "tno", 
+            "abbreviation": "thermal-network-optimization", 
             "main-function": "thermal_network_optimization", 
             "id": "ca8dd7d8-f856-4abc-9dac-eff2528d7efa", 
             "icon": "icons/thermal-network-optimization.png", 
@@ -1971,7 +1946,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -1979,7 +1954,7 @@
                 }, 
                 {
                     "name": "general:multiprocessing", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
@@ -1987,7 +1962,7 @@
                 }, 
                 {
                     "name": "general:number-of-cpus-to-keep-free", 
-                    "default": 1, 
+                    "default": "1", 
                     "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
@@ -2003,7 +1978,7 @@
                 }
             ], 
             "class-name": "Decentralized", 
-            "abbreviation": "d", 
+            "abbreviation": "decentralized", 
             "main-function": "decentralized", 
             "id": "b394c15c-b0b5-444f-a062-53e55f294cdd", 
             "icon": "icons/decentralized.png", 
@@ -2025,7 +2000,7 @@
                 }, 
                 {
                     "name": "general:debug", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "debug", 
                     "access": "item", 
                     "type": "string", 
@@ -2033,7 +2008,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -2041,7 +2016,7 @@
                 }, 
                 {
                     "name": "general:multiprocessing", 
-                    "default": true, 
+                    "default": "true", 
                     "nick-name": "multiprocessing", 
                     "access": "item", 
                     "type": "string", 
@@ -2049,7 +2024,7 @@
                 }, 
                 {
                     "name": "general:number-of-cpus-to-keep-free", 
-                    "default": 1, 
+                    "default": "1", 
                     "nick-name": "number-of-cpus-to-keep-free", 
                     "access": "item", 
                     "type": "string", 
@@ -2065,21 +2040,7 @@
                 }, 
                 {
                     "name": "optimization:technologies-dh", 
-                    "default": [
-                        "NG_Cogen", 
-                        "WB_Cogen", 
-                        "DB_Cogen", 
-                        "NG_BaseBoiler", 
-                        "NG_PeakBoiler", 
-                        "WS_HP", 
-                        "SS_HP", 
-                        "GS_HP", 
-                        "DS_HP", 
-                        "PVT", 
-                        "SC_ET", 
-                        "SC_FP", 
-                        "PV"
-                    ], 
+                    "default": "NG_Cogen, WB_Cogen, DB_Cogen, NG_BaseBoiler, NG_PeakBoiler, WS_HP, SS_HP, GS_HP, DS_HP, PVT, SC_ET, SC_FP, PV", 
                     "nick-name": "technologies-dh", 
                     "access": "item", 
                     "type": "string", 
@@ -2087,15 +2048,7 @@
                 }, 
                 {
                     "name": "optimization:technologies-dc", 
-                    "default": [
-                        "NG_Trigen", 
-                        "WS_BaseVCC", 
-                        "WS_PeakVCC", 
-                        "AS_BaseVCC", 
-                        "AS_PeakVCC", 
-                        "Storage", 
-                        "PV"
-                    ], 
+                    "default": "NG_Trigen, WS_BaseVCC, WS_PeakVCC, AS_BaseVCC, AS_PeakVCC, Storage, PV", 
                     "nick-name": "technologies-dc", 
                     "access": "item", 
                     "type": "string", 
@@ -2103,7 +2056,7 @@
                 }, 
                 {
                     "name": "optimization:population-size", 
-                    "default": null, 
+                    "default": "", 
                     "nick-name": "population-size", 
                     "access": "item", 
                     "type": "string", 
@@ -2111,7 +2064,7 @@
                 }, 
                 {
                     "name": "optimization:number-of-generations", 
-                    "default": 100, 
+                    "default": "100", 
                     "nick-name": "number-of-generations", 
                     "access": "item", 
                     "type": "string", 
@@ -2119,7 +2072,7 @@
                 }, 
                 {
                     "name": "optimization:random-seed", 
-                    "default": 100, 
+                    "default": "100", 
                     "nick-name": "random-seed", 
                     "access": "item", 
                     "type": "string", 
@@ -2127,7 +2080,7 @@
                 }, 
                 {
                     "name": "optimization:mutation-prob", 
-                    "default": 0.1, 
+                    "default": "0.1", 
                     "nick-name": "mutation-prob", 
                     "access": "item", 
                     "type": "string", 
@@ -2151,7 +2104,7 @@
                 }, 
                 {
                     "name": "optimization:crossover-prob", 
-                    "default": 0.9, 
+                    "default": "0.9", 
                     "nick-name": "crossover-prob", 
                     "access": "item", 
                     "type": "string", 
@@ -2183,7 +2136,7 @@
                 }
             ], 
             "class-name": "Optimization", 
-            "abbreviation": "o", 
+            "abbreviation": "optimization", 
             "main-function": "optimization", 
             "id": "7fad8004-e808-4f04-a97e-1f428c8912ff", 
             "icon": "icons/optimization.png", 
@@ -2205,7 +2158,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -2221,7 +2174,7 @@
                 }, 
                 {
                     "name": "dbf-tools:output-path", 
-                    "default": "C:\\Users\\darthoma\\Documents\\GitHub\\cea-grasshopper\\{general:scenario}", 
+                    "default": "{general:scenario}", 
                     "nick-name": "output-path", 
                     "access": "item", 
                     "type": "string", 
@@ -2245,7 +2198,7 @@
                 }
             ], 
             "class-name": "DbfToExcelToDbf", 
-            "abbreviation": "dtetd", 
+            "abbreviation": "dbf-to-excel-to-dbf", 
             "main-function": "dbf_to_excel_to_dbf", 
             "id": "6ede6282-576f-4f11-97ba-0a9772d20442", 
             "icon": "icons/dbf-to-excel-to-dbf.png", 
@@ -2267,7 +2220,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -2275,7 +2228,7 @@
                 }, 
                 {
                     "name": "data-initializer:databases-path", 
-                    "default": "", 
+                    "default": "CH", 
                     "nick-name": "databases-path", 
                     "access": "item", 
                     "type": "string", 
@@ -2283,11 +2236,7 @@
                 }, 
                 {
                     "name": "data-initializer:databases", 
-                    "default": [
-                        "archetypes", 
-                        "assemblies", 
-                        "components"
-                    ], 
+                    "default": "archetypes, assemblies, components", 
                     "nick-name": "databases", 
                     "access": "item", 
                     "type": "string", 
@@ -2303,7 +2252,7 @@
                 }
             ], 
             "class-name": "DataInitializer", 
-            "abbreviation": "di", 
+            "abbreviation": "data-initializer", 
             "main-function": "data_initializer", 
             "id": "373878c6-2f84-413d-bf24-4bc2ac8b9bfe", 
             "icon": "icons/data-initializer.png", 
@@ -2325,7 +2274,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -2341,7 +2290,7 @@
                 }
             ], 
             "class-name": "DatabaseMigrator", 
-            "abbreviation": "dm", 
+            "abbreviation": "database-migrator", 
             "main-function": "database_migrator", 
             "id": "28604f81-ecf8-479f-b53f-986fa04532b5", 
             "icon": "icons/database-migrator.png", 
@@ -2379,7 +2328,7 @@
                 }, 
                 {
                     "name": "create-new-scenario:output-path", 
-                    "default": "C:\\Users\\darthoma\\Documents\\GitHub", 
+                    "default": "{general:scenario}/../..", 
                     "nick-name": "output-path", 
                     "access": "item", 
                     "type": "string", 
@@ -2435,7 +2384,7 @@
                 }
             ], 
             "class-name": "CreateNewScenario", 
-            "abbreviation": "cns", 
+            "abbreviation": "create-new-scenario", 
             "main-function": "create_new_scenario", 
             "id": "4849c373-15c8-4160-a8dc-2c2a92437f49", 
             "icon": "icons/create-new-scenario.png", 
@@ -2457,7 +2406,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -2465,7 +2414,7 @@
                 }, 
                 {
                     "name": "rename-building:old", 
-                    "default": "B1000", 
+                    "default": "", 
                     "nick-name": "old", 
                     "access": "item", 
                     "type": "string", 
@@ -2489,7 +2438,7 @@
                 }
             ], 
             "class-name": "RenameBuilding", 
-            "abbreviation": "rb", 
+            "abbreviation": "rename-building", 
             "main-function": "rename_building", 
             "id": "edc1b905-bfea-42a9-ae5d-93c43824bebe", 
             "icon": "icons/rename-building.png", 
@@ -2511,7 +2460,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -2535,9 +2484,7 @@
                 }, 
                 {
                     "name": "create-mixed-use-type:ratios", 
-                    "default": [
-                        "MULTI_RES|1.0"
-                    ], 
+                    "default": "MULTI_RES|1.0", 
                     "nick-name": "ratios", 
                     "access": "item", 
                     "type": "string", 
@@ -2553,7 +2500,7 @@
                 }
             ], 
             "class-name": "CreateMixedUseType", 
-            "abbreviation": "cmut", 
+            "abbreviation": "create-mixed-use-type", 
             "main-function": "create_mixed_use_type", 
             "id": "6b4718b4-57ca-498b-982b-0e1f0c501f26", 
             "icon": "icons/create-mixed-use-type.png", 
@@ -2591,7 +2538,7 @@
                 }
             ], 
             "class-name": "Test", 
-            "abbreviation": "t", 
+            "abbreviation": "test", 
             "main-function": "test", 
             "id": "207165c2-d90b-4d4e-9ce6-5e6f09282847", 
             "icon": "icons/test.png", 
@@ -2621,7 +2568,7 @@
                 }
             ], 
             "class-name": "RunUnitTests", 
-            "abbreviation": "rut", 
+            "abbreviation": "run-unit-tests", 
             "main-function": "run_unit_tests", 
             "id": "3253c974-b38e-42e5-84e5-6d12f8fd5aed", 
             "icon": "icons/run-unit-tests.png", 
@@ -2643,7 +2590,7 @@
                 }, 
                 {
                     "name": "general:project", 
-                    "default": "C:\\reference-case-open", 
+                    "default": "C:/reference-case-open", 
                     "nick-name": "project", 
                     "access": "item", 
                     "type": "string", 
@@ -2651,7 +2598,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -2659,7 +2606,7 @@
                 }, 
                 {
                     "name": "plots:buildings", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
@@ -2667,7 +2614,7 @@
                 }, 
                 {
                     "name": "plots:building", 
-                    "default": "B1000", 
+                    "default": "", 
                     "nick-name": "building", 
                     "access": "item", 
                     "type": "string", 
@@ -2675,13 +2622,7 @@
                 }, 
                 {
                     "name": "plots:categories", 
-                    "default": [
-                        "demand", 
-                        "solar_potentials", 
-                        "solar_technology", 
-                        "life_cycle_analysis", 
-                        "thermal_network"
-                    ], 
+                    "default": "demand, solar_potentials, solar_technology, life_cycle_analysis, thermal_network", 
                     "nick-name": "categories", 
                     "access": "item", 
                     "type": "string", 
@@ -2705,7 +2646,7 @@
                 }, 
                 {
                     "name": "plots:plant-node", 
-                    "default": null, 
+                    "default": "", 
                     "nick-name": "plant-node", 
                     "access": "item", 
                     "type": "string", 
@@ -2729,9 +2670,7 @@
                 }, 
                 {
                     "name": "plots-comparisons:scenarios-and-systems", 
-                    "default": [
-                        "baseline_sys_today_"
-                    ], 
+                    "default": "{general:scenario-name}_sys_today_", 
                     "nick-name": "scenarios-and-systems", 
                     "access": "item", 
                     "type": "string", 
@@ -2747,7 +2686,7 @@
                 }, 
                 {
                     "name": "plots-optimization:generation", 
-                    "default": "2", 
+                    "default": "", 
                     "nick-name": "generation", 
                     "access": "item", 
                     "type": "string", 
@@ -2763,7 +2702,7 @@
                 }, 
                 {
                     "name": "plots-supply-system:system", 
-                    "default": "_sys_today_", 
+                    "default": "sys_2_15", 
                     "nick-name": "system", 
                     "access": "item", 
                     "type": "string", 
@@ -2787,7 +2726,7 @@
                 }
             ], 
             "class-name": "RunAllPlots", 
-            "abbreviation": "rap", 
+            "abbreviation": "run-all-plots", 
             "main-function": "run_all_plots", 
             "id": "a141013a-d986-40d3-bd8b-48bbe63bdb56", 
             "icon": "icons/run-all-plots.png", 
@@ -2809,7 +2748,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -2817,7 +2756,7 @@
                 }, 
                 {
                     "name": "multi-criteria:generation", 
-                    "default": 3, 
+                    "default": "3", 
                     "nick-name": "generation", 
                     "access": "item", 
                     "type": "string", 
@@ -2825,7 +2764,7 @@
                 }, 
                 {
                     "name": "multi-criteria:annualized-capital-costs", 
-                    "default": 0.4, 
+                    "default": "0.4", 
                     "nick-name": "annualized-capital-costs", 
                     "access": "item", 
                     "type": "string", 
@@ -2833,7 +2772,7 @@
                 }, 
                 {
                     "name": "multi-criteria:total-capital-costs", 
-                    "default": 0.1, 
+                    "default": "0.1", 
                     "nick-name": "total-capital-costs", 
                     "access": "item", 
                     "type": "string", 
@@ -2841,7 +2780,7 @@
                 }, 
                 {
                     "name": "multi-criteria:annual-operation-costs", 
-                    "default": 0.1, 
+                    "default": "0.1", 
                     "nick-name": "annual-operation-costs", 
                     "access": "item", 
                     "type": "string", 
@@ -2849,7 +2788,7 @@
                 }, 
                 {
                     "name": "multi-criteria:annual-emissions", 
-                    "default": 0.4, 
+                    "default": "0.4", 
                     "nick-name": "annual-emissions", 
                     "access": "item", 
                     "type": "string", 
@@ -2865,7 +2804,7 @@
                 }
             ], 
             "class-name": "MultiCriteriaAnalysis", 
-            "abbreviation": "mca", 
+            "abbreviation": "multi-criteria-analysis", 
             "main-function": "multi_criteria_analysis", 
             "id": "ebede465-2d35-4c9d-93a7-9bb55e30fc1b", 
             "icon": "icons/multi-criteria-analysis.png", 
@@ -2887,7 +2826,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -2895,7 +2834,7 @@
                 }, 
                 {
                     "name": "zone-helper:height-ag", 
-                    "default": null, 
+                    "default": "", 
                     "nick-name": "height-ag", 
                     "access": "item", 
                     "type": "string", 
@@ -2903,7 +2842,7 @@
                 }, 
                 {
                     "name": "zone-helper:floors-ag", 
-                    "default": null, 
+                    "default": "", 
                     "nick-name": "floors-ag", 
                     "access": "item", 
                     "type": "string", 
@@ -2911,7 +2850,7 @@
                 }, 
                 {
                     "name": "zone-helper:year-construction", 
-                    "default": null, 
+                    "default": "", 
                     "nick-name": "year-construction", 
                     "access": "item", 
                     "type": "string", 
@@ -2919,7 +2858,7 @@
                 }, 
                 {
                     "name": "zone-helper:height-bg", 
-                    "default": 3.0, 
+                    "default": "3", 
                     "nick-name": "height-bg", 
                     "access": "item", 
                     "type": "string", 
@@ -2927,7 +2866,7 @@
                 }, 
                 {
                     "name": "zone-helper:floors-bg", 
-                    "default": 1, 
+                    "default": "1", 
                     "nick-name": "floors-bg", 
                     "access": "item", 
                     "type": "string", 
@@ -2951,7 +2890,7 @@
                 }
             ], 
             "class-name": "ZoneHelper", 
-            "abbreviation": "zh", 
+            "abbreviation": "zone-helper", 
             "main-function": "zone_helper", 
             "id": "0fd92b30-8f04-4c88-8e15-d1582bb1ae3c", 
             "icon": "icons/zone-helper.png", 
@@ -2973,7 +2912,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -2981,7 +2920,7 @@
                 }, 
                 {
                     "name": "plots:buildings", 
-                    "default": [], 
+                    "default": "", 
                     "nick-name": "buildings", 
                     "access": "item", 
                     "type": "string", 
@@ -2989,7 +2928,7 @@
                 }, 
                 {
                     "name": "plots:building", 
-                    "default": "B1000", 
+                    "default": "", 
                     "nick-name": "building", 
                     "access": "item", 
                     "type": "string", 
@@ -2997,13 +2936,7 @@
                 }, 
                 {
                     "name": "plots:categories", 
-                    "default": [
-                        "demand", 
-                        "solar_potentials", 
-                        "solar_technology", 
-                        "life_cycle_analysis", 
-                        "thermal_network"
-                    ], 
+                    "default": "demand, solar_potentials, solar_technology, life_cycle_analysis, thermal_network", 
                     "nick-name": "categories", 
                     "access": "item", 
                     "type": "string", 
@@ -3027,7 +2960,7 @@
                 }, 
                 {
                     "name": "plots:plant-node", 
-                    "default": null, 
+                    "default": "", 
                     "nick-name": "plant-node", 
                     "access": "item", 
                     "type": "string", 
@@ -3059,7 +2992,7 @@
                 }
             ], 
             "class-name": "Plots", 
-            "abbreviation": "p", 
+            "abbreviation": "plots", 
             "main-function": "plots", 
             "id": "e9eede66-b044-4a61-9a21-9401d5fb53b3", 
             "icon": "icons/plots.png", 
@@ -3089,7 +3022,7 @@
                 }
             ], 
             "class-name": "Compile", 
-            "abbreviation": "c", 
+            "abbreviation": "compile", 
             "main-function": "compile", 
             "id": "d862fabc-cb6a-44e9-9a55-0d1aa2db903d", 
             "icon": "icons/compile.png", 
@@ -3111,7 +3044,7 @@
                 }, 
                 {
                     "name": "general:debug", 
-                    "default": false, 
+                    "default": "false", 
                     "nick-name": "debug", 
                     "access": "item", 
                     "type": "string", 
@@ -3127,7 +3060,7 @@
                 }
             ], 
             "class-name": "Dashboard", 
-            "abbreviation": "d", 
+            "abbreviation": "dashboard", 
             "main-function": "dashboard", 
             "id": "c23ef02c-ec57-47cf-a880-083434b00453", 
             "icon": "icons/dashboard.png", 
@@ -3165,17 +3098,7 @@
                 }, 
                 {
                     "name": "shapefile-tools:crs", 
-                    "default": {
-                        "lon_0": 7.439583333333333, 
-                        "k_0": 1, 
-                        "ellps": "bessel", 
-                        "y_0": 200000, 
-                        "no_defs": true, 
-                        "proj": "somerc", 
-                        "x_0": 600000, 
-                        "units": "m", 
-                        "lat_0": 46.95240555555556
-                    }, 
+                    "default": "{\"lon_0\": 7.439583333333333, \"k_0\": 1, \"ellps\": \"bessel\", \"y_0\": 200000, \"no_defs\": true, \"proj\": \"somerc\", \"x_0\": 600000, \"units\": \"m\", \"lat_0\": 46.95240555555556}", 
                     "nick-name": "crs", 
                     "access": "item", 
                     "type": "string", 
@@ -3191,7 +3114,7 @@
                 }, 
                 {
                     "name": "shapefile-tools:polygon", 
-                    "default": true, 
+                    "default": "True", 
                     "nick-name": "polygon", 
                     "access": "item", 
                     "type": "string", 
@@ -3207,7 +3130,7 @@
                 }
             ], 
             "class-name": "ExcelToShapefile", 
-            "abbreviation": "ets", 
+            "abbreviation": "excel-to-shapefile", 
             "main-function": "excel_to_shapefile", 
             "id": "6249cc78-9e04-4891-ad4d-7aeb040e66a3", 
             "icon": "icons/excel-to-shapefile.png", 
@@ -3229,7 +3152,7 @@
                 }, 
                 {
                     "name": "extract-reference-case:destination", 
-                    "default": "C:\\Users\\darthoma\\Documents\\GitHub", 
+                    "default": "{general:scenario}/../..", 
                     "nick-name": "destination", 
                     "access": "item", 
                     "type": "string", 
@@ -3253,7 +3176,7 @@
                 }
             ], 
             "class-name": "ExtractReferenceCase", 
-            "abbreviation": "erc", 
+            "abbreviation": "extract-reference-case", 
             "main-function": "extract_reference_case", 
             "id": "e616bdc5-377b-49a0-be71-284554c300d6", 
             "icon": "icons/extract-reference-case.png", 
@@ -3275,7 +3198,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -3291,7 +3214,7 @@
                 }
             ], 
             "class-name": "ListDemandGraphsFields", 
-            "abbreviation": "ldgf", 
+            "abbreviation": "list-demand-graphs-fields", 
             "main-function": "list_demand_graphs_fields", 
             "id": "07ba6e4c-7422-4b37-ba4e-05bee308b05c", 
             "icon": "icons/list-demand-graphs-fields.png", 
@@ -3329,17 +3252,7 @@
                 }, 
                 {
                     "name": "shapefile-tools:crs", 
-                    "default": {
-                        "lon_0": 7.439583333333333, 
-                        "k_0": 1, 
-                        "ellps": "bessel", 
-                        "y_0": 200000, 
-                        "no_defs": true, 
-                        "proj": "somerc", 
-                        "x_0": 600000, 
-                        "units": "m", 
-                        "lat_0": 46.95240555555556
-                    }, 
+                    "default": "{\"lon_0\": 7.439583333333333, \"k_0\": 1, \"ellps\": \"bessel\", \"y_0\": 200000, \"no_defs\": true, \"proj\": \"somerc\", \"x_0\": 600000, \"units\": \"m\", \"lat_0\": 46.95240555555556}", 
                     "nick-name": "crs", 
                     "access": "item", 
                     "type": "string", 
@@ -3355,7 +3268,7 @@
                 }, 
                 {
                     "name": "shapefile-tools:polygon", 
-                    "default": true, 
+                    "default": "True", 
                     "nick-name": "polygon", 
                     "access": "item", 
                     "type": "string", 
@@ -3371,7 +3284,7 @@
                 }
             ], 
             "class-name": "ShapefileToExcel", 
-            "abbreviation": "ste", 
+            "abbreviation": "shapefile-to-excel", 
             "main-function": "shapefile_to_excel", 
             "id": "e4616e55-08e0-49ac-b5cf-ed86e94f61ca", 
             "icon": "icons/shapefile-to-excel.png", 
@@ -3393,7 +3306,7 @@
                 }, 
                 {
                     "name": "general:scenario", 
-                    "default": "{general:project}\\{general:scenario-name}", 
+                    "default": "{general:project}/{general:scenario-name}", 
                     "nick-name": "scenario", 
                     "access": "item", 
                     "type": "string", 
@@ -3401,11 +3314,7 @@
                 }, 
                 {
                     "name": "trace-inputlocator:scripts", 
-                    "default": [
-                        "archetypes-mapper", 
-                        "demand", 
-                        "emissions"
-                    ], 
+                    "default": "archetypes-mapper, demand, emissions", 
                     "nick-name": "scripts", 
                     "access": "item", 
                     "type": "string", 
@@ -3429,7 +3338,7 @@
                 }
             ], 
             "class-name": "TraceInputlocator", 
-            "abbreviation": "ti", 
+            "abbreviation": "trace-inputlocator", 
             "main-function": "trace_inputlocator", 
             "id": "0c798cc6-d535-42c5-9692-51fde24187a1", 
             "icon": "icons/trace-inputlocator.png", 
@@ -3451,7 +3360,7 @@
                 }, 
                 {
                     "name": "workflow:workflow", 
-                    "default": "c:\\users\\darthoma\\documents\\github\\cityenergyanalyst\\cea\\workflows\\district_heating_system.yml", 
+                    "default": "district-heating-system", 
                     "nick-name": "workflow", 
                     "access": "item", 
                     "type": "string", 
@@ -3459,7 +3368,7 @@
                 }, 
                 {
                     "name": "workflow:resume", 
-                    "default": false, 
+                    "default": "off", 
                     "nick-name": "resume", 
                     "access": "item", 
                     "type": "string", 
@@ -3467,7 +3376,7 @@
                 }, 
                 {
                     "name": "workflow:resume-file", 
-                    "default": "c:\\users\\darthoma\\appdata\\local\\temp\\resume-workflow.yml", 
+                    "default": "", 
                     "nick-name": "resume-file", 
                     "access": "item", 
                     "type": "string", 
@@ -3475,7 +3384,7 @@
                 }, 
                 {
                     "name": "workflow:trace-input", 
-                    "default": false, 
+                    "default": "off", 
                     "nick-name": "trace-input", 
                     "access": "item", 
                     "type": "string", 
@@ -3491,7 +3400,7 @@
                 }
             ], 
             "class-name": "Workflow", 
-            "abbreviation": "w", 
+            "abbreviation": "workflow", 
             "main-function": "workflow", 
             "id": "eea60837-9208-421a-8b3d-47ea4ad3548b", 
             "icon": "icons/workflow.png", 
