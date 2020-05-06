@@ -51,7 +51,8 @@ def run(script, parameters):
         if parameter_name == "config":
             # we're ignoring this for the moment
             continue
-        Rhino.RhinoApp.WriteLine("Working on parameter: {parameter_name}".format(parameter_name=parameter_name))
+        Rhino.RhinoApp.WriteLine("Found parameter: {parameter_name}={parameter_value}".format(
+            parameter_name=parameter_name, parameter_value=parameter_value))
         section_name, parameter_name = parameter_name.split(":")
         command.append('--' + parameter_name)
         command.append(str(parameter_value))
