@@ -9,12 +9,13 @@ The function "run" is used to run a cea script. It assumes the first parameter i
 We use the technique specified here: http://stackoverflow.com/questions/2447353/getattr-on-a-module
 to add the scripts automatically to the module.
 """
-import sys
 import os
 import subprocess
+
 import Rhino
-import System.Windows.Forms
 import System.Threading
+import System.Windows.Forms
+
 
 def get_python_exe_and_env():
     """
@@ -41,6 +42,7 @@ def get_python_exe_and_env():
     env["RAYPATH"] = os.path.join(cea_path, "Dependencies", "Daysim")
     return python_exe, env
 
+
 def run(script, parameters):
     """Shell out to CEA"""
     startupinfo = subprocess.STARTUPINFO()
@@ -59,8 +61,8 @@ def run(script, parameters):
 
     Rhino.RhinoApp.WriteLine('Executing: ' + ' '.join(command))
 
-    process = subprocess.Popen(command, startupinfo=startupinfo, 
-                                stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env)
+    process = subprocess.Popen(command, startupinfo=startupinfo,
+                               stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env)
     while True:
         next_line = process.stdout.readline()
         if next_line == '' and process.poll() is not None:

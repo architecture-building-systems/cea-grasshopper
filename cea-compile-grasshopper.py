@@ -4,12 +4,11 @@ cea-compile-grasshopper.py: Create a honey-badger BADGERFILE for running CEA fro
 You'll need to have a working CEA installation - including the CEA Console. It is assumed that this script 
 is run from the CEA Console using the version of Python shipped with the CEA.
 """
-from __future__ import print_function
-
-import os
-import uuid
 import json
+import os
 import shutil
+import uuid
+
 import cea.config
 import cea.scripts
 
@@ -22,7 +21,7 @@ CATEGORY = "City Energy Analyst"  # this is the Panel to show in Grasshopper
 def main():
     config = cea.config.Configuration(config_file=cea.config.DEFAULT_CONFIG)
     script_defs = []  # a list of script defs in SCRIPTS_FILE
-    
+
     with open(SCRIPT_DEF_TEMPLATE_FILE, "r") as script_def_fp:
         script_def_template = script_def_fp.read()
 
@@ -31,10 +30,10 @@ def main():
 
     # collect previous guids, if possible:
     guids = {c["name"]: c["id"] for c in badgerfile["components"]}
-    
+
     badgerfile["components"] = []
-    for script in cea.scripts.for_interface("cli"):
-        script_py_name = script.name.replace("-", "_") 
+    for script in cea.scripts.for_interface("cli", plugins=[]):
+        script_py_name = script.name.replace("-", "_")
         component = {
             "id": guids[script.label] if script.label in guids else str(uuid.uuid4()),
             "class-name": "".join(s.capitalize() for s in script.name.split("-")),
@@ -43,7 +42,7 @@ def main():
             "description": script.description,
             "category": CATEGORY,
             "subcategory": script.category,
-            "icon": "icons/{name}.png".format(name=script.name),           
+            "icon": "icons/{name}.png".format(name=script.name),
             "main-module": "cea_scripts",
             "main-function": script_py_name,
             "use-kwargs": True,
@@ -59,15 +58,16 @@ def main():
             "outputs": [
                 {
                     "type": "boolean",
-                    "name": "continue",                    
+                    "name": "continue",
                     "description": "This is set to true if component successfully ran and start was set to true",
                     "nick-name": "continue"
                 }
             ],
         }
-        script_defs.append(script_def_template.replace("SCRIPT_PY_NAME", script_py_name).replace("SCRIPT_NAME", script.name))
+        script_defs.append(
+            script_def_template.replace("SCRIPT_PY_NAME", script_py_name).replace("SCRIPT_NAME", script.name))
         print(script.name)
-        for _, parameter in config.matching_parameters(script.parameters):            
+        for _, parameter in config.matching_parameters(script.parameters):
             print("\t{pname}={pvalue}".format(pname=parameter.name, pvalue=parameter.get_raw()))
             input = {
                 "type": "string",
@@ -85,7 +85,6 @@ def main():
         default_icon_path = os.path.join(os.path.dirname(__file__), "default_icon.png")
         if not os.path.exists(icon_path):
             shutil.copyfile(default_icon_path, icon_path)
-        
 
     with open(BADGERFILE, "w") as badger_fp:
         json.dump(badgerfile, badger_fp, indent=4)
