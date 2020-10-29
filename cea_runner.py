@@ -34,12 +34,17 @@ def get_python_exe_and_env():
     env["PATH"] = os.pathsep.join((
         python_path,
         os.path.join(python_path, "Scripts"),
-        os.path.join(cea_path, "Dependencies", "Daysim"),
+        os.path.join(python_path, "Library", "mingw-w64", "bin"),
+        os.path.join(python_path, "Library", "usr", "bin"),
+        os.path.join(python_path, "Library", "bin"),
+        os.path.join(cea_path, "Dependencies", "Daysim", "bin64"),
         env["PATH"]))
     env["PYTHONHOME"] = python_path
+    env["CONDA_PREFIX"] = python_path
     env["GDAL_DATA"] = os.path.join(python_path, "Library", "share", "gdal")
-    env["PROJ_LIB"] = os.path.join(python_path, "Library", "share")
-    env["RAYPATH"] = os.path.join(cea_path, "Dependencies", "Daysim")
+    env["GEOTIFF_CSV"] = os.path.join(python_path, "Library", "share", "epsg_csv")
+    env["PROJ_LIB"] = os.path.join(python_path, "Library", "share", "proj")
+    env["RAYPATH"] = os.path.join(cea_path, "Dependencies", "Daysim", "lib")
     return python_exe, env
 
 
